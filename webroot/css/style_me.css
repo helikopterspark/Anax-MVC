@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* custom fonts
+------------------------------------------------------------------
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
+
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+
+/**
+ * General elements
+ */
+
+@import url(figure.css);
+
+body {
+  color: #333;
+  /*font-family: arial, sans-serif;*/
+  font-family: Roboto, sans-serif;
+  background: url("../img/bg.png") repeat-x scroll 0 0 #fff;
+  overflow-y: scroll;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.0em;
+}
+
+
+/**
+ * Layout of the main page elements 
+ */
+#wrapper {
+  margin: 0 auto;
+  width: 980px; 
+  padding: 10px;
+}
+
+
+/**
+ * Layout for header
+ */
+#header {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.sitetitle {
+  position: absolute;
+  top: 15px;
+  left: 90px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 48px;
+  font-weight: bolder;
+  color: #CB151C;
+}
+
+.siteslogan {
+  position: absolute;
+  top: 65px;
+  left: 90px;
+  font-style: italic;
+  color: #666;
+}
+
+.sitelogo {
+  position: relative;
+  top: 7px;
+  left: 5px;
+}
+
+
+/**
+ * Layout for main
+ */
+#main {
+  min-height: 20em;
+}
+
+
+/**
+ * Layout for footer
+ */
+#footer {
+  margin-top: 40px;
+  border-top: 1px solid #CB151C;
+  padding-top: 22px;
+}
+
+.sitefooter {
+  color: #666;
+}
+
+a {
+-webkit-transition: all 0.2s ease-in-out;
+-moz-transition: all 0.2s ease-in-out;
+-o-transition: all 0.2s ease-in-out;
+transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: #CB151C;
+}
+
+a:hover {
+  color: blue; 
+  text-decoration: underline;
+}
+
+
+/**
+ * For articles
+ */
+.article1 {
+  width: 700px;
+  border-right: 1px solid #ccc;
+  padding-right: 1em;
+}
+
+.article1 h1,
+.article1 h2 {
+  border-bottom: 1px solid #CB151C;
+}
+
+.byline {
+  margin-top: 44px;
+  border-top: 1px dashed #ccc;
+  padding-top: 22px;
+  color: #666;
+}
+
+.byline p {
+  margin-top: 10px;
+}
+
+.right_float_with_margin {
+    float: right;
+    margin-left: 5px;
+}
+
+/* aside for AppAd
+-------------------------------------------------------------- */
+
+.appad {
+    width: 230px; height: 410px; line-height: 2.0em; float: right; text-align: center; font-size: smaller; padding-right: 5px;
+}
+
+div.div_middle {
+  margin-top: 50px;
+}
+

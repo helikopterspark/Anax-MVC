@@ -1,0 +1,1 @@
+[FIGURE src="img/me/me_logo2.png?w=50" class="right_float_with_margin"] Dessa programmeringskurser kommer att vara min huvudsakliga fritidssysselsättning ett tag framöver. I övrigt tycker jag om gamla och nya datorer, böcker, film och musik.
