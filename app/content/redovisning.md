@@ -1,7 +1,8 @@
 Redovisning
 ====================================
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02)
  
-Kmom01: PHP-baserade och MVC-inspirerade ramverk
+<a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
  
 Kursmoment 1 påbörjades lite före den officiella terminsstarten genom att läsa litteraturen och informationen på webben. Det var en hel del att ta sig igenom och jag tror att jag får gå tillbaka och repetera en del under kursens gång.
@@ -32,3 +33,28 @@ MVC-konceptet kände jag till sedan tidigare från iOS då mobilappar i regel by
 
 ### Din uppfattning om Anax och speciellt Anax-MVC?
 Det tog lite tid att lära sig hitta rätt i Anax i förra kursen. Nu tyckte jag att det gick betydligt snabbare att förstå Anax-MVC. Det verkar vara ett mer komplett ramverk och att det separerar html-koden bättre är en stor fördel tycker jag. Det kommer att ta lite tid att sätta sig in helt i Anax-MVC också men första intrycket är bra.
+
+[Upp](#)
+
+<a id="Kmom02"></a> Kmom02: Kontroller och modeller
+-------------------------------
+
+Kursmoment 2...
+
+### Hur känns det att jobba med Composer?
+
+Sådär...
+
+### Vad tror du om de paket som finns i Packagist, är det något du kan tänka dig att använda och hittade du något spännande att inkludera i ditt ramverk?
+
+Sådär...
+
+### Hur var begreppen att förstå med klasser som kontroller som tjänster som dispatchas, fick du ihop allt?
+
+Nä...
+
+### Hittade du svagheter i koden som följde med phpmvc/comment? Kunde du förbättra något?
+
+Nä...
+
+[Upp](#)
