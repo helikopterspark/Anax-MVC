@@ -3,11 +3,22 @@
  * This is a Anax pagecontroller.
  *
  */
- require __DIR__.'/config_with_app.php';
+require __DIR__.'/config_with_app.php';
 
- $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
- $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
- $app->theme->configure(ANAX_APP_PATH . 'config/theme_me.php');
+$app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
+$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
+$app->theme->configure(ANAX_APP_PATH . 'config/theme_me.php');
+
+
+/**
+ * Comments
+ *
+ */
+$di->set('CommentController', function() use ($di) {
+	$controller = new CR\Comment\CommentControllerExtended();
+	$controller->setDI($di);
+	return $controller;
+});
 
  /**
   * Start page
@@ -24,11 +35,16 @@
  	$aside = $app->textFilter->doFilter($aside, 'shortcode, markdown');
  	
  	$app->views->add('me/page', [
-        'content' => $content,
-        'byline' => $byline,
-        'aside' => $aside,
-        
-    ]);
+ 		'content' => $content,
+ 		'byline' => $byline,
+ 		'aside' => $aside,     
+ 		]);
+
+ 	$app->dispatcher->forward([
+ 		'controller' => 'comment',
+ 		'action'     => 'viewPageComments',
+ 		'params'	=> ['me-page', ''],
+ 		]);
  });
 
  /**
@@ -44,9 +60,14 @@
  	$byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
 
  	$app->views->add('me/page', [
-        'content' => $content,
-        'byline' => $byline,
-        ]);
+ 		'content' => $content,
+ 		'byline' => $byline,
+ 		]);
+ 	$app->dispatcher->forward([
+ 		'controller' => 'comment',
+ 		'action'     => 'viewPageComments',
+ 		'params'	=> ['redovisning-page', 'redovisning'],
+ 		]);
  });
 
  /**
@@ -66,23 +87,23 @@
  $app->router->add('dice/roll', function() use ($app) {
  	$app->theme->addStylesheet('css/dice.css');
  	// Check how many rolls to do
-    $roll = $app->request->getGet('roll', 1);
-    $app->validate->check($roll, ['int', 'range' => [1, 100]])
-        or die("Roll out of bounds");
+ 	$roll = $app->request->getGet('roll', 1);
+ 	$app->validate->check($roll, ['int', 'range' => [1, 100]])
+ 	or die("Roll out of bounds");
 
     // Make roll and prepare reply
-    $dice = new \Mos\Dice\CDice();
-    $dice->roll($roll);
- 
-    $app->views->add('dice/index', [
-        'roll'      => $dice->getNumOfRolls(),
-        'results'   => $dice->getResults(),
-        'total'     => $dice->getTotal(),
-    ]);
- 
-    $app->theme->setTitle("Rolled a dice");
- 
-});
+ 	$dice = new \Mos\Dice\CDice();
+ 	$dice->roll($roll);
+
+ 	$app->views->add('dice/index', [
+ 		'roll'      => $dice->getNumOfRolls(),
+ 		'results'   => $dice->getResults(),
+ 		'total'     => $dice->getTotal(),
+ 		]);
+
+ 	$app->theme->setTitle("Rolled a dice");
+
+ });
 
  /**
   * Route to Dice 100
@@ -95,15 +116,15 @@
  	$app->session();
 
  	if (isset($_SESSION['diceplay'])) {
-    	$play = $_SESSION['diceplay'];
-	} else {
-    	$play = new \CR\CPlayDice100\CPlayDice100();
-    	$_SESSION['diceplay'] = $play;
-	}
-	
-	$app->views->add('me/dice100', [
-		'dice100play' => $play->PlayDice100(),
-	]);
+ 		$play = $_SESSION['diceplay'];
+ 	} else {
+ 		$play = new \CR\CPlayDice100\CPlayDice100();
+ 		$_SESSION['diceplay'] = $play;
+ 	}
+
+ 	$app->views->add('me/dice100', [
+ 		'dice100play' => $play->PlayDice100(),
+ 		]);
 
  });
 
@@ -123,9 +144,9 @@
  		$calendar = new \CR\CCalendar\CCalendar(date("n"), date("Y"));
  	}
 
-	$app->views->add('me/calendar', [
-        'content' => $calendar->showCalendar(),
-        ]);
+ 	$app->views->add('me/calendar', [
+ 		'content' => $calendar->showCalendar(),
+ 		]);
 
  });
  /**
@@ -140,11 +161,11 @@
  		'secure_dir' => '..',
  		'base_dir' => '..',
  		'add_ignore' => ['.htaccess'],
- 	]);
+ 		]);
 
  	$app->views->add('me/source', [
  		'content' => $source->View(),
- 	]);
+ 		]);
  });
 
  $app->router->handle();

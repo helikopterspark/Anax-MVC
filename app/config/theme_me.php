@@ -63,7 +63,7 @@ return [
         'title_append' => ' | Byggt med Anax',
 
         // Stylesheets
-        'stylesheets' => ['css/style_me.css', 'css/navbar_me.css'],
+        'stylesheets' => ['css/style_me.css', 'css/navbar_me.css', 'css/comments.css'],
 
         // Inline style
         'style' => null,
