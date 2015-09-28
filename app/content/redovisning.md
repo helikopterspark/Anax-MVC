@@ -39,9 +39,9 @@ Det tog lite tid att lära sig hitta rätt i Anax i förra kursen. Nu tyckte jag
 <a id="Kmom02"></a> Kmom02: Kontroller och modeller
 -------------------------------
 
-Kursmoment 2 var precis som i den föregående kursen ganska mastigt att ta in och genomföra. Det var kanske inte så mycket rent kodande totalt sett men det tog tid att förstå hur allt hänger ihop för att få till den koden. Det blev en hel del detektivarbete i ramverket, läsande i forumet och mycket trial and error i kodandet.
+Kursmoment 2 var precis som i den föregående kursen ganska mastigt att ta in och genomföra. Övningarna gick visserligen enkelt att ta sig igenom men att lösa uppgiften var svårare. Det var kanske inte så mycket rent kodande totalt sett men det tog tid att förstå hur allt hänger ihop för att få till den koden. Det blev en hel del detektivarbete i ramverket, läsande i forumet och mycket trial and error i kodandet. Dessbättre har andra gjort misstag före mig så forumet gav svar när jag körde fast.
 
-Jag är någorlunda nöjd med resultatet i alla fall, både funktionaliteten och stylandet. Jag har lagt till kommentarsfunktionen på startsidan och på redovisningssidan och de har separata kommentarsflöden. Notera att knappen Radera alla tar bort kommentarerna för alla sidor (borde egentligen vara en ren admin-funktion). 
+Jag är någorlunda nöjd med resultatet i alla fall. Funktionaliteten har sina begränsningar utan databas men funkar utefter förutsättningarna. Jag försökte få till en Disqus-liknande design på kommentarerna. Jag har lagt till kommentarsfunktionen på startsidan och på redovisningssidan. Sidorna har separata kommentarsflöden och det skulle vara lätt att lägga till kommentarer på fler sidor. Inmatningen har felhantering och validering och själva kommentarstexten körs genom markdown-filter. Notera att knappen Radera alla tar bort kommentarerna för alla sidor (borde egentligen vara en ren admin-funktion). 
 
 Jag lärde mig f ö att `foreach` jobbar med en kopia av arrayen, vilket kan ställa till en del huvudbry när man vill ändra värden. Jag såg inte ändringarna med `strip-tags` slå igenom först men jag misstänkte att det hade med kopia istället för referens att göra. Lite läsning i php-manualen och på stackoverflow bekräftade detta.
 
