@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kommentarer](#pagebottom)
  
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -58,3 +58,4 @@ Nä...
 Nä...
 
 [Upp](#)
+<a id="pagebottom"></a>

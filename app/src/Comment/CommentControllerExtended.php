@@ -15,6 +15,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 	{
 		$isEditComment = $this->request->getPost('doEditComment');
 		$isEnterNew = $this->request->getPost('doEnterComment');
+		$inputerror = $this->session->get('inputerror', []);
 
 		$form = FALSE;
 
@@ -40,6 +41,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'page'		=> $page,
 				'redirect'	=> $redirect,
 				'form'		=> $form,
+				'error'		=> null,
 				]);
 		} elseif ($isEnterNew) {
 			$form = TRUE;
@@ -54,7 +56,26 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'page'		=> $page,
 				'redirect'	=> $redirect,
 				'form'		=> $form,
+				'error'		=> null,
 				]);
+			$this->session->set('inputerror', null);
+		} elseif ($inputerror) {
+			$form = TRUE;
+			$temp = $this->session->get('tempcomment', []);
+			$this->views->add('comment/form', [
+				'mail'      => $temp['mail'],
+				'web'       => $temp['web'],
+				'name'      => $temp['name'],
+				'content'   => $temp['content'],
+				'timestamp'	=> null,
+				'update'	=> null,
+				'output'    => null,
+				'page'		=> $page,
+				'redirect'	=> $redirect,
+				'form'		=> $form,
+				'error'		=> $inputerror,
+				]);
+			$this->session->set('inputerror', null);
 		}
 
 		// If $all array not empty, convert comment content from markdown to html, and get Gravatars
@@ -95,11 +116,14 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
     	'ip'        => $this->request->getServer('REMOTE_ADDR'),
     	];
 
-    	// Cleanup tags
-    	$comment['content'] = htmlentities(strip_tags($comment['content']));
-    	$comment['name'] = htmlentities(strip_tags($comment['name']));
-    	$comment['web'] = htmlentities(strip_tags($comment['web']));
-    	$comment['mail'] = htmlentities(strip_tags($comment['mail']));
+    	$validate = $this->validateInput($comment);
+    	if ($validate) {
+    		$this->session->set('inputerror', $validate);
+    		$this->response->redirect($this->request->getPost('redirect'));
+    	}
+
+    	// Cleanup
+    	$comment = $this->cleanupInput($comment);
 
     	$comments = new \CR\Comment\CommentsInSessionExtended();
     	$comments->setDI($this->di);
@@ -135,6 +159,15 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 		'ip'        => $this->request->getServer('REMOTE_ADDR'),
 		];
 
+		$validate = $this->validateInput($comment);
+    	if ($validate) {
+    		$this->session->set('inputerror', $validate);
+    		$this->response->redirect($this->request->getPost('redirect'));
+    	}
+
+    	// Cleanup
+    	$comment = $this->cleanupInput($comment);
+
 		$comments = new \CR\Comment\CommentsInSessionExtended();
 		$comments->setDI($this->di);
 
@@ -165,5 +198,44 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
     	$comments->deleteOne($commentID, $page);
 
     	$this->response->redirect($this->request->getPost('redirect'));
+    }
+
+    /**
+     * Validate comment input
+     * @param $comment array with comment data
+     *
+     * @return array with error messages or null
+     */
+    private function validateInput($comment) {
+
+    	$v = new \Valitron\Validator($comment);
+
+    	$v->rule('required', ['content', 'name', 'mail']);
+    	$v->rule('email', 'mail');
+    	if ($comment['web']) {
+    		$v->rule('url', 'web');
+    	}
+    	if($v->validate()) {
+    		return null;
+    	} else {
+    		$this->session->set('tempcomment', $comment);
+    		return $v->errors();
+    	}
+    }
+
+    /**
+     * Strip tags from comment input
+     *
+     * @param $comment array with comment data
+     *
+     * @return $comment array with cleaned data
+     */
+    private function cleanupInput($comment) {
+    	$comment['content'] = htmlentities(strip_tags($comment['content']));
+    	$comment['name'] = htmlentities(strip_tags($comment['name']));
+    	$comment['web'] = htmlentities(strip_tags($comment['web']));
+    	$comment['mail'] = htmlentities(strip_tags($comment['mail']));
+
+    	return $comment;
     }
 }

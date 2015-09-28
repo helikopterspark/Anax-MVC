@@ -141,3 +141,14 @@ input.text {
 	box-shadow: 1px 1px 1px #999;
 	font-size: 14px;
 }
+
+.error,
+.alert, 
+.notice,
+.success, 
+.info       { display: inline-block; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ddd; font-size: 12px;}
+
+.error, .alert { background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+.notice     { background: #fff6bf; color: #514721; border-color: #ffd324; }
+.success    { background: #e6efc2; color: #264409; border-color: #c6d880; }
+.info       { background: #d5edf8; color: #205791; border-color: #92cae4; }
