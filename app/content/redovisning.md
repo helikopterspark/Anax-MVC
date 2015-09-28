@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kommentarer](#pagebottom)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kommentarer](#comments)
  
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -39,23 +39,28 @@ Det tog lite tid att lära sig hitta rätt i Anax i förra kursen. Nu tyckte jag
 <a id="Kmom02"></a> Kmom02: Kontroller och modeller
 -------------------------------
 
-Kursmoment 2...
+Kursmoment 2 var precis som i den föregående kursen ganska mastigt att ta in och genomföra. Det var kanske inte så mycket rent kodande totalt sett men det tog tid att förstå hur allt hänger ihop för att få till den koden. Det blev en hel del detektivarbete i ramverket, läsande i forumet och mycket trial and error i kodandet.
+
+Jag är någorlunda nöjd med resultatet i alla fall, både funktionaliteten och stylandet. Jag har lagt till kommentarsfunktionen på startsidan och på redovisningssidan och de har separata kommentarsflöden. Notera att knappen Radera alla tar bort kommentarerna för alla sidor (borde egentligen vara en ren admin-funktion). 
+
+Jag lärde mig f ö att `foreach` jobbar med en kopia av arrayen, vilket kan ställa till en del huvudbry när man vill ändra värden. Jag såg inte ändringarna med `strip-tags` slå igenom först men jag misstänkte att det hade med kopia istället för referens att göra. Lite läsning i php-manualen och på stackoverflow bekräftade detta.
 
 ### Hur känns det att jobba med Composer?
 
-Sådär...
+Det känns enkelt, så pass att man kan komma ihåg nödvändiga kommandon utan att leta fram instruktionerna varje gång. Eftersom jag installerade det så att det funkar globalt så är det enkla kommandon att skriva. Har man lagt till en require-rad i sin composer.json så sker nedladdningen av filerna snabbt och enkelt. Det gäller bara att komma ihåg att köra update-kommandot efter att ha "deployat" sitt ramverk någonstans.
 
 ### Vad tror du om de paket som finns i Packagist, är det något du kan tänka dig att använda och hittade du något spännande att inkludera i ditt ramverk?
 
-Sådär...
+Det verkar finnas massor av paket att välja bland. Det kan kanske ta lite tid att hitta något passande och många paket verkar vara beroende av andra eller menade för vissa ramverk. Det är dessutom svårt att veta vilket som är bra och vilket som är mindre bra när man hittar flera med snarlik funktion. Jag hittade dock ett paket för validering, vlucas/valitron, som inte hade några beroenden. Jag valde att inkludera det i min lösning och det fungerar utmärkt till att validera inmatade kommentarer innan de sparas. Det är troligt att jag kommer att leta efter fler paket där i framtiden.
 
 ### Hur var begreppen att förstå med klasser som kontroller som tjänster som dispatchas, fick du ihop allt?
 
-Nä...
+Det jag hade svårast att greppa var hur dispatchern fungerar i praktiken. Jag vet inte om jag fullt greppat flödet i ramverket än. Ett problem jag brottades med var vid redirect, där sidhänvisningen tycktes falla bort och man antingen hamnade på förstasidan eller fick ett felmeddelande. Jag insåg till slut att detta värde måste skickas med som en parameter med dispatchern.
 
 ### Hittade du svagheter i koden som följde med phpmvc/comment? Kunde du förbättra något?
 
-Nä...
+Koden var väldigt rudimentär och jag skrev utökade klasser som ersätter de flesta av metoderna i basklasserna. Basklasserna ligger dock kvar oförändrade i vendor-mappen och används. Jag lade till felhantering med hjälp av det externa paketet med valideringsfunktioner. Jag gjorde även extrauppgifterna med Gravatar-bild och dolt formulär. Jag fick inte Gravatar-bilderna att visas först men det visade sig bero på att jag vid något tidigare tillfälle blockerat dessa via Ghostery... 
+
+En större svaghet är dock att kommentarerna sparas i en array i sessionen. Det blir ganska kortlivade kommentarer som dessutom bara syns för den som lagt in dem. Jag försökte lägga till en funktion för att ändra sortering men det faktum att sorteringen gjordes på array-index ställde till problem vid uppdatering av en befintlig kommentar efter att man vänt på ordningen mha `array_reverse()`. Eftersom det inte var något krav i uppgiften så bestämde jag mig för att spara den finessen till senare kursmoment där databasen finns till hands.
 
 [Upp](#)
-<a id="pagebottom"></a>

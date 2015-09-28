@@ -1,4 +1,4 @@
-<div class='comments'>
+<div class='comments' id='comments'>
 	<hr class='comments-hr'>
 	<?php if (!$form) : ?>
 		<form method="post" action="#comment-form">
