@@ -13,7 +13,11 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
      */
 	public function viewPageCommentsAction($page, $redirect)
 	{
-		$isEditComment = $this->request->getPost('doEditComment');
+		if (null !== $this->session->get('doEditComment')) {
+			$isEditComment = $this->session->get('doEditComment');
+		} else {
+			$isEditComment = $this->request->getPost('doEditComment');
+		}
 		$isEnterNew = $this->request->getPost('doEnterComment');
 		$inputerror = $this->session->get('inputerror', []);
 
@@ -25,8 +29,13 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 
 		// Get form view if add/edit is clicked
 		if ($isEditComment) {
-			$commentID = $this->request->getPost('commentID');
-			$comment = $all[$commentID];
+			if (null !== $this->session->get('tempcomment')) {
+				$comment = $this->session->get('tempcomment');
+				$commentID = $this->session->get('commentID');
+			} else {
+				$commentID = $this->request->getPost('commentID');
+				$comment = $all[$commentID];
+			}
 			$form = TRUE;
 
 			$this->views->add('comment/form', [
@@ -41,7 +50,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'page'		=> $page,
 				'redirect'	=> $redirect,
 				'form'		=> $form,
-				'error'		=> null,
+				'error'		=> $inputerror,
 				]);
 		} elseif ($isEnterNew) {
 			$form = TRUE;
@@ -58,7 +67,6 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'form'		=> $form,
 				'error'		=> null,
 				]);
-			$this->session->set('inputerror', null);
 		} elseif ($inputerror) {
 			$form = TRUE;
 			$temp = $this->session->get('tempcomment', []);
@@ -75,8 +83,11 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'form'		=> $form,
 				'error'		=> $inputerror,
 				]);
-			$this->session->set('inputerror', null);
 		}
+
+		$this->session->set('doEditComment', null);
+		$this->session->set('inputerror', null);
+		$this->session->set('tempcomment', null);
 
 		// If $all array not empty, convert comment content from markdown to html, and get Gravatars
 		if (is_array($all)) {
@@ -160,13 +171,15 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 		];
 
 		$validate = $this->validateInput($comment);
-    	if ($validate) {
-    		$this->session->set('inputerror', $validate);
-    		$this->response->redirect($this->request->getPost('redirect'));
-    	}
+		if ($validate) {
+			$this->session->set('inputerror', $validate);
+			$this->session->set('commentID', $commentID);
+			$this->session->set('doEditComment', TRUE);
+			$this->response->redirect($this->request->getPost('redirect'));
+		}
 
     	// Cleanup
-    	$comment = $this->cleanupInput($comment);
+		$comment = $this->cleanupInput($comment);
 
 		$comments = new \CR\Comment\CommentsInSessionExtended();
 		$comments->setDI($this->di);
