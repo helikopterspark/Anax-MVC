@@ -9,10 +9,14 @@
 		</form>
 	<?php endif; ?>
 
-	<?php if (is_array($comments)) : ?>
+	<?php if (is_array($comments) && count($comments) > 0) : ?>
 		<div class='comments-heading-container'>
 			<div class='comments-heading'>
-				<p><?=count($comments)?> Kommentarer</p>
+				<?php if (count($comments) == 1) : ?>
+					<p><?=count($comments)?> Kommentar</p>
+				<?php else : ?>
+					<p><?=count($comments)?> Kommentarer</p>
+				<?php endif; ?>
 			</div>
 			<div class='comments-heading-side'></div>
 		</div> <!-- comments-heading-container -->
