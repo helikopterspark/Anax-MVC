@@ -60,7 +60,7 @@ return [
         'lang' => 'sv',
 
         // Append this value to each <title>
-        'title_append' => ' | Anax a web template',
+        'title_append' => ' | Byggt med Anax',
 
         // Stylesheets
         //'stylesheets' => ['css/style.css', 'css/navbar.css'],
@@ -70,7 +70,7 @@ return [
         'style' => null,
 
         // Favicon
-        'favicon' => 'favicon.ico',
+        'favicon' => 'favicon_me.ico',
 
         // Path to modernizr or null to disable
         'modernizr' => 'js/modernizr.js',
