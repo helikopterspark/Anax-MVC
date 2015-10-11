@@ -39,6 +39,15 @@
 <?php endif; ?>
 
 <div id='wrap-main'>
+
+<?php if ($this->views->hasContent('main-extended')) : ?>
+	<div id='main-extended'><?php $this->views->render('main-extended')?></div>
+<?php endif; ?>
+
+<?php if ($this->views->hasContent('sidebar-reduced')) : ?>
+	<div id='sidebar-reduced'><?php $this->views->render('sidebar-reduced')?></div>
+<?php endif; ?>
+
 <?php if ($this->views->hasContent('main')) : ?>
 	<div id='main'><?php $this->views->render('main')?></div>
 <?php endif; ?>

@@ -3,6 +3,7 @@
  */
 
  body {
+  background: url("../../img/bg.png") repeat-x scroll 0 0 #fff;
   color: #333;
   overflow-y: scroll;
 }
@@ -17,9 +18,11 @@
   .clearfix();
 }
 
+/*
 #wrapper:hover {
   background-image: url(grid_12_60_20.png);
 }
+*/
 
 #wrap-featured,
 #wrap-main,
@@ -38,18 +41,26 @@
 }
 
 .sitetitle {
+  font-family: @fontFamilyHeadings;
   font-size: 48px;
+  font-weight: bold;
+  color: @candyRed;
   position: absolute;
-  top: 6px;
-  left: 130px;
+  top: @magicNumber;
+  left: 90px;
 }
 
 .siteslogan {
   font-style: italic;
   position: absolute;
-  top: 65px;
-  left: 130px;
+  top: 85px;
+  left: 90px;
   color: #666;
+}
+
+.sitelogo {
+  position: relative;
+  top: @magicNumber;
 }
 
 /**
@@ -64,7 +75,6 @@
  * Layout for main
  */
  #main {
-  /*min-height: 20em;*/
   min-height: 1 * 22px;
 }
 
@@ -93,18 +103,57 @@
 
 .article1 h1,
 .article1 h2 {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid @candyRed;
 }
 
 .byline {
-  margin-top: 44px;
+  height: 3 * @magicNumber;
+  margin-top: 2 * @magicNumber;
   border-top: 1px dashed #ccc;
-  padding-top: 22px;
+  padding-top: @magicNumber / 2;
   color: #666;
 }
 
 .byline p {
-  margin-top: 0;
+  font-size: @fontSizeSmall;
+
+}
+
+.right_float_with_margin {
+    float: right;
+    margin-left: 5px;
+}
+
+a {
+  color: @candyRed;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease-in-out;
+-moz-transition: all 0.2s ease-in-out;
+-o-transition: all 0.2s ease-in-out;
+transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:active,
+a:focus {
+    position: relative;
+    top: 1px;
+}
+
+/* aside for AppAd
+-------------------------------------------------------------- */
+#appad {
+    text-align: center;
+    margin-top: 3 * @magicNumber;
+    font-size: @fontSizeSmaller;
+}
+
+#appad img {
+  margin: @magicNumber / 2;
 }
 
 // Grid
@@ -114,6 +163,14 @@
 #flash,
 #footer {
   .column(@columns);
+}
+
+#main-extended {
+  .column(@columns * 0.75);
+}
+
+#sidebar-reduced {
+  .column(@columns * 0.25);
 }
 
 #main {
@@ -146,6 +203,8 @@
 #featured-1,
 #featured-2,
 #featured-3,
+#main-extended,
+#sidebar-reduced,
 #main,
 #sidebar,
 #triptych-1,
@@ -157,5 +216,5 @@
 #footer-col-4,
 #footer {
   min-height: 3 * @magicNumber;
-  margin-bottom: 22px;
+  margin-bottom: @magicNumber;
 }

@@ -30,7 +30,7 @@ return [
     'views' => [
     [
         'region'   => 'header', 
-        'template' => 'welcome/header', 
+        'template' => 'me/header', 
         'data'     => [
             'siteTitle' => "PHPMVC",
             'siteTagline' => "Min sida i kursen Databasdrivna webbapplikationer med PHP och MVC",

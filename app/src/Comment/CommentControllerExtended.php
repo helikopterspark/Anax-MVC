@@ -51,7 +51,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'redirect'	=> $redirect,
 				'form'		=> $form,
 				'error'		=> $inputerror,
-				]);
+				], 'main-extended');
 		} elseif ($isEnterNew) {
 			$form = TRUE;
 			$this->views->add('comment/form', [
@@ -66,7 +66,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'redirect'	=> $redirect,
 				'form'		=> $form,
 				'error'		=> null,
-				]);
+				], 'main-extended');
 		} elseif ($inputerror) {
 			$form = TRUE;
 			$temp = $this->session->get('tempcomment', []);
@@ -82,7 +82,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 				'redirect'	=> $redirect,
 				'form'		=> $form,
 				'error'		=> $inputerror,
-				]);
+				], 'main-extended');
 		}
 
 		$this->session->set('doEditComment', null);
@@ -98,9 +98,9 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 		}
 
 		$this->views->add('comment/comments', [
-			'comments' => $all,
 			'form'	=> $form,
-			]);
+			'comments' => $all,
+			], 'main-extended');
 	}
 
     /**

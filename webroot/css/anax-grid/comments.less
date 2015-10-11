@@ -12,24 +12,20 @@
 
  .comments-heading-container {
  	position: relative;
- 	height: 35px;
+ 	height: @magicNumber;
  }
 
  .comments-heading {
- 	/*
- 	position: absolute;
- 	left: 0px;
- 	*/
- 	height: 35px;
+ 	height: @magicNumber;
  	float: left;
  	font-weight: bold;
  	width: 140px;
  	line-height: 0.5em;
- 	border-bottom: 2px solid #CB151C;
+ 	border-bottom: 2px solid @candyRed;
  }
 
  .comments-heading-side {
- 	height: 35px;
+ 	height: @magicNumber;
  	margin-left: 140px;
  	line-height: 0.5em;
  	border-bottom: 2px solid #eee;
@@ -37,6 +33,7 @@
 
 .comment-container {
 	position: relative;
+	margin-top: 11px;
 	padding-bottom: 7px;
 	border-bottom: 1px dotted #ddd;
 }
@@ -50,17 +47,17 @@
 
  .comment-section {
  	color: #777;
- 	font-size: 14px;
+ 	font-size: @fontSizeSmall;
  	margin-left: 60px;
  }
 
 .comments-name {
 	font-weight: bold;
-	font-size: 12px;
+	font-size: @fontSizeSmall;
 }
 
 .comments-id-time {
-	font-size: 12px;
+	font-size: @fontSizeSmall;
 }
 
 .comments-id-time a {

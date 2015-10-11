@@ -27,9 +27,31 @@ return [
 
         // This is a menu item
         'tema' => [
-            'text'  => 'Tema',
+            'text'  => 'Tema &#9662;',
             'url'   => $this->di->get('url')->create('theme-'),
-            'title' => 'Tema'
+            'title' => 'Tema',
+            'mark-if-parent-of' => 'tema',
+
+            // theme submenu
+            'submenu' => [
+                'items' => [
+                    'theme-regions' => [
+                        'text'  => 'Regioner',
+                        'url'   => $this->di->get('url')->create('theme-regions'),
+                        'title' => 'Regioner'
+                    ],
+                    'theme-typography'  => [
+                        'text'  => 'Typografi',
+                        'url'   => $this->di->get('url')->create('theme-typography'),
+                        'title' => 'Typografi'
+                    ],
+                    'theme-font-awesome'  => [
+                        'text'  => 'Font Awesome',
+                        'url'   => $this->di->get('url')->create('theme-font-awesome'),
+                        'title' => 'Font Awesome'
+                    ],
+                ],
+            ],
         ],
 
         // This is a menu item

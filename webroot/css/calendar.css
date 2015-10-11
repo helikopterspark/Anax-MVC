@@ -16,7 +16,7 @@ div.month {
 }
 
 div.weekdays, div.day, div.today {
-	width: 120px;
+	width: 115px;
     float: left;
     border-right: 1px solid black;
     border-bottom: 1px solid black; 
@@ -64,5 +64,6 @@ h1 {
 }
 
 img.cal_pic {
-    margin-left: 10px;
+    /*margin-left: -10px;*/
+    margin-bottom: 22px;
 }

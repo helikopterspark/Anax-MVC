@@ -2,7 +2,9 @@
  * Typography settings for a default rythm.
  *
  */
-
+@import url(https://fonts.googleapis.com/css?family=Orbitron);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
 
 /** --------------------------------------------------------------
  * Body
@@ -17,7 +19,6 @@ body {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-family: @fontFamilyHeadings;
   margin-top: 0;
   margin-bottom: @magicNumber;
   img {
@@ -27,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   .font-size(@fontSizeH1);
+  font-family: @fontFamilyHeadings;
   font-weight: normal;
   & ~ h2, & ~ h3, & ~ h4, & ~ h5, & ~ h6 {
     margin-top: @magicNumber * 2;
@@ -35,6 +37,7 @@ h1 {
 
 h2 {
   .font-size(@fontSizeH2);
+  font-family: @fontFamilyBody;
   font-weight: normal;
   & ~ h3 {
     margin-top: @magicNumber;
@@ -43,6 +46,7 @@ h2 {
 
 h3 {
   .font-size(@fontSizeH3);
+  font-family: @fontFamilyBody;
   font-weight: normal;
   line-height: 1em;
 }

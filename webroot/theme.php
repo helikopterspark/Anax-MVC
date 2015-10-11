@@ -8,7 +8,7 @@
 require __DIR__.'/config_with_app.php'; 
 
 $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
-$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_theme.php');
+$app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 $app->router->add('theme-', function() use ($app) {
@@ -33,6 +33,8 @@ $app->router->add('theme-regions', function() use ($app) {
                ->addString('featured-3', 'featured-3')
                ->addString('main', 'main')
                ->addString('sidebar', 'sidebar')
+               ->addString('main-extended', 'main-extended')
+               ->addString('sidebar-reduced', 'sidebar-reduced')
                ->addString('triptych-1', 'triptych-1')
                ->addString('triptych-2', 'triptych-2')
                ->addString('triptych-3', 'triptych-3')

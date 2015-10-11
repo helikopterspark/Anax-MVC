@@ -7,7 +7,7 @@ require __DIR__.'/config_with_app.php';
 
 $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
-$app->theme->configure(ANAX_APP_PATH . 'config/theme_me.php');
+$app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 /**
  * Comments
@@ -26,18 +26,17 @@ $di->set('CommentController', function() use ($di) {
  $app->router->add('', function() use ($app) {
  	$app->theme->setTitle("Om mig");
 
- 	$content = $app->fileContent->get('me.md');
- 	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
- 	$byline = $app->fileContent->get('byline.md');
- 	$byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
- 	$aside = $app->fileContent->get('appadv.md');
- 	$aside = $app->textFilter->doFilter($aside, 'shortcode, markdown');
- 	
- 	$app->views->add('me/page', [
- 		'content' => $content,
- 		'byline' => $byline,
- 		'aside' => $aside,     
- 		]);
+ $content = $app->fileContent->get('me.md');
+  $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+  //$aside = $app->fileContent->get('appadv.md');
+  //$aside = $app->textFilter->doFilter($aside, 'shortcode, markdown');
+  $aside = $app->fileContent->get('appadv.html');
+  $byline = $app->fileContent->get('byline.html');
+
+  $pagecontent = $content . $byline;
+
+ $app->views->add('me/page', ['content' => $pagecontent], 'main-extended');
+ $app->views->add('me/page', ['content' => $aside], 'sidebar-reduced');
 
  	$app->dispatcher->forward([
  		'controller' => 'comment',
@@ -55,13 +54,11 @@ $di->set('CommentController', function() use ($di) {
 
  	$content = $app->fileContent->get('redovisning.md');
  	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
- 	$byline = $app->fileContent->get('byline.md');
- 	$byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
+  $byline = $app->fileContent->get('byline.html');
+  $pagecontent = $content . $byline;
 
- 	$app->views->add('me/page', [
- 		'content' => $content,
- 		'byline' => $byline,
- 		]);
+  $app->views->add('me/page', ['content' => $pagecontent], 'main-extended');
+
  	$app->dispatcher->forward([
  		'controller' => 'comment',
  		'action'     => 'viewPageComments',
@@ -98,7 +95,7 @@ $di->set('CommentController', function() use ($di) {
  		'roll'      => $dice->getNumOfRolls(),
  		'results'   => $dice->getResults(),
  		'total'     => $dice->getTotal(),
- 		]);
+ 		], 'main');
 
  	$app->theme->setTitle("Rolled a dice");
 
@@ -121,9 +118,7 @@ $di->set('CommentController', function() use ($di) {
  		$_SESSION['diceplay'] = $play;
  	}
 
- 	$app->views->add('me/dice100', [
- 		'dice100play' => $play->PlayDice100(),
- 		]);
+  $app->views->add('me/dice100', ['dice100play' => $play->PlayDice100()], 'flash');
 
  });
 
@@ -143,9 +138,7 @@ $di->set('CommentController', function() use ($di) {
  		$calendar = new \CR\CCalendar\CCalendar(date("n"), date("Y"));
  	}
 
- 	$app->views->add('me/calendar', [
- 		'content' => $calendar->showCalendar(),
- 		]);
+  $app->views->add('me/calendar', ['content' => $calendar->showCalendar()], 'flash');
 
  });
  /**
@@ -164,7 +157,7 @@ $di->set('CommentController', function() use ($di) {
 
  	$app->views->add('me/source', [
  		'content' => $source->View(),
- 		]);
+ 		], 'flash');
  });
 
  $app->router->handle();

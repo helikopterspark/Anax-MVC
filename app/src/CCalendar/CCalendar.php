@@ -52,7 +52,7 @@ class CCalendar {
 		}
 
 		// Build html
-		$html = '<img class="cal_pic" src="img/calendarpics/' .$this->month. '.jpg" width="960" height="180" alt="Kalenderbild"/>';
+		$html = '<img class="cal_pic" src="img/calendarpics/' .$this->month. '.jpg" width="940" height="176" alt="Kalenderbild"/>';
 		$html .= '<div style="height: 400px;"><h1>' . $this->monthName . ' ';
 		$html .= $this->year . '</h1>';
 
@@ -71,7 +71,7 @@ class CCalendar {
         	$html .='</div>';
         }
         $html .= '</div>';
-		$html .= '<div style="height: 276px;">' . $this->monthHTML->GetMonthAsHTML() . '</div>';
+		$html .= '<div style="height: 276px; margin-bottom: 22px;">' . $this->monthHTML->GetMonthAsHTML() . '</div>';
 		$html .= <<<EOD
 		<div class="left">
 			<p><a href="?year={$this->prevYear}&amp;month={$this->prevMonth}">&lt; {$prev}</a></p>
