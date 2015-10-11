@@ -13,56 +13,37 @@ return [
 
         // This is a menu item
         'home'  => [
-            'text'  => 'Start',
+            'text'  => 'Hem',
             'url'   => $this->di->get('url')->create(''),
-            'title' => 'Startsida'
+            'title' => 'Hem'
         ],
 
         // This is a menu item
-        'redovisning' => [
-            'text'  => 'Redovisning',
-            'url'   => $this->di->get('url')->create('redovisning'),
-            'title' => 'Redovisning'
-        ],
-
-        // This is a menu item
-        'tema' => [
+        'theme-tema'  => [
             'text'  => 'Tema',
             'url'   => $this->di->get('url')->create('theme-'),
             'title' => 'Tema'
         ],
 
         // This is a menu item
-        'dice' => [
-            'text'  => 'Tärning &#9662;',
-            'url'   => $this->di->get('url')->create('dice'),
-            'title' => 'Dice',
-            'mark-if-parent-of' => 'dice',
-            
-            // Dice 100
-            'submenu' => [
-                'items' => [
-                    'dice100' => [
-                        'text'  => 'Tärning 100',
-                        'url'   => $this->di->get('url')->create('dice100'),
-                        'title' => 'Tärning 100'
-                    ],
-                ],
-            ],
+        'theme-regions'  => [
+            'text'  => 'Regioner',
+            'url'   => $this->di->get('url')->create('theme-regions'),
+            'title' => 'Regioner'
         ],
 
         // This is a menu item
-        'calendar' => [
-            'text'  => 'Kalender',
-            'url'   => $this->di->get('url')->create('calendar'),
-            'title' => 'Kalender'
+        'theme-typography'  => [
+            'text'  => 'Typografi',
+            'url'   => $this->di->get('url')->create('theme-typography'),
+            'title' => 'Typografi'
         ],
 
         // This is a menu item
-        'source' => [
-            'text'  => 'Källkod',
-            'url'   => $this->di->get('url')->create('source'),
-            'title' => 'Källkod'
+        'theme-font-awesome'  => [
+            'text'  => 'Font Awesome',
+            'url'   => $this->di->get('url')->create('theme-font-awesome'),
+            'title' => 'Font Awesome'
         ],
 
         /* 
