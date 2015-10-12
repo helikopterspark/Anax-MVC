@@ -27,9 +27,9 @@ $app->router->add('theme-', function() use ($app) {
 
 	$app->views->add('theme/index', ['content' => $flash], 'flash');
 
-	$app->views->add('theme/index', ['content' => $featured], 'featured-1');
-	$app->views->add('theme/index', ['content' => $featured], 'featured-2');
-	$app->views->add('theme/index', ['content' => $featured], 'featured-3');
+	$app->views->add('theme/region-small', ['content' => $featured], 'featured-1');
+	$app->views->add('theme/region-small', ['content' => $featured], 'featured-2');
+	$app->views->add('theme/region-small', ['content' => $featured], 'featured-3');
 
 	$app->views->add('theme/index', ['content' => $main], 'main');
 	$app->views->add('theme/index', ['content' => $sidebar], 'sidebar');
@@ -37,14 +37,14 @@ $app->router->add('theme-', function() use ($app) {
 	$app->views->add('theme/index', ['content' => $main_extended], 'main-extended');
 	$app->views->add('theme/index', ['content' => $sidebar_reduced], 'sidebar-reduced');
 
-	$app->views->add('theme/index', ['content' => $triptych], 'triptych-1');
-	$app->views->add('theme/index', ['content' => $triptych], 'triptych-2');
-	$app->views->add('theme/index', ['content' => $triptych], 'triptych-3');
+	$app->views->add('theme/region-small', ['content' => $triptych], 'triptych-1');
+	$app->views->add('theme/region-small', ['content' => $triptych], 'triptych-2');
+	$app->views->add('theme/region-small', ['content' => $triptych], 'triptych-3');
 
-	$app->views->add('theme/index', ['content' => $footer], 'footer-col-1');
-	$app->views->add('theme/index', ['content' => $footer], 'footer-col-2');
-	$app->views->add('theme/index', ['content' => $footer], 'footer-col-3');
-	$app->views->add('theme/index', ['content' => $footer], 'footer-col-4');
+	$app->views->add('theme/region-small', ['content' => $footer], 'footer-col-1');
+	$app->views->add('theme/region-small', ['content' => $footer], 'footer-col-2');
+	$app->views->add('theme/region-small', ['content' => $footer], 'footer-col-3');
+	$app->views->add('theme/region-small', ['content' => $footer], 'footer-col-4');
 });
 
 $app->router->add('theme-regions', function() use ($app) {

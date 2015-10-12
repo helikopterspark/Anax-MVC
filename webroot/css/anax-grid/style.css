@@ -2661,6 +2661,7 @@ a:focus {
   float: left;
   width: 31.25%;
   margin: 0 1.0416666666667%;
+  background: linear-gradient(to left,rgba(0,0,0,0.06),rgba(0,0,0,0));
 }
 #footer-col-1,
 #footer-col-2,
@@ -2670,6 +2671,7 @@ a:focus {
   float: left;
   width: 22.916666666667%;
   margin: 0 1.0416666666667%;
+  background: linear-gradient(to left,rgba(0,0,0,0.06),rgba(0,0,0,0));
 }
 #header,
 #navbar,
