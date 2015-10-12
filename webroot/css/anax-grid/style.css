@@ -2821,13 +2821,13 @@ figure.rounded img {
   height: 22px;
   float: left;
   font-weight: bold;
-  width: 140px;
+  width: 150px;
   line-height: 0.5em;
   border-bottom: 2px solid #CB151C;
 }
 .comments-heading-side {
   height: 22px;
-  margin-left: 140px;
+  margin-left: 150px;
   line-height: 0.5em;
   border-bottom: 2px solid #eee;
 }
@@ -2957,6 +2957,7 @@ input.text {
   border-color: #92cae4;
 }
 @media (max-width: 767px) {
+  #navbar,
   #featured-1,
   #featured-2,
   #featured-3,
@@ -2967,8 +2968,6 @@ input.text {
   #sidebar,
   #main-extended,
   #sidebar-reduced,
-  #comments,
-  #comments-extended,
   #footer-col-1,
   #footer-col-2,
   #footer-col-3,

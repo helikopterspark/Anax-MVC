@@ -12,19 +12,45 @@ $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 $app->router->add('theme-', function() use ($app) {
+
+	$app->theme->addStylesheet('css/anax-grid/grid_background.css');
 	$app->theme->setTitle("Tema");
 
-	$content = $app->fileContent->get('theme.md');
-	$content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+	$flash = $app->fileContent->get('theme-flash.html');
+	$featured = $app->fileContent->get('theme-featured.html');
+	$main = $app->fileContent->get('theme-main.html');
+	$sidebar = $app->fileContent->get('theme-sidebar.html');
+	$main_extended = $app->fileContent->get('theme-main-extended.html');
+	$sidebar_reduced = $app->fileContent->get('theme-sidebar-reduced.html');
+	$triptych = $app->fileContent->get('theme-triptych.html');
+	$footer = $app->fileContent->get('theme-footer.html');
 
-	$app->views->add('theme/index', [
-		'content' => $content,     
-		]);
+	$app->views->add('theme/index', ['content' => $flash], 'flash');
+
+	$app->views->add('theme/index', ['content' => $featured], 'featured-1');
+	$app->views->add('theme/index', ['content' => $featured], 'featured-2');
+	$app->views->add('theme/index', ['content' => $featured], 'featured-3');
+
+	$app->views->add('theme/index', ['content' => $main], 'main');
+	$app->views->add('theme/index', ['content' => $sidebar], 'sidebar');
+
+	$app->views->add('theme/index', ['content' => $main_extended], 'main-extended');
+	$app->views->add('theme/index', ['content' => $sidebar_reduced], 'sidebar-reduced');
+
+	$app->views->add('theme/index', ['content' => $triptych], 'triptych-1');
+	$app->views->add('theme/index', ['content' => $triptych], 'triptych-2');
+	$app->views->add('theme/index', ['content' => $triptych], 'triptych-3');
+
+	$app->views->add('theme/index', ['content' => $footer], 'footer-col-1');
+	$app->views->add('theme/index', ['content' => $footer], 'footer-col-2');
+	$app->views->add('theme/index', ['content' => $footer], 'footer-col-3');
+	$app->views->add('theme/index', ['content' => $footer], 'footer-col-4');
 });
 
 $app->router->add('theme-regions', function() use ($app) {
  
     $app->theme->addStylesheet('css/anax-grid/regions_demo.css');
+    $app->theme->addStylesheet('css/anax-grid/grid_background.css');
     $app->theme->setTitle("Regioner");
  
     $app->views->addString('flash', 'flash')
@@ -46,6 +72,7 @@ $app->router->add('theme-regions', function() use ($app) {
 
 $app->router->add('theme-typography', function() use ($app) {
 
+	$app->theme->addStylesheet('css/anax-grid/grid_background.css');
 	$app->theme->setTitle("Typografi");
 	$content = $app->fileContent->get('typography.html');
 
@@ -58,8 +85,8 @@ $app->router->add('theme-font-awesome', function() use ($app) {
 	$main = $app->fileContent->get('font-awesome-main.html');
 	$sidebar = $app->fileContent->get('font-awesome-sidebar.html');
 
-	$app->views->add('theme/index', ['content' => $main], 'main');
-	$app->views->add('theme/index', ['content' => $sidebar], 'sidebar');
+	$app->views->add('theme/index', ['content' => $main], 'main-extended');
+	$app->views->add('theme/index', ['content' => $sidebar], 'sidebar-reduced');
 });
 
 $app->router->handle();

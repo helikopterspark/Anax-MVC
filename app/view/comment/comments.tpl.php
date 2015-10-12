@@ -13,9 +13,9 @@
 		<div class='comments-heading-container'>
 			<div class='comments-heading'>
 				<?php if (count($comments) == 1) : ?>
-					<p><?=count($comments)?> Kommentar</p>
+					<p><i class="fa fa-comment"></i> <?=count($comments)?> Kommentar</p>
 				<?php else : ?>
-					<p><?=count($comments)?> Kommentarer</p>
+					<p><i class="fa fa-comments"></i> <?=count($comments)?> Kommentarer</p>
 				<?php endif; ?>
 			</div>
 			<div class='comments-heading-side'></div>

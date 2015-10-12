@@ -28,15 +28,13 @@ $di->set('CommentController', function() use ($di) {
 
  $content = $app->fileContent->get('me.md');
   $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-  //$aside = $app->fileContent->get('appadv.md');
-  //$aside = $app->textFilter->doFilter($aside, 'shortcode, markdown');
   $aside = $app->fileContent->get('appadv.html');
   $byline = $app->fileContent->get('byline.html');
 
   $pagecontent = $content . $byline;
 
- $app->views->add('me/page', ['content' => $pagecontent], 'main-extended');
- $app->views->add('me/page', ['content' => $aside], 'sidebar-reduced');
+ $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
+ $app->views->add('theme/index', ['content' => $aside], 'sidebar-reduced');
 
  	$app->dispatcher->forward([
  		'controller' => 'comment',
@@ -57,7 +55,7 @@ $di->set('CommentController', function() use ($di) {
   $byline = $app->fileContent->get('byline.html');
   $pagecontent = $content . $byline;
 
-  $app->views->add('me/page', ['content' => $pagecontent], 'main-extended');
+  $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
 
  	$app->dispatcher->forward([
  		'controller' => 'comment',
@@ -141,6 +139,7 @@ $di->set('CommentController', function() use ($di) {
   $app->views->add('me/calendar', ['content' => $calendar->showCalendar()], 'flash');
 
  });
+
  /**
   * Source code
   *
@@ -155,7 +154,7 @@ $di->set('CommentController', function() use ($di) {
  		'add_ignore' => ['.htaccess'],
  		]);
 
- 	$app->views->add('me/source', [
+ 	$app->views->add('theme/index', [
  		'content' => $source->View(),
  		], 'flash');
  });
