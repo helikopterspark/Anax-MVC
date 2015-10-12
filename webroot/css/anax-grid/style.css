@@ -2608,7 +2608,7 @@ a:hover {
 a:active,
 a:focus {
   position: relative;
-  top: 1px;
+  top: 2px;
 }
 #appad {
   text-align: center;
