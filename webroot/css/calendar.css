@@ -5,12 +5,12 @@ div.month {
     border-left: 1px solid black;
 }
 
-.right {
+.right-calendar-link {
 	float: right;
 	width: 33%;
 }
 
-.left {
+.left-calendar-link {
 	float: left;
 	width: 33%;
 }
@@ -57,8 +57,8 @@ div.today {
 	background: #c6d5e8;
 }
 
-h1 {
-    border-bottom: 1px solid #CB151C;
+h1.calendar-heading {
+    /*border-bottom: 1px solid #CB151C;*/
     margin-left: 10px;
     margin-right: 10px;
 }

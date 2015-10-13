@@ -38,7 +38,7 @@
   font-family: @fontFamilyHeadings;
   font-size: 48px;
   font-weight: bold;
-  color: @candyRed;
+  //color: @theme-color;
   position: absolute;
   top: @magicNumber;
   left: 90px;
@@ -95,10 +95,12 @@
   padding-right: 1em;
 }
 
+/*
 .article1 h1,
 .article1 h2 {
-  border-bottom: 1px solid @candyRed;
+  border-bottom: 1px solid @theme-color;
 }
+*/
 
 .byline {
   height: 3 * @magicNumber;
@@ -119,7 +121,7 @@
 }
 
 a {
-  color: @candyRed;
+  //color: @theme-color;
   text-decoration: none;
   -webkit-transition: all 0.2s ease-in-out;
 -moz-transition: all 0.2s ease-in-out;
@@ -182,7 +184,6 @@ a:focus {
 #triptych-2,
 #triptych-3 {
   .column(@columns / 3);
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.06),  rgba(0, 0, 0, 0));
 }
 
 #footer-col-1,
@@ -190,7 +191,6 @@ a:focus {
 #footer-col-3, 
 #footer-col-4 {
   .column(@columns / 4);
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.06),  rgba(0, 0, 0, 0));
 }
 
 #header,

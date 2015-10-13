@@ -7,13 +7,14 @@
 // Get environment & autoloader and the $app-object.
 require __DIR__.'/config_with_app.php'; 
 
-$app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
+$app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN); 
+
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 $app->router->add('theme-', function() use ($app) {
 
-	$app->theme->addStylesheet('css/anax-grid/grid_background.css');
+	//$app->theme->addStylesheet('css/anax-grid/grid_background.css');
 	$app->theme->setTitle("Tema");
 
 	$flash = $app->fileContent->get('theme-flash.html');

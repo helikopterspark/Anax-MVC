@@ -53,7 +53,7 @@ class CCalendar {
 
 		// Build html
 		$html = '<img class="cal_pic" src="img/calendarpics/' .$this->month. '.jpg" width="940" height="176" alt="Kalenderbild"/>';
-		$html .= '<div style="height: 400px;"><h1>' . $this->monthName . ' ';
+		$html .= '<div style="height: 400px;"><h1 class="calendar-heading">' . $this->monthName . ' ';
 		$html .= $this->year . '</h1>';
 
 		// Weekdays heading
@@ -73,13 +73,13 @@ class CCalendar {
         $html .= '</div>';
 		$html .= '<div style="height: 276px; margin-bottom: 22px;">' . $this->monthHTML->GetMonthAsHTML() . '</div>';
 		$html .= <<<EOD
-		<div class="left">
+		<div class="left-calendar-link">
 			<p><a href="?year={$this->prevYear}&amp;month={$this->prevMonth}">&lt; {$prev}</a></p>
         </div>
-		<div class="right">
+		<div class="right-calendar-link">
 			<p style="text-align: right;"><a href="?year={$this->nextYear}&amp;month={$this->nextMonth}">{$next} ></a></p>
 		</div>
-		<div class="right">
+		<div class="right-calendar-link">
 			<p style="text-align: center;"><a href="?">Innevarande månad</a></p>
 		</div></div>
 EOD;
