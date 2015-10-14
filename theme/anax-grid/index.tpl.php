@@ -1,7 +1,7 @@
 <!doctype html>
 <html class='no-js <?=$theme?>' lang='<?=$lang?>'>
 <head>
-<meta charset='utf-8'/>
+<meta charset='utf-8' name="viewport" content="width=device-width initial-scale=1"/>
 <title><?=$title . $title_append?></title>
 <?php if(isset($favicon)): ?><link rel='icon' href='<?=$this->url->asset($favicon)?>'/><?php endif; ?>
 <?php foreach($stylesheets as $stylesheet): ?>
