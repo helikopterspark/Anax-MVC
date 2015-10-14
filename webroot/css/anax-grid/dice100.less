@@ -1,5 +1,4 @@
-@import url(dice.css);
-
+@import "dice.less";
 /* aside for dice100
 -------------------------------------------------------------- */
 .dice100 {
@@ -12,11 +11,13 @@
 */
 div.gameboard {
 	/*overflow:auto;*/
-	width: 50%; float: left;
+	width: 50%;
+	float: left;
+	margin-bottom: @magicNumber;
 }
 
-form {
-    height: 350px;
+fieldset.gamefield {
+    height: 14 * @magicNumber;
 }
 
 /* Success, info, notice and error/alert boxes

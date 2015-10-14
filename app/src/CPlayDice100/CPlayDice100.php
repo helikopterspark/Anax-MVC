@@ -239,7 +239,7 @@ class CPlayDice100 {
     private function ShowLeaderboard() {
         $html = <<<EOD
         <div class="gameboard">
-        <form method="get" action="?"><fieldset style="height:300px;"><legend>Resultattavla</legend>
+        <form method="get" action="?"><fieldset class="gamefield"><legend>Resultattavla</legend>
 EOD;
         if ($this->oneOrWinMess) {
             $html .= $this->oneOrWinMess;
@@ -264,7 +264,7 @@ EOD;
         $this->diceplay = $this->ShowLeaderboard();
         $this->diceplay .= <<<EOD
         <div class="gameboard"><form method="get" action="?">
-        <fieldset style="height:300px;"><legend>Spelare 
+        <fieldset class="gamefield"><legend>Spelare 
 EOD;
         $this->diceplay .= $this->player->GetPlayerID() . '</legend>';
 

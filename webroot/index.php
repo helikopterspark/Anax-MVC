@@ -104,10 +104,12 @@ $di->set('CommentController', function() use ($di) {
   *
   */
  $app->router->add('dice100', function() use ($app) {
- 	$app->theme->addStylesheet('css/dice100.css');
+ 	$app->theme->addStylesheet('css/dice.css');
  	$app->theme->setTitle("Tärning 100");
  	// Start session
  	$app->session();
+
+  $instruction = $app->fileContent->get('dice100instruction.html');
 
  	if (isset($_SESSION['diceplay'])) {
  		$play = $_SESSION['diceplay'];
@@ -116,7 +118,8 @@ $di->set('CommentController', function() use ($di) {
  		$_SESSION['diceplay'] = $play;
  	}
 
-  $app->views->add('me/dice100', ['dice100play' => $play->PlayDice100()], 'fullpage');
+  $app->views->add('theme/index', ['content' => $play->PlayDice100()], 'main-extended');
+  $app->views->add('theme/index', ['content' => $instruction], 'sidebar-reduced');
 
  });
 

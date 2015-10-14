@@ -19,6 +19,10 @@
 		font-size: 2.25em;
 	}
 
+	.byline {
+		margin-bottom: @magicNumber;
+	}
+
 	#flash,
 	#featured-1,
 	#featured-2,
@@ -44,8 +48,12 @@
 		width: 25px;
 	}
 
+	h1.calendar-heading {
+		font-size: @fontSizeH3;
+	}
+
 	div.weekdays {
-		font-size: 8px;
+		font-size: 0.5em;
 	}
 
 	img.cal_pic {
@@ -66,12 +74,14 @@
 
 	#main,
 	#main-extended,
+	#sidebar,
+	#sidebar-reduced,
 	#fullpage {
 		.column(@columns);
 		margin-bottom: @magicNumber;
 	}
 
-	#sidebar-reduced,
+	
 	#featured-1,
 	#featured-2,
 	#featured-3,
@@ -106,7 +116,8 @@
 		width: 960px;
 	}
 
-	.comments {
+	.comments,
+	.comment-form {
 		width: 75%;
 	}
 

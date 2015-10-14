@@ -4,6 +4,7 @@
  *
  */
 
+/* Just for demo purposes: */
 if (isset($_GET['color'])) {
     $get = $_GET['color'];
     switch ($get) {

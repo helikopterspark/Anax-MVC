@@ -3160,6 +3160,97 @@ input.text {
   color: #205791;
   border-color: #92cae4;
 }
+ul.dice {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul.dice li {
+  display: inline-block;
+  padding: 0;
+  margin: 0 4px 0 0;
+  width: 32px;
+  height: 32px;
+  background: url(../../img/dice-faces.png) no-repeat;
+}
+ul.dice li.dice-1 {
+  background-position: -160px 0px;
+}
+ul.dice li.dice-2 {
+  background-position: -128px 0px;
+}
+ul.dice li.dice-3 {
+  background-position: -96px 0px;
+}
+ul.dice li.dice-4 {
+  background-position: -64px 0px;
+}
+ul.dice li.dice-5 {
+  background-position: -32px 0px;
+}
+ul.dice li.dice-6 {
+  background-position: 0px 0px;
+}
+.dice100 {
+  width: 16%;
+  float: right;
+  text-align: left;
+  font-size: smaller;
+  padding-right: 5px;
+}
+div.gameboard {
+  width: 50%;
+  float: left;
+  margin-bottom: 22px;
+}
+fieldset.gamefield {
+  height: 308px;
+}
+.error,
+.alert,
+.notice,
+.success,
+.info {
+  display: inline-block;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+.error,
+.alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
+}
+.notice {
+  background: #fff6bf;
+  color: #514721;
+  border-color: #ffd324;
+}
+.success {
+  background: #e6efc2;
+  color: #264409;
+  border-color: #c6d880;
+}
+.info {
+  background: #d5edf8;
+  color: #205791;
+  border-color: #92cae4;
+}
+.error a,
+.alert a {
+  color: #8a1f11;
+}
+.notice a {
+  color: #514721;
+}
+.success a {
+  color: #264409;
+}
+.info a {
+  color: #205791;
+}
 div.month {
   width: 880px;
   border-top: 1px solid black;
@@ -3238,6 +3329,9 @@ img.cal_pic {
   .sitetitle {
     font-size: 2.25em;
   }
+  .byline {
+    margin-bottom: 22px;
+  }
   #flash,
   #featured-1,
   #featured-2,
@@ -3266,8 +3360,11 @@ img.cal_pic {
   div.today {
     width: 25px;
   }
+  h1.calendar-heading {
+    font-size: 1.375em;
+  }
   div.weekdays {
-    font-size: 8px;
+    font-size: 0.5em;
   }
   img.cal_pic {
     width: 100%;
@@ -3283,6 +3380,8 @@ img.cal_pic {
   }
   #main,
   #main-extended,
+  #sidebar,
+  #sidebar-reduced,
   #fullpage {
     display: inline;
     float: left;
@@ -3290,7 +3389,6 @@ img.cal_pic {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
-  #sidebar-reduced,
   #featured-1,
   #featured-2,
   #featured-3,
@@ -3327,7 +3425,8 @@ img.cal_pic {
   #wrapper {
     width: 960px;
   }
-  .comments {
+  .comments,
+  .comment-form {
     width: 75%;
   }
   #main-extended {
