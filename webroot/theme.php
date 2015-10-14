@@ -23,6 +23,7 @@ $app->router->add('theme-', function() use ($app) {
 	$sidebar = $app->fileContent->get('theme-sidebar.html');
 	$main_extended = $app->fileContent->get('theme-main-extended.html');
 	$sidebar_reduced = $app->fileContent->get('theme-sidebar-reduced.html');
+	$fullpage = $app->fileContent->get('theme-fullpage.html');
 	$triptych = $app->fileContent->get('theme-triptych.html');
 	$footer = $app->fileContent->get('theme-footer.html');
 
@@ -37,6 +38,8 @@ $app->router->add('theme-', function() use ($app) {
 
 	$app->views->add('theme/index', ['content' => $main_extended], 'main-extended');
 	$app->views->add('theme/index', ['content' => $sidebar_reduced], 'sidebar-reduced');
+
+	$app->views->add('theme/region-small', ['content' => $fullpage], 'fullpage');
 
 	$app->views->add('theme/region-small', ['content' => $triptych], 'triptych-1');
 	$app->views->add('theme/region-small', ['content' => $triptych], 'triptych-2');
