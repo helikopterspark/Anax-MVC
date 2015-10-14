@@ -116,7 +116,7 @@ $di->set('CommentController', function() use ($di) {
  		$_SESSION['diceplay'] = $play;
  	}
 
-  $app->views->add('me/dice100', ['dice100play' => $play->PlayDice100()], 'flash');
+  $app->views->add('me/dice100', ['dice100play' => $play->PlayDice100()], 'fullpage');
 
  });
 
@@ -136,7 +136,7 @@ $di->set('CommentController', function() use ($di) {
  		$calendar = new \CR\CCalendar\CCalendar(date("n"), date("Y"));
  	}
 
-  $app->views->add('me/calendar', ['content' => $calendar->showCalendar()], 'flash');
+  $app->views->add('me/calendar', ['content' => $calendar->showCalendar()], 'fullpage');
 
  });
 
@@ -156,7 +156,7 @@ $di->set('CommentController', function() use ($di) {
 
  	$app->views->add('theme/index', [
  		'content' => $source->View(),
- 		], 'flash');
+ 		], 'fullpage');
  });
 
  $app->router->handle();

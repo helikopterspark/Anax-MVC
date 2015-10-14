@@ -1,6 +1,21 @@
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
-	#navbar,
+
+	#wrapper {
+		width: 320px;
+	}
+
+	#header,
+	#navbar {
+		.column(@columns);
+		margin-bottom: @magicNumber * 4;
+	}
+
+	.sitetitle {
+		font-size: 2.25em;
+	}
+
+	#flash,
 	#featured-1,
 	#featured-2,
 	#featured-3,
@@ -11,10 +26,12 @@
 	#sidebar,
 	#main-extended,
 	#sidebar-reduced,
+	#fullpage,
 	#footer-col-1,
 	#footer-col-2,
 	#footer-col-3,
-	#footer-col-4 {
+	#footer-col-4,
+	#footer {
 		.column(@columns);
 		margin-bottom: @magicNumber;
 	}
@@ -22,6 +39,18 @@
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+	#wrapper {
+		width: 640px;
+	}
+
+	#main,
+	#main-extended,
+	#fullpage {
+		.column(@columns);
+		margin-bottom: @magicNumber;
+	}
+
+	#sidebar-reduced,
 	#featured-1,
 	#featured-2,
 	#featured-3,
@@ -43,6 +72,34 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+	#wrapper {
+		width: 960px;
+	}
+
+	#main-extended {
+		.column(@columns * 0.75);
+	}
+
+	#sidebar-reduced {
+		.column(@columns * 0.25);
+	}
+
+	#main {
+		.column(@columns / 3 * 2);
+	}
+
+	#sidebar {
+		.column(@columns / 3);
+	}
+
+	#main,
+	#sidebar,
+	#main-extended,
+	#sidebar-reduced,
+	#fullpage {
+		margin-bottom: @magicNumber;
+	}
+
 	#footer-col-1,
 	#footer-col-2,
 	#footer-col-3,
@@ -54,5 +111,6 @@
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+
 	
-	}
+}

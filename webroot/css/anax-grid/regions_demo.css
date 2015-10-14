@@ -6,6 +6,7 @@
 #sidebar,
 #main-extended,
 #sidebar-reduced,
+#fullpage,
 #featured-1,
 #featured-2,
 #featured-3,
@@ -16,5 +17,5 @@
 #footer-col-2,
 #footer-col-3, 
 #footer-col-4 {
-    background-color: #b4b4b4;
+    background-color: #b4b4b4 !important;
 }

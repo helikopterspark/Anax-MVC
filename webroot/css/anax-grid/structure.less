@@ -21,7 +21,8 @@
 #wrap-featured,
 #wrap-main,
 #wrap-triptych,
-#wrap-footer-col {
+#wrap-footer-col,
+ {
   .clearfix();
 }
 
@@ -64,6 +65,13 @@
   height: 3 * 22px;
 }
 
+/**
+ * Flash
+ */
+ #flash {
+  height: 6 * 22px;
+ }
+
 
 /**
  * Layout for main
@@ -77,9 +85,9 @@
  * Layout for footer
  */
  #footer {
-  margin-top: 40px;
+  margin-top: 2 * @magicNumber;
   border-top: 1px solid #ccc;
-  padding-top: 22px;
+  padding-top: @magicNumber;
 }
 
 .sitefooter {
@@ -112,7 +120,6 @@
 
 .byline p {
   font-size: @fontSizeSmall;
-
 }
 
 .right_float_with_margin {
@@ -157,6 +164,7 @@ a:focus {
 #header,
 #navbar,
 #flash,
+#fullpage,
 #footer {
   .column(@columns);
 }
@@ -203,6 +211,7 @@ a:focus {
 #sidebar-reduced,
 #main,
 #sidebar,
+#fullpage,
 #triptych-1,
 #triptych-2,
 #triptych-3,

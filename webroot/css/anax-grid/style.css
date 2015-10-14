@@ -5,6 +5,17 @@
 html.blue-theme .sitetitle {
   color: #3333ff;
 }
+html.blue-theme #flash-ad {
+  background: url(../../img/calendarpics/10.jpg);
+  width: 100%;
+  height: 132px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
 html.blue-theme .article1 h1,
 html.blue-theme .article1 h2,
 html.blue-theme .calendar-heading {
@@ -47,6 +58,17 @@ html.blue-theme #footer-col-4 {
 }
 html.green-theme .sitetitle {
   color: #339933;
+}
+html.green-theme #flash-ad {
+  background: url(../../img/calendarpics/10.jpg);
+  width: 100%;
+  height: 132px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 html.green-theme .article1 h1,
 html.green-theme .article1 h2,
@@ -91,6 +113,17 @@ html.green-theme #footer-col-4 {
 html.purple-theme .sitetitle {
   color: #6633cc;
 }
+html.purple-theme #flash-ad {
+  background: url(../../img/calendarpics/10.jpg);
+  width: 100%;
+  height: 132px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
 html.purple-theme .article1 h1,
 html.purple-theme .article1 h2,
 html.purple-theme .calendar-heading {
@@ -133,6 +166,17 @@ html.purple-theme #footer-col-4 {
 }
 html.red-theme .sitetitle {
   color: #cb151c;
+}
+html.red-theme #flash-ad {
+  background: url(../../img/calendarpics/10.jpg);
+  width: 100%;
+  height: 132px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 html.red-theme .article1 h1,
 html.red-theme .article1 h2,
@@ -2731,11 +2775,14 @@ body {
 #navbar {
   height: 66px;
 }
+#flash {
+  height: 132px;
+}
 #main {
   min-height: 22px;
 }
 #footer {
-  margin-top: 40px;
+  margin-top: 44px;
   border-top: 1px solid #ccc;
   padding-top: 22px;
 }
@@ -2787,6 +2834,7 @@ a:focus {
 #header,
 #navbar,
 #flash,
+#fullpage,
 #footer {
   display: inline;
   float: left;
@@ -2847,6 +2895,7 @@ a:focus {
 #sidebar-reduced,
 #main,
 #sidebar,
+#fullpage,
 #triptych-1,
 #triptych-2,
 #triptych-3,
@@ -3112,7 +3161,21 @@ input.text {
   border-color: #92cae4;
 }
 @media (max-width: 767px) {
-  #navbar,
+  #wrapper {
+    width: 320px;
+  }
+  #header,
+  #navbar {
+    display: inline;
+    float: left;
+    width: 97.916666666667%;
+    margin: 0 1.0416666666667%;
+    margin-bottom: 88px;
+  }
+  .sitetitle {
+    font-size: 2.25em;
+  }
+  #flash,
   #featured-1,
   #featured-2,
   #featured-3,
@@ -3123,10 +3186,12 @@ input.text {
   #sidebar,
   #main-extended,
   #sidebar-reduced,
+  #fullpage,
   #footer-col-1,
   #footer-col-2,
   #footer-col-3,
-  #footer-col-4 {
+  #footer-col-4,
+  #footer {
     display: inline;
     float: left;
     width: 97.916666666667%;
@@ -3135,6 +3200,19 @@ input.text {
   }
 }
 @media (min-width: 768px) {
+  #wrapper {
+    width: 640px;
+  }
+  #main,
+  #main-extended,
+  #fullpage {
+    display: inline;
+    float: left;
+    width: 97.916666666667%;
+    margin: 0 1.0416666666667%;
+    margin-bottom: 22px;
+  }
+  #sidebar-reduced,
   #featured-1,
   #featured-2,
   #featured-3,
@@ -3159,6 +3237,40 @@ input.text {
   }
 }
 @media (min-width: 992px) {
+  #wrapper {
+    width: 960px;
+  }
+  #main-extended {
+    display: inline;
+    float: left;
+    width: 72.916666666667%;
+    margin: 0 1.0416666666667%;
+  }
+  #sidebar-reduced {
+    display: inline;
+    float: left;
+    width: 22.916666666667%;
+    margin: 0 1.0416666666667%;
+  }
+  #main {
+    display: inline;
+    float: left;
+    width: 64.583333333333%;
+    margin: 0 1.0416666666667%;
+  }
+  #sidebar {
+    display: inline;
+    float: left;
+    width: 31.25%;
+    margin: 0 1.0416666666667%;
+  }
+  #main,
+  #sidebar,
+  #main-extended,
+  #sidebar-reduced,
+  #fullpage {
+    margin-bottom: 22px;
+  }
   #footer-col-1,
   #footer-col-2,
   #footer-col-3,
