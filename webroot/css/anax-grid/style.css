@@ -6,7 +6,7 @@ html.blue-theme .sitetitle {
   color: #3333ff;
 }
 html.blue-theme #flash-ad {
-  background: url(../../img/calendarpics/10.jpg);
+  background: url(../../img/calendarpics/1.jpg);
   width: 100%;
   height: 132px;
   display: -webkit-flex;
@@ -60,7 +60,7 @@ html.green-theme .sitetitle {
   color: #339933;
 }
 html.green-theme #flash-ad {
-  background: url(../../img/calendarpics/10.jpg);
+  background: url(../../img/calendarpics/6.jpg);
   width: 100%;
   height: 132px;
   display: -webkit-flex;
@@ -114,7 +114,7 @@ html.purple-theme .sitetitle {
   color: #6633cc;
 }
 html.purple-theme #flash-ad {
-  background: url(../../img/calendarpics/10.jpg);
+  background: url(../../img/calendarpics/7.jpg);
   width: 100%;
   height: 132px;
   display: -webkit-flex;
@@ -3013,7 +3013,7 @@ figure.rounded img {
   border-radius: 50px;
 }
 .comments {
-  width: 100%;
+  width: 75%;
 }
 .comments-hr {
   color: #eee;
@@ -3160,9 +3160,72 @@ input.text {
   color: #205791;
   border-color: #92cae4;
 }
+div.month {
+  width: 880px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+.right-calendar-link {
+  float: right;
+  width: 33%;
+}
+.left-calendar-link {
+  float: left;
+  width: 33%;
+}
+div.weekdays,
+div.day,
+div.today {
+  width: 115px;
+  float: left;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  font-size: small;
+  font-weight: normal;
+  line-height: 1.0em;
+  text-align: right;
+}
+div.headingweekdays {
+  overflow: auto;
+}
+div.day,
+div.today {
+  height: 35px;
+}
+div.week {
+  float: left;
+  width: 43px;
+  font-size: small;
+  font-style: italic;
+  text-align: center;
+}
+span.holiday,
+span.red {
+  color: #CB151C;
+}
+span.outsidemonth {
+  font-style: italic;
+  font-size: smaller;
+  color: #999;
+}
+div.today {
+  background: #c6d5e8;
+}
+h1.calendar-heading {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+img.cal_pic {
+  margin-bottom: 22px;
+}
 @media (max-width: 767px) {
   #wrapper {
     width: 320px;
+  }
+  .comments {
+    width: 100%;
   }
   #header,
   #navbar {
@@ -3198,10 +3261,25 @@ input.text {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
+  div.weekdays,
+  div.day,
+  div.today {
+    width: 25px;
+  }
+  div.weekdays {
+    font-size: 8px;
+  }
+  img.cal_pic {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media (min-width: 768px) {
   #wrapper {
     width: 640px;
+  }
+  .comments {
+    width: 100%;
   }
   #main,
   #main-extended,
@@ -3235,10 +3313,22 @@ input.text {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
+  div.weekdays,
+  div.day,
+  div.today {
+    width: 70px;
+  }
+  img.cal_pic {
+    width: 100%;
+    height: 100%;
+  }
 }
 @media (min-width: 992px) {
   #wrapper {
     width: 960px;
+  }
+  .comments {
+    width: 75%;
   }
   #main-extended {
     display: inline;
@@ -3280,5 +3370,10 @@ input.text {
     width: 22.916666666667%;
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
+  }
+  div.weekdays,
+  div.day,
+  div.today {
+    width: 115px;
   }
 }

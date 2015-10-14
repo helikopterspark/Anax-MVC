@@ -125,7 +125,7 @@ $di->set('CommentController', function() use ($di) {
   *
   */
  $app->router->add('calendar', function() use ($app) {
- 	$app->theme->addStylesheet('css/calendar.css');
+ 	//$app->theme->addStylesheet('css/calendar.css');
  	$app->theme->setTitle("Kalender");
 
  	if (isset($_GET['year']) && isset($_GET['month'])) {

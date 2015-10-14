@@ -5,6 +5,10 @@
 		width: 320px;
 	}
 
+	.comments {
+		width: 100%;
+	}
+
 	#header,
 	#navbar {
 		.column(@columns);
@@ -35,12 +39,29 @@
 		.column(@columns);
 		margin-bottom: @magicNumber;
 	}
+	/* Calendar */
+	div.weekdays, div.day, div.today {
+		width: 25px;
+	}
+
+	div.weekdays {
+		font-size: 8px;
+	}
+
+	img.cal_pic {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	#wrapper {
 		width: 640px;
+	}
+
+	.comments {
+		width: 100%;
 	}
 
 	#main,
@@ -68,12 +89,25 @@
 		.column(@columns / 2);
 		margin-bottom: @magicNumber;
 	}
+
+	div.weekdays, div.day, div.today {
+		width: 70px;
+	}
+
+	img.cal_pic {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	#wrapper {
 		width: 960px;
+	}
+
+	.comments {
+		width: 75%;
 	}
 
 	#main-extended {
@@ -106,6 +140,10 @@
 	#footer-col-4 {
 		.column(@columns / 4);
 		margin-bottom: @magicNumber;
+	}
+
+	div.weekdays, div.day, div.today {
+		width: 115px;
 	}
 }
 
