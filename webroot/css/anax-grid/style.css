@@ -3204,7 +3204,7 @@ div.gameboard {
   margin-bottom: 22px;
 }
 fieldset.gamefield {
-  height: 308px;
+  height: 418px;
 }
 .error,
 .alert,
@@ -3310,6 +3310,69 @@ h1.calendar-heading {
 }
 img.cal_pic {
   margin-bottom: 22px;
+}
+.src-breadcrumb,
+.src-filelist {
+  font-family: monospace;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 22px 0;
+}
+.src-breadcrumb li {
+  padding: 0;
+  margin: 0;
+  display: inline;
+}
+.src-header {
+  color: #000;
+  border: solid 1px #999;
+  border-bottom: 0px;
+  background: #eee;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+.src-rows {
+  float: left;
+  text-align: right;
+  color: #999;
+  border: solid 1px #999;
+  border-right: none;
+  background: #eee;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+.src-rows a:link,
+.src-rows a:visited,
+.src-rows a:hover,
+.src-rows a:active {
+  text-decoration: none;
+  color: inherit;
+}
+.src-code {
+  white-space: nowrap;
+  border: solid 1px #999;
+  background: #f9f9f9;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  overflow: auto;
+}
+div.hovergrid:hover {
+  background-image: url(grid_12_60_20.png);
+}
+div.regions #flash,
+div.regions #main,
+div.regions #sidebar,
+div.regions #main-extended,
+div.regions #sidebar-reduced,
+div.regions #fullpage,
+div.regions #featured-1,
+div.regions #featured-2,
+div.regions #featured-3,
+div.regions #triptych-1,
+div.regions #triptych-2,
+div.regions #triptych-3,
+div.regions #footer-col-1,
+div.regions #footer-col-2,
+div.regions #footer-col-3,
+div.regions #footer-col-4 {
+  background-color: #b4b4b4 !important;
 }
 @media (max-width: 767px) {
   #wrapper {

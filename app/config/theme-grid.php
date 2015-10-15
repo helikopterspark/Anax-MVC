@@ -4,26 +4,6 @@
  *
  */
 
-/* Just for demo purposes: */
-if (isset($_GET['color'])) {
-    $get = $_GET['color'];
-    switch ($get) {
-        case 'blue-theme':
-        $theme = $get;
-        break;
-        case 'green-theme':
-        $theme = $get;
-        break;
-        case 'purple-theme':
-        $theme = $get;
-        break;
-
-        default:
-        $theme = 'red-theme';
-        break;
-    }
-} else {$theme = 'red-theme';}
-
 return [
 
     /**
@@ -81,7 +61,7 @@ return [
     'lang' => 'sv',
 
         // Color theme
-    'theme' => $theme,
+    'theme' => 'red-theme',
 
         // Append this value to each <title>
     'title_append' => ' | Byggt med Anax',

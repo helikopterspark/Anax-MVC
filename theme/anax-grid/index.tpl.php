@@ -1,5 +1,5 @@
 <!doctype html>
-<html class='no-js <?=$theme?>' lang='<?=$lang?>'>
+<html <?=$this->theme->getClassAttributeFor("html","no-js")?> lang='<?=$lang?>'>
 <head>
 <meta charset='utf-8' name="viewport" content="width=device-width initial-scale=1"/>
 <title><?=$title . $title_append?></title>
@@ -13,7 +13,7 @@
 
 <body>
 
-<div id='wrapper'>
+<div id='wrapper' <?=$this->theme->getClassAttributeFor("wrapper")?>>
 
 <div id='header'>
 <?php if(isset($header)) echo $header?>
@@ -41,7 +41,7 @@
 <div id='wrap-main'>
 
 <?php if ($this->views->hasContent('main')) : ?>
-	<div id='main'><?php $this->views->render('main')?></div>
+	<div id='main' class='<?=$styling_main?>'><?php $this->views->render('main')?></div>
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('sidebar')) : ?>
