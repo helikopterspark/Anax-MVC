@@ -12,7 +12,7 @@
 	#header,
 	#navbar {
 		.column(@columns);
-		margin-bottom: @magicNumber * 4;
+		margin-bottom: @magicNumber * 3;
 	}
 
 	.sitetitle {
@@ -44,13 +44,23 @@
 		margin-bottom: @magicNumber;
 	}
 	/* Calendar */
-	div.calendar-grid {
-		margin: 0 auto;
-		max-width: 320px;
+	
+	div.weeks-in-month {
+		//background: yellow;
+	}
+
+	div.week-row-0,
+	div.week-row-1,
+	div.week-row-2,
+	div.week-row-3,
+	div.week-row-4,
+	div.week-row-5,
+	div.week-row-6 {
+		margin-left: 5%;
 	}
 
 	div.weekdays, div.day, div.today {
-		max-width: 25px;
+		min-width: 9.5%;
 	}
 
 	h1.calendar-heading {
@@ -71,7 +81,6 @@
 @media (min-width: 768px) {
 	#wrapper {
 		min-width: 640px;
-		//min-width: 100%;
 	}
 
 	.comments {
@@ -104,15 +113,6 @@
 	#footer-col-4 {
 		.column(@columns / 2);
 		margin-bottom: @magicNumber;
-	}
-
-	div.calendar-grid {
-		margin: 0 auto;
-		width: 640px;
-	}
-
-	div.weekdays, div.day, div.today {
-		max-width: 70px;
 	}
 
 	img.cal_pic {
@@ -162,14 +162,6 @@
 	#footer-col-4 {
 		.column(@columns / 4);
 		margin-bottom: @magicNumber;
-	}
-	div.calendar-grid {
-		margin: 0 auto;
-		width: 960px;
-	}
-
-	div.weekdays, div.day, div.today {
-		max-width: 115px;
 	}
 }
 

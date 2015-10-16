@@ -3256,7 +3256,7 @@ fieldset.gamefield {
   color: #205791;
 }
 div.month {
-  width: 880px;
+  width: 100%;
   border-top: 1px solid black;
   border-right: 1px solid black;
   border-left: 1px solid black;
@@ -3270,12 +3270,41 @@ div.month {
   width: 33%;
 }
 div.calendar-grid {
+  width: 100%;
   height: 400px;
+}
+div.weeks-in-month {
+  clear: both;
+  position: relative;
+  height: 276px;
+  margin-bottom: 22px;
+}
+div.week-row-0 {
+  clear: both;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+}
+div.week-row-1,
+div.week-row-2,
+div.week-row-3,
+div.week-row-4,
+div.week-row-5,
+div.week-row-6 {
+  clear: both;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+  position: relative;
 }
 div.weekdays,
 div.day,
 div.today {
-  width: 115px;
+  max-width: 14%;
+  min-width: 12%;
+  display: inline-block;
   float: left;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
@@ -3294,7 +3323,8 @@ div.today {
 }
 div.week {
   float: left;
-  width: 43px;
+  width: 5%;
+  display: inline-block;
   font-size: small;
   font-style: italic;
   text-align: center;
@@ -3312,8 +3342,11 @@ div.today {
   background: #c6d5e8;
 }
 h1.calendar-heading {
-  margin-left: 10px;
-  margin-right: 10px;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+  margin-bottom: 22px;
 }
 img.cal_pic {
   margin-bottom: 22px;
@@ -3394,7 +3427,7 @@ div.regions #footer-col-4 {
     float: left;
     width: 97.916666666667%;
     margin: 0 1.0416666666667%;
-    margin-bottom: 88px;
+    margin-bottom: 66px;
   }
   .sitetitle {
     font-size: 2.25em;
@@ -3425,14 +3458,19 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
-  div.calendar-grid {
-    margin: 0 auto;
-    max-width: 320px;
+  div.week-row-0,
+  div.week-row-1,
+  div.week-row-2,
+  div.week-row-3,
+  div.week-row-4,
+  div.week-row-5,
+  div.week-row-6 {
+    margin-left: 5%;
   }
   div.weekdays,
   div.day,
   div.today {
-    max-width: 25px;
+    min-width: 9.5%;
   }
   h1.calendar-heading {
     font-size: 1.375em;
@@ -3484,15 +3522,6 @@ div.regions #footer-col-4 {
     width: 47.916666666667%;
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
-  }
-  div.calendar-grid {
-    margin: 0 auto;
-    width: 640px;
-  }
-  div.weekdays,
-  div.day,
-  div.today {
-    max-width: 70px;
   }
   img.cal_pic {
     width: 100%;
@@ -3547,14 +3576,5 @@ div.regions #footer-col-4 {
     width: 22.916666666667%;
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
-  }
-  div.calendar-grid {
-    margin: 0 auto;
-    width: 960px;
-  }
-  div.weekdays,
-  div.day,
-  div.today {
-    max-width: 115px;
   }
 }

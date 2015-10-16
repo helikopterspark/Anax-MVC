@@ -57,7 +57,7 @@ class CCalendar {
 		$html .= $this->year . '</h1>';
 
 		// Weekdays heading
-        $html .= '<div class="headingweekdays">';
+        $html .= '<div class="week-row-0"><div class="headingweekdays">';
         $html .= '<div class="week">V</div>';
         for ($i = 1; $i < 8; $i++) { 
         	$html .='<div class="weekdays">';
@@ -70,8 +70,8 @@ class CCalendar {
         	}
         	$html .='</div>';
         }
-        $html .= '</div>';
-		$html .= '<div style="height: 276px; margin-bottom: 22px;">' . $this->monthHTML->GetMonthAsHTML() . '</div>';
+        $html .= '</div></div>';
+		$html .= '<div class="weeks-in-month">' . $this->monthHTML->GetMonthAsHTML() . '</div>';
 		$html .= <<<EOD
 		<div class="left-calendar-link">
 			<p><a href="?year={$this->prevYear}&amp;month={$this->prevMonth}">&lt; {$prev}</a></p>

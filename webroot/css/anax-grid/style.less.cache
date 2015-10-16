@@ -1,4 +1,4 @@
-a:4:{s:4:"root";s:10:"style.less";s:8:"compiled";s:58779:"@charset "utf-8";
+a:4:{s:4:"root";s:10:"style.less";s:8:"compiled";s:59207:"@charset "utf-8";
 @import url(https://fonts.googleapis.com/css?family=Orbitron);
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
@@ -3256,7 +3256,7 @@ fieldset.gamefield {
   color: #205791;
 }
 div.month {
-  width: 880px;
+  width: 100%;
   border-top: 1px solid black;
   border-right: 1px solid black;
   border-left: 1px solid black;
@@ -3270,12 +3270,41 @@ div.month {
   width: 33%;
 }
 div.calendar-grid {
+  width: 100%;
   height: 400px;
+}
+div.weeks-in-month {
+  clear: both;
+  position: relative;
+  height: 276px;
+  margin-bottom: 22px;
+}
+div.week-row-0 {
+  clear: both;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+}
+div.week-row-1,
+div.week-row-2,
+div.week-row-3,
+div.week-row-4,
+div.week-row-5,
+div.week-row-6 {
+  clear: both;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+  position: relative;
 }
 div.weekdays,
 div.day,
 div.today {
-  width: 115px;
+  max-width: 14%;
+  min-width: 12%;
+  display: inline-block;
   float: left;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
@@ -3294,7 +3323,8 @@ div.today {
 }
 div.week {
   float: left;
-  width: 43px;
+  width: 5%;
+  display: inline-block;
   font-size: small;
   font-style: italic;
   text-align: center;
@@ -3312,8 +3342,11 @@ div.today {
   background: #c6d5e8;
 }
 h1.calendar-heading {
-  margin-left: 10px;
-  margin-right: 10px;
+  display: inline;
+  float: left;
+  width: 97.916666666667%;
+  margin: 0 1.0416666666667%;
+  margin-bottom: 22px;
 }
 img.cal_pic {
   margin-bottom: 22px;
@@ -3394,7 +3427,7 @@ div.regions #footer-col-4 {
     float: left;
     width: 97.916666666667%;
     margin: 0 1.0416666666667%;
-    margin-bottom: 88px;
+    margin-bottom: 66px;
   }
   .sitetitle {
     font-size: 2.25em;
@@ -3425,14 +3458,19 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
-  div.calendar-grid {
-    margin: 0 auto;
-    max-width: 320px;
+  div.week-row-0,
+  div.week-row-1,
+  div.week-row-2,
+  div.week-row-3,
+  div.week-row-4,
+  div.week-row-5,
+  div.week-row-6 {
+    margin-left: 5%;
   }
   div.weekdays,
   div.day,
   div.today {
-    max-width: 25px;
+    min-width: 9.5%;
   }
   h1.calendar-heading {
     font-size: 1.375em;
@@ -3484,15 +3522,6 @@ div.regions #footer-col-4 {
     width: 47.916666666667%;
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
-  }
-  div.calendar-grid {
-    margin: 0 auto;
-    width: 640px;
-  }
-  div.weekdays,
-  div.day,
-  div.today {
-    max-width: 70px;
   }
   img.cal_pic {
     width: 100%;
@@ -3548,14 +3577,5 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
-  div.calendar-grid {
-    margin: 0 auto;
-    width: 960px;
-  }
-  div.weekdays,
-  div.day,
-  div.today {
-    max-width: 115px;
-  }
 }
-";s:5:"files";a:32:{s:86:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/style.less";i:1444951186;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/variables.less";i:1445019909;s:93:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/colorschemes.less";i:1445020514;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/mixins.less";i:1444250759;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/css3mixins.less";i:1444250870;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/normalize.less";i:1426618643;s:85:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/grid.less";i:1444165730;s:117:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/font-awesome.less";i:1441138232;s:114:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/variables.less";i:1444338083;s:111:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/mixins.less";i:1441138232;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/path.less";i:1441138233;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/core.less";i:1441138232;s:111:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/larger.less";i:1441138232;s:116:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/fixed-width.less";i:1441138232;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/list.less";i:1441138232;s:120:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/bordered-pulled.less";i:1441138232;s:113:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/animated.less";i:1441138232;s:120:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/rotated-flipped.less";i:1441138232;s:112:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/stacked.less";i:1441138232;s:110:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/icons.less";i:1441138232;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/typography.less";i:1445020041;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/structure.less";i:1445020167;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/navbar.less";i:1444768031;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/figure.less";i:1444078417;s:89:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/comments.less";i:1444862538;s:88:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/dice100.less";i:1444933461;s:85:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/dice.less";i:1444860861;s:89:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/calendar.less";i:1445022485;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/source.less";i:1444932904;s:96:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/grid_background.less";i:1444950920;s:93:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/regions_demo.less";i:1444951337;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/responsive.less";i:1445023380;}s:7:"updated";i:1445023382;}
+";s:5:"files";a:32:{s:86:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/style.less";i:1444951186;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/variables.less";i:1445019909;s:93:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/colorschemes.less";i:1445020514;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/mixins.less";i:1444250759;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/css3mixins.less";i:1444250870;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/normalize.less";i:1426618643;s:85:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/grid.less";i:1444165730;s:117:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/font-awesome.less";i:1441138232;s:114:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/variables.less";i:1444338083;s:111:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/mixins.less";i:1441138232;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/path.less";i:1441138233;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/core.less";i:1441138232;s:111:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/larger.less";i:1441138232;s:116:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/fixed-width.less";i:1441138232;s:109:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/list.less";i:1441138232;s:120:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/bordered-pulled.less";i:1441138232;s:113:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/animated.less";i:1441138232;s:120:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/rotated-flipped.less";i:1441138232;s:112:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/stacked.less";i:1441138232;s:110:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/font-awesome-4.4.0/less/icons.less";i:1441138232;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/typography.less";i:1445020041;s:90:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/structure.less";i:1445020167;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/navbar.less";i:1444768031;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/figure.less";i:1444078417;s:89:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/comments.less";i:1444862538;s:88:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/dice100.less";i:1444933461;s:85:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/dice.less";i:1444860861;s:89:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/calendar.less";i:1445035505;s:87:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/source.less";i:1444932904;s:96:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/grid_background.less";i:1444950920;s:93:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/regions_demo.less";i:1444951337;s:91:"/Applications/XAMPP/xamppfiles/htdocs/phpmvc/Anax-MVC/webroot/css/anax-grid/responsive.less";i:1445035784;}s:7:"updated";i:1445035786;}

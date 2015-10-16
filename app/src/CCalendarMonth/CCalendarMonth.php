@@ -47,8 +47,10 @@ class CCalendarMonth {
         $weekNos = array_unique($addWeeks); // Remove duplicates
         $prevWeek = $weekNos[0];
 
+        $row = 1;
         // Render weeks with week numbers and days
         foreach ($weekNos as $week) {
+            $html .= '<div class=week-row-' . $row . '>';
             $tempYear = $this->year;
             $html .= '<div class="week">' . $week . '</div>';
             if ($prevWeek > $week && $this->month == 12) {
@@ -87,6 +89,8 @@ class CCalendarMonth {
                 }
                 $html .= '</div>';
             }
+            $html .= '</div>';
+            $row++;
             $prevWeek = $week;
         }
         return $html;
