@@ -2,7 +2,7 @@
 @media (max-width: 767px) {
 
 	#wrapper {
-		width: 320px;
+		min-width: 320px;
 	}
 
 	.comments {
@@ -44,8 +44,13 @@
 		margin-bottom: @magicNumber;
 	}
 	/* Calendar */
+	div.calendar-grid {
+		margin: 0 auto;
+		max-width: 320px;
+	}
+
 	div.weekdays, div.day, div.today {
-		width: 25px;
+		max-width: 25px;
 	}
 
 	h1.calendar-heading {
@@ -65,7 +70,8 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 	#wrapper {
-		width: 640px;
+		min-width: 640px;
+		//min-width: 100%;
 	}
 
 	.comments {
@@ -100,8 +106,13 @@
 		margin-bottom: @magicNumber;
 	}
 
+	div.calendar-grid {
+		margin: 0 auto;
+		width: 640px;
+	}
+
 	div.weekdays, div.day, div.today {
-		width: 70px;
+		max-width: 70px;
 	}
 
 	img.cal_pic {
@@ -113,7 +124,7 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 	#wrapper {
-		width: 960px;
+		max-width: 960px;
 	}
 
 	.comments,
@@ -152,9 +163,13 @@
 		.column(@columns / 4);
 		margin-bottom: @magicNumber;
 	}
+	div.calendar-grid {
+		margin: 0 auto;
+		width: 960px;
+	}
 
 	div.weekdays, div.day, div.today {
-		width: 115px;
+		max-width: 115px;
 	}
 }
 

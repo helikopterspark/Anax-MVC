@@ -53,7 +53,7 @@ class CCalendar {
 
 		// Build html
 		$html = '<img class="cal_pic" src="img/calendarpics/' .$this->month. '.jpg" width="940" height="176" alt="Kalenderbild"/>';
-		$html .= '<div style="height: 400px;"><h1 class="calendar-heading">' . $this->monthName . ' ';
+		$html .= '<div class="calendar-grid"><h1 class="calendar-heading">' . $this->monthName . ' ';
 		$html .= $this->year . '</h1>';
 
 		// Weekdays heading

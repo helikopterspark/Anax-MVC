@@ -41,7 +41,7 @@
 <div id='wrap-main'>
 
 <?php if ($this->views->hasContent('main')) : ?>
-	<div id='main' class='<?=$styling_main?>'><?php $this->views->render('main')?></div>
+	<div id='main' <?=$this->theme->getClassAttributeFor("main")?>><?php $this->views->render('main')?></div>
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('sidebar')) : ?>

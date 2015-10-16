@@ -8,7 +8,6 @@ require __DIR__.'/config_with_app_CR.php';
 $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
-//$app->theme->addClassAttributeFor('html', '');
 
 /**
  * Comments

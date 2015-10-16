@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Orbitron);
 @import url(http://fonts.googleapis.com/css?family=Roboto:300);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
 html.blue-theme .sitetitle {
   color: #3333ff;
 }
@@ -19,6 +20,7 @@ html.blue-theme #flash-ad {
 html.blue-theme .article1 h1,
 html.blue-theme .article1 h2,
 html.blue-theme .calendar-heading {
+  font-family: Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid #3333ff;
 }
 html.blue-theme #main a,
@@ -73,6 +75,7 @@ html.green-theme #flash-ad {
 html.green-theme .article1 h1,
 html.green-theme .article1 h2,
 html.green-theme .calendar-heading {
+  font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;
   border-bottom: 1px solid #339933;
 }
 html.green-theme #main a,
@@ -127,6 +130,7 @@ html.purple-theme #flash-ad {
 html.purple-theme .article1 h1,
 html.purple-theme .article1 h2,
 html.purple-theme .calendar-heading {
+  font-family: Orbitron;
   border-bottom: 1px solid #6633cc;
 }
 html.purple-theme #main a,
@@ -2456,7 +2460,7 @@ h6 img {
 h1 {
   font-size: 2.375em;
   line-height: 1.1578947368421;
-  font-family: Orbitron;
+  font-family: 'Roboto Slab', serif;
   font-weight: normal;
 }
 h1 ~ h2,
@@ -2469,7 +2473,7 @@ h1 ~ h6 {
 h2 {
   font-size: 1.875em;
   line-height: 1.4666666666667;
-  font-family: Roboto;
+  font-family: 'Roboto Slab', serif;
   font-weight: normal;
 }
 h2 ~ h3 {
@@ -3265,6 +3269,9 @@ div.month {
   float: left;
   width: 33%;
 }
+div.calendar-grid {
+  height: 400px;
+}
 div.weekdays,
 div.day,
 div.today {
@@ -3376,7 +3383,7 @@ div.regions #footer-col-4 {
 }
 @media (max-width: 767px) {
   #wrapper {
-    width: 320px;
+    min-width: 320px;
   }
   .comments {
     width: 100%;
@@ -3418,10 +3425,14 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
+  div.calendar-grid {
+    margin: 0 auto;
+    max-width: 320px;
+  }
   div.weekdays,
   div.day,
   div.today {
-    width: 25px;
+    max-width: 25px;
   }
   h1.calendar-heading {
     font-size: 1.375em;
@@ -3436,7 +3447,7 @@ div.regions #footer-col-4 {
 }
 @media (min-width: 768px) {
   #wrapper {
-    width: 640px;
+    min-width: 640px;
   }
   .comments {
     width: 100%;
@@ -3474,10 +3485,14 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
+  div.calendar-grid {
+    margin: 0 auto;
+    width: 640px;
+  }
   div.weekdays,
   div.day,
   div.today {
-    width: 70px;
+    max-width: 70px;
   }
   img.cal_pic {
     width: 100%;
@@ -3486,7 +3501,7 @@ div.regions #footer-col-4 {
 }
 @media (min-width: 992px) {
   #wrapper {
-    width: 960px;
+    max-width: 960px;
   }
   .comments,
   .comment-form {
@@ -3533,9 +3548,13 @@ div.regions #footer-col-4 {
     margin: 0 1.0416666666667%;
     margin-bottom: 22px;
   }
+  div.calendar-grid {
+    margin: 0 auto;
+    width: 960px;
+  }
   div.weekdays,
   div.day,
   div.today {
-    width: 115px;
+    max-width: 115px;
   }
 }
