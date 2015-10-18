@@ -79,6 +79,8 @@ Just tema-biten var inte så svår att sätta sig in i men det har varit ett vä
 
 Under arbetets gång har jag dessutom fått en duvning i att använda git. Jag brukar committa lokalt, sedan `push` till github. Därefter gör jag `clone` på min Pi och `pull` vid varje uppdatering. Samma procedur på studentservern sedan. Där fixar jag .htaccess-filen för mod\_rewrite. Denna ändring orsakar en konflikt vid nästa `pull`, men då lärde jag mig att göra `git reset —-hard origin/master` för att ignorera alla ändringar. Då är det bara att göra `pull` och sedan ta bort ett ynka tecken i .htaccess igen.
 
+Jag vill tillägga att valideringen felar för Font Awesome och vissa konstruktioner som följde med LESS-filerna. Jag antar att det inte är mycket att göra åt detta i dagsläget. Jag har sett till att html-koden är ok och att jag inte infört några egna CSS-fel.
+
 ##### Vad tycker du om CSS-ramverk i allmänhet och vilka tidigare erfarenheter har du av dem?
 
 Jag har inga större erfarenheter av rena CSS-ramverk sedan tidigare men det är förstås bra att ha något att utgå ifrån. Att skapa en design genom att bygga upp CSS-filer från grunden är något som tar väldigt lång tid för mig. Jag är inte riktigt vän med CSS av någon anledning och även i tidigare kurser har just CSS-biten stulit enormt mycket tid av den totala arbetstiden.
@@ -111,7 +113,7 @@ Normalize är också bra. Allt som kan nollställa och ge konsekventa resultat �
 
 ##### Beskriv ditt tema, hur tänkte du när du gjorde det, gjorde du några utsvävningar?
 
-Jag försökte återskapa den look som jag hade skapat tidigare för ramverket genom att använda LESS istället för CSS. Som en följd av detta så applicerade jag temat på alla sidor som jag skapat för föregående kursmoment. Det funkade bra och utsvävningen jag gjorde var att få kalenderns alla div-element att vara responsiva, utan att kalendern gick sönder. Jag lade nog för mycket tid på att få till det men nu ser den bra ut, från full bredd till smalaste  bredden.
+Jag försökte återskapa den look som jag hade skapat tidigare för ramverket genom att använda LESS istället för CSS. Som en följd av detta så applicerade jag temat på alla sidor som jag skapat för föregående kursmoment. Det funkade bra och utsvävningen jag gjorde var att få kalenderns alla div-element att vara responsiva, utan att kalendern gick sönder. Jag lade nog för mycket tid på att få till det men nu ser den bra ut, från full bredd till smalaste  bredden. Så jag vill speciellt framhäva min elastiska kalender.
 
 Jag har även sett till att temat anpassar sig till mobila enheter och ser bra ut på dessa. Det är rätt snyggt när man ändrar orienteringen på en iPad och kalendern anpassar sig efter skärmbredden.
 
