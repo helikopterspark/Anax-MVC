@@ -36,6 +36,7 @@ $app->router->add('theme-', function() use ($app) {
 	}
 
 	$app->theme->addClassAttributeFor('html', $theme);
+	
 	$app->theme->setTitle("Tema");
 
 	$flash = $app->fileContent->get('theme-flash.html');

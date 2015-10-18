@@ -26,21 +26,22 @@ $di->set('CommentController', function() use ($di) {
  $app->router->add('', function() use ($app) {
  	$app->theme->setTitle("Om mig");
 
- $content = $app->fileContent->get('me.md');
-  $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
-  $aside = $app->fileContent->get('appadv.html');
-  $byline = $app->fileContent->get('byline.html');
+   $content = $app->fileContent->get('me.md');
+   $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+   $aside = $app->fileContent->get('appadv.html');
+   $byline = $app->fileContent->get('byline.html');
 
-  $pagecontent = $content . $byline;
+   $pagecontent = $content . $byline;
 
- $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
- $app->views->add('theme/index', ['content' => $aside], 'sidebar-reduced');
+   $app->theme->addClassAttributeFor('sidebar-reduced', 'appad');
+   $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
+   $app->views->add('theme/index', ['content' => $aside], 'sidebar-reduced');
 
- 	$app->dispatcher->forward([
- 		'controller' => 'comment',
- 		'action'     => 'viewPageComments',
- 		'params'	=> ['me-page', ''],
- 		]);
+   $app->dispatcher->forward([
+     'controller' => 'comment',
+     'action'     => 'viewPageComments',
+     'params'	=> ['me-page', ''],
+     ]);
  });
 
  /**
@@ -57,12 +58,12 @@ $di->set('CommentController', function() use ($di) {
 
   $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
 
- 	$app->dispatcher->forward([
- 		'controller' => 'comment',
- 		'action'     => 'viewPageComments',
- 		'params'	=> ['redovisning-page', 'redovisning'],
- 		]);
- });
+  $app->dispatcher->forward([
+   'controller' => 'comment',
+   'action'     => 'viewPageComments',
+   'params'	=> ['redovisning-page', 'redovisning'],
+   ]);
+});
 
  /**
   * Dice
@@ -104,31 +105,30 @@ $di->set('CommentController', function() use ($di) {
   *
   */
  $app->router->add('dice100', function() use ($app) {
- 	$app->theme->addStylesheet('css/dice.css');
+ 	
  	$app->theme->setTitle("Tärning 100");
  	// Start session
  	$app->session();
 
   $instruction = $app->fileContent->get('dice100instruction.html');
 
- 	if (isset($_SESSION['diceplay'])) {
- 		$play = $_SESSION['diceplay'];
- 	} else {
- 		$play = new \CR\CPlayDice100\CPlayDice100();
- 		$_SESSION['diceplay'] = $play;
- 	}
+  if (isset($_SESSION['diceplay'])) {
+   $play = $_SESSION['diceplay'];
+ } else {
+   $play = new \CR\CPlayDice100\CPlayDice100();
+   $_SESSION['diceplay'] = $play;
+ }
 
-  $app->views->add('theme/index', ['content' => $play->PlayDice100()], 'main-extended');
-  $app->views->add('theme/index', ['content' => $instruction], 'sidebar-reduced');
+ $app->views->add('theme/index', ['content' => $play->PlayDice100()], 'main-extended');
+ $app->views->add('theme/index', ['content' => $instruction], 'sidebar-reduced');
 
- });
+});
 
  /**
   * Calendar
   *
   */
  $app->router->add('calendar', function() use ($app) {
- 	//$app->theme->addStylesheet('css/calendar.css');
  	$app->theme->setTitle("Kalender");
 
  	if (isset($_GET['year']) && isset($_GET['month'])) {
@@ -141,14 +141,13 @@ $di->set('CommentController', function() use ($di) {
 
   $app->views->add('me/calendar', ['content' => $calendar->showCalendar()], 'fullpage');
 
- });
+});
 
  /**
   * Source code
   *
   */
  $app->router->add('source', function() use ($app) {
- 	//$app->theme->addStylesheet('css/source.css');
  	$app->theme->setTitle("Källkod");
 
  	$source = new \Mos\Source\CSource([

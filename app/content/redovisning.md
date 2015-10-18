@@ -73,30 +73,61 @@ En större svaghet är dock att kommentarerna sparas i en array i sessionen. Det
 <a id="Kmom03"></a> Kmom03: Bygg ett eget tema
 -------------------------------
 
-Beskrivning av kursmoment 3.
+Kursmoment 3 behandlar ett intressant ämne tycker jag. Att kunna använda mallar för ett tema och med dessa sedan snabbt kunna skapa nya sidor är väl en del av vitsen med ett ramverk.
+
+Just tema-biten var inte så svår att sätta sig in i men det har varit ett väldigt tidsödande kursmoment med många sena kvällar. Så pass att jag halkat efter lite i min planering. Det har gått åt en hel del tid åt att lösa saker som inte direkt berört temat. Jag ville bl a få till snygga länkar för mer än en sidkontroller och lade en del tid på det. Sedan som en följd av detta fick jag dyka djupare i mod\_rewrite eftersom jag ville få det att funka i webservern på min Raspberry Pi. Det anknyter kanske inte direkt till kursmomentet men i viss mån till kursen och det var väldigt lärorikt. Jag har i alla fall fått till snygga länkar även för theme.php som hanterar temasidorna.
+
+Under arbetets gång har jag dessutom fått en duvning i att använda git. Jag brukar committa lokalt, sedan `push` till github. Därefter gör jag `clone` på min Pi och `pull` vid varje uppdatering. Samma procedur på studentservern sedan. Där fixar jag .htaccess-filen för mod\_rewrite. Denna ändring orsakar en konflikt vid nästa `pull`, men då lärde jag mig att göra `git reset —-hard origin/master` för att ignorera alla ändringar. Då är det bara att göra `pull` och sedan ta bort ett ynka tecken i .htaccess igen.
 
 ##### Vad tycker du om CSS-ramverk i allmänhet och vilka tidigare erfarenheter har du av dem?
 
-Sådär.
+Jag har inga större erfarenheter av rena CSS-ramverk sedan tidigare men det är förstås bra att ha något att utgå ifrån. Att skapa en design genom att bygga upp CSS-filer från grunden är något som tar väldigt lång tid för mig. Jag är inte riktigt vän med CSS av någon anledning och även i tidigare kurser har just CSS-biten stulit enormt mycket tid av den totala arbetstiden.
 
 ##### Vad tycker du om LESS, lessphp och Semantic.gs?
 
-Sådär.
+LESS förenklar handhavandet med CSS på framförallt två punkter. Dels att man kan använda sig av variabler för att snabbt ändra värden, ändringar som dessutom slår igenom i flera filer, är mycket smidigt.
+
+Jag tyckte dessutom att det blev lättare att hålla reda på i vilken ordning filerna laddades in i style.less. Jag tycker ofta annars att CSS blir väldigt rörigt och svårt att hitta rätt i när filerna börjar växa.
+
+lessphp är ju väldigt smidigt då det funkar mer eller mindre automatiskt.
+
+Semantic Grid förenklar avsevärt. Jag har tittat lite på 960 Grid System tidigare och tyckte det var aningen för rörigt med alla klasser för kolumner. Allt som förenklar hanteringen av CSS är bra.
+
+Temat är responsivt vid tre brytpunkter och ser dessutom bra ut på mobila enheter, genom att lägga till `name='viewport' content='width=device-width initial-scale=1'` i `<meta>`-taggen.
 
 ##### Vad tycker du om gridbaserad layout, vertikalt och horisontellt?
 
-Sådär.
+Jag tycker det är utmärkt att ha som riktlinjer att utgå ifrån. Det är inte helt enkelt att hitta rätt proportioner för element på en sida genom att bara på gå känsla. Är man inte designer med bra öga för proportioner så är det bra att ha ett rutnät att hålla sig till för att få till en bra symmetri.
+
+Det var bra att få lära sig lite om typografi och jag hade gärna dykt lite djupare i det om tiden hade tillåtit. Framför allt den matematiska delen. Återigen, det är bra att det finns vissa grundregler att hålla sig till, så att man inte behöver köra på känsla om man inte är konstnär.
 
 ##### Har du några kommentarer om Font Awesome, Bootstrap, Normalize?
 
-Njae.
+Jag gillar framför allt Font Awesome. En bildbank med snygga skalbara ikoner är mycket bra att ha tills hands. Jag kommer högst troligt att använda dessa ikoner framöver.
+
+Bootstrap verkar vara en bra hjälp att ha att utgå ifrån när man skapar teman. Jag dök dock inte så djupt i det denna gång.
+
+Normalize är också bra. Allt som kan nollställa och ge konsekventa resultat är bra när man jobbar med CSS tycker jag.
 
 ##### Beskriv ditt tema, hur tänkte du när du gjorde det, gjorde du några utsvävningar?
 
-Jovisst.
+Jag försökte återskapa den look som jag hade skapat tidigare för ramverket genom att använda LESS istället för CSS. Som en följd av detta så applicerade jag temat på alla sidor som jag skapat för föregående kursmoment. Det funkade bra och utsvävningen jag gjorde var att få kalenderns alla div-element att vara responsiva, utan att kalendern gick sönder. Jag lade nog för mycket tid på att få till det men nu ser den bra ut, från full bredd till smalaste  bredden.
+
+Jag har även sett till att temat anpassar sig till mobila enheter och ser bra ut på dessa. Det är rätt snyggt när man ändrar orienteringen på en iPad och kalendern anpassar sig efter skärmbredden.
 
 ##### Antog du utmaningen som extra uppgift?
 
-Jorå.
+Jag har gjort bägge extrauppgifterna.
+
+För att göra sidor och regioner lättare att styla har jag lagt till ett par metoder, som kan anropas dels från sidkontrollern och dels från själva html-sidan. Jag utgick från ett förslag på upplägg som fanns i forumet: [url ur Anax-MVC](http://dbwebb.se/forum/viewtopic.php?f=40&t=3293).
+
+Jag utökade alltså ramverksklasserna med klasserna CThemeExtended och CDIFactoryExtended och skapade en ny config\_with\_app\_CR.php. CThemeExtended innehåller metoderna `getClassAttributeFor()` och `addClassAttributeFor()`. Den förstnämnda läggs till i önskad element-tag i html-sidan. Den andra metoden används i sidkontrollern för att sätta klasser. Jag har även utökat `render()`-metoden. Om man inte sätter ett tema för `<html>`-taggen via sidkontrollern så kollar den istället i config-filen efter temat. Jag har lagt till några länkar som ändrar färgschemat för att demonstrera funktionen på Tema-sidan.
+
+Jag gjorde en fristående variant av temat som inte är kopplat till något ramverk. Det är baserat på PHP, lessphp, Font Awesome och The Semantic Grid.
+Det är upplagt på github här: [https://github.com/helikopterspark/orbit-theme](https://github.com/helikopterspark/orbit-theme)
+
+Jag har även lagt upp det på studentservern för påseende här: [http://www.student.bth.se/~carb14/phpmvc/orbit-theme/index.php](http://www.student.bth.se/~carb14/phpmvc/orbit-theme/index.php)
+
+Om temat är till användning för någon är väl tveksamt. Det var dock en bra övning att bryta ut det nödvändiga för att få tema och sidor att fungera fristående från ramverket.
 
 [Upp](#)

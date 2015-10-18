@@ -1,7 +1,8 @@
 <!doctype html>
 <html <?=$this->theme->getClassAttributeFor("html","no-js")?> lang='<?=$lang?>'>
 <head>
-<meta charset='utf-8' name='viewport' content='width=device-width initial-scale=1'>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width initial-scale=1' />
 <title><?=$title . $title_append?></title>
 <?php if(isset($favicon)): ?><link rel='icon' href='<?=$this->url->asset($favicon)?>'/><?php endif; ?>
 <?php foreach($stylesheets as $stylesheet): ?>
@@ -38,31 +39,31 @@
 </div>
 <?php endif; ?>
 
-<div id='wrap-main'>
+<div id='wrap-main' <?=$this->theme->getClassAttributeFor("wrap-main")?>>
 
 <?php if ($this->views->hasContent('main')) : ?>
 	<div id='main' <?=$this->theme->getClassAttributeFor("main")?>><?php $this->views->render('main')?></div>
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('sidebar')) : ?>
-	<div id='sidebar'><?php $this->views->render('sidebar')?></div>
+	<div id='sidebar' <?=$this->theme->getClassAttributeFor("sidebar")?>><?php $this->views->render('sidebar')?></div>
 <?php endif; ?>
-</div>
 
 <?php if ($this->views->hasContent('main-extended')) : ?>
-	<div id='main-extended'><?php $this->views->render('main-extended')?></div>
+	<div id='main-extended' <?=$this->theme->getClassAttributeFor("main-extended")?>><?php $this->views->render('main-extended')?></div>
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('sidebar-reduced')) : ?>
-	<div id='sidebar-reduced'><?php $this->views->render('sidebar-reduced')?></div>
+	<div id='sidebar-reduced' <?=$this->theme->getClassAttributeFor("sidebar-reduced")?>><?php $this->views->render('sidebar-reduced')?></div>
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('fullpage')) : ?>
-	<div id='fullpage'><?php $this->views->render('fullpage')?></div>
+	<div id='fullpage' <?=$this->theme->getClassAttributeFor("fullpage")?>><?php $this->views->render('fullpage')?></div>
 <?php endif; ?>
+</div>
 
 <?php if ($this->views->hasContent('triptych-1', 'triptych-2', 'triptych-3')) : ?>
-<div id='wrap-triptych'>
+<div id='wrap-triptych' <?=$this->theme->getClassAttributeFor("wrap-triptych")?>>
 	<div id='triptych-1'><?php $this->views->render('triptych-1')?></div>
 	<div id='triptych-2'><?php $this->views->render('triptych-2')?></div>
 	<div id='triptych-3'><?php $this->views->render('triptych-3')?></div>
@@ -70,7 +71,7 @@
 <?php endif; ?>
 
 <?php if ($this->views->hasContent('footer-col-1', 'footer-col-2', 'footer-col-3', 'footer-col-4')) : ?>
-<div id='wrap-footer-col'>
+<div id='wrap-footer-col' <?=$this->theme->getClassAttributeFor("wrap-footer-col")?>>
 	<div id='footer-col-1'><?php $this->views->render('footer-col-1')?></div>
 	<div id='footer-col-2'><?php $this->views->render('footer-col-2')?></div>
 	<div id='footer-col-3'><?php $this->views->render('footer-col-3')?></div>
@@ -78,7 +79,7 @@
 </div>
 <?php endif; ?>
 
-<div id='footer'>
+<div id='footer' <?=$this->theme->getClassAttributeFor("footer")?>>
 <?php if(isset($footer)) echo $footer?>
 <?php $this->views->render('footer')?>
 </div>
