@@ -70,7 +70,7 @@
 					<p><?=$comment['content']?></p>
 					<form method=post action="#comment-form">
 						<input type=hidden name="commentID" value="<?=$id?>">
-						<input type=hidden name="redirect" value="<?=$this->url->create($comment['redirect'])?>">
+						<input type=hidden name="redirect" value="<?=$this->url->create($redirect)?>">
 						<input class=edit-button type='submit' name='doEditComment' value='Redigera'>
 					</form>
 				</div> <!-- comment-section -->
