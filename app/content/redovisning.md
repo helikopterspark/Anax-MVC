@@ -105,7 +105,7 @@ Det var bra att få lära sig lite om typografi och jag hade gärna dykt lite dj
 
 ##### Har du några kommentarer om Font Awesome, Bootstrap, Normalize?
 
-Jag gillar framför allt Font Awesome. En bildbank med snygga skalbara ikoner är mycket bra att ha tills hands. Jag kommer högst troligt att använda dessa ikoner framöver.
+Jag gillar framför allt Font Awesome. En bildbank med snygga skalbara ikoner är mycket bra att ha till hands. Jag kommer högst troligt att använda dessa ikoner framöver.
 
 Bootstrap verkar vara en bra hjälp att ha att utgå ifrån när man skapar teman. Jag dök dock inte så djupt i det denna gång.
 

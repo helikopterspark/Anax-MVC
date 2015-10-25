@@ -100,6 +100,7 @@ class CommentControllerExtended extends \Phpmvc\Comment\CommentController {
 		$this->views->add('comment/comments', [
 			'form'	=> $form,
 			'comments' => $all,
+			'redirect' => $redirect
 			], 'fullpage');
 	}
 

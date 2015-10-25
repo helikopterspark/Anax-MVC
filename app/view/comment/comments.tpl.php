@@ -2,7 +2,7 @@
 	<hr class='comments-hr'>
 	<?php if (!$form) : ?>
 		<form method="post" action="#comment-form">
-			<input type="hidden" name="redirect" value="<?=$this->url->create($comment['redirect'])?>">
+			<input type="hidden" name="redirect" value="<?=$this->url->create($redirect)?>">
 			<p>
 				<input class=buttons type="submit" name="doEnterComment" value="Ny kommentar">
 			</p>
