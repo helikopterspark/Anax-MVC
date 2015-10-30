@@ -2758,6 +2758,12 @@ body {
   position: relative;
   height: 110px;
 }
+.globe {
+  margin-top: 22px;
+}
+.logo {
+  float: right;
+}
 .sitetitle {
   font-family: Orbitron;
   font-size: 48px;
@@ -3016,6 +3022,39 @@ figure.rounded img {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+}
+input[type='submit'],
+input[type='reset'] {
+  color: #333;
+  font: 80% 'Roboto', sans-serif;
+  padding: 7px;
+  background-color: #ddd;
+  border-color: #ddd;
+  border-style: solid;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+input[type='submit']:hover,
+input[type='reset']:hover {
+  color: #fff;
+  border-color: #666;
+  background-color: #666;
+}
+input[type='text'],
+input[type="password"] {
+  width: 50%;
+  border-style: none;
+  box-shadow: 1px 1px 1px #999;
+  outline: medium none;
+  transition: all 0.3s ease-in-out 0s;
+  color: #6F6F6E;
+  padding: 8px;
+}
+fieldset {
+  background-color: #F5F5F5;
+  border-style: none;
 }
 .comments {
   width: 75%;
@@ -3415,6 +3454,14 @@ div.regions #footer-col-3,
 div.regions #footer-col-4 {
   background-color: #b4b4b4 !important;
 }
+.inactive,
+.inactive a {
+  color: grey !important;
+}
+.deleted a {
+  text-decoration: line-through;
+  color: grey !important;
+}
 @media (max-width: 767px) {
   #wrapper {
     min-width: 320px;
@@ -3422,13 +3469,17 @@ div.regions #footer-col-4 {
   .comments {
     width: 100%;
   }
-  #header,
   #navbar {
     display: inline;
     float: left;
     width: 97.916666666667%;
     margin: 0 1.0416666666667%;
-    margin-bottom: 66px;
+    margin-bottom: 44px;
+    font-size: 0.75em;
+  }
+  .siteslogan {
+    font-size: 0.75em;
+    top: 65px;
   }
   .sitetitle {
     font-size: 2.25em;

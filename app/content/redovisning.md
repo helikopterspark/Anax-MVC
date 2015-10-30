@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kommentarer](#comments)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kommentarer](#comments)
  
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -131,5 +131,20 @@ Det är upplagt på github här: [https://github.com/helikopterspark/orbit-theme
 Jag har även lagt upp det på studentservern för påseende här: [http://www.student.bth.se/~carb14/phpmvc/orbit-theme/index.php](http://www.student.bth.se/~carb14/phpmvc/orbit-theme/index.php)
 
 Om temat är till användning för någon är väl tveksamt. Det var dock en bra övning att bryta ut det nödvändiga för att få tema och sidor att fungera fristående från ramverket.
+
+[Upp](#)
+
+<a id="Kmom04"></a> Kmom04: Databasdrivna modeller
+-------------------------------
+
+##### Vad tycker du om formulärhantering som visas i kursmomentet?
+
+##### Vad tycker du om databashanteringen som visas, föredrar du kanske traditionell SQL?
+
+##### Gjorde du några vägval, eller extra saker, när du utvecklade basklassen för modeller?
+
+##### Beskriv vilka vägval du gjorde och hur du valde att implementera kommentarer i databasen.
+
+##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 
 [Upp](#)

@@ -55,6 +55,14 @@ return [
         ],
 
         // This is a menu item
+        'users' => [
+            'text'  => 'Användare',
+            'url'   => $this->di->get('url')->create('users-'),
+            'title' => 'Användare',
+            'mark-if-parent-of' => 'users',
+        ],
+
+        // This is a menu item
         'dice' => [
             'text'  => 'Tärning &#9662;',
             'url'   => $this->di->get('url')->create('dice'),

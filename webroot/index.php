@@ -9,10 +9,8 @@ $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
-/**
- * Comments
- *
- */
+
+// Comments
 $di->set('CommentController', function() use ($di) {
 	$controller = new CR\Comment\CommentControllerExtended();
 	$controller->setDI($di);
@@ -63,6 +61,17 @@ $di->set('CommentController', function() use ($di) {
    'action'     => 'viewPageComments',
    'params'	=> ['redovisning-page', 'redovisning'],
    ]);
+});
+
+ /**
+ * Dispatch to UsersController and list all users in db
+ *
+ */
+$app->router->add('users-', function() use ($app) {
+  $app->dispatcher->forward([
+    'controller' => 'users',
+    'action' => 'index'
+    ]);
 });
 
  /**
