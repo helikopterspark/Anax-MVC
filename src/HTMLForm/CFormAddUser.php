@@ -52,7 +52,10 @@ class CFormAddUser extends \Mos\HTMLForm\CForm
             'value'     => 'Registrera',
             'callback'  => [$this, 'callbackSubmit'],
             ],
-            
+            'reset' => [
+            'type'      => 'reset',
+            'value'     => 'Rensa',
+            ],
             'submit-abort' => [
             'type'      => 'submit',
             'value'     => 'Avbryt',

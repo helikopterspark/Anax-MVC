@@ -3462,6 +3462,9 @@ div.regions #footer-col-4 {
   text-decoration: line-through;
   color: grey !important;
 }
+.centered {
+  text-align: center;
+}
 @media (max-width: 767px) {
   #wrapper {
     min-width: 320px;

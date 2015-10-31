@@ -63,6 +63,14 @@ return [
         ],
 
         // This is a menu item
+        'comments' => [
+            'text'  => 'Kommentarer',
+            'url'   => $this->di->get('url')->create('comments-'),
+            'title' => 'Kommentarer',
+            'mark-if-parent-of' => 'comments',
+        ],
+
+        // This is a menu item
         'dice' => [
             'text'  => 'Tärning &#9662;',
             'url'   => $this->di->get('url')->create('dice'),

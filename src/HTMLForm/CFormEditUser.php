@@ -64,7 +64,10 @@ class CFormEditUser extends \Mos\HTMLForm\CForm
             'value'     => 'Uppdatera',
             'callback'  => [$this, 'callbackSubmit'],
             ],
-            
+            'reset' => [
+            'type'      => 'reset',
+            'value'     => 'Återställ',
+            ],
             'submit-abort' => [
             'type'      => 'submit',
             'value'     => 'Avbryt',

@@ -6,7 +6,7 @@
 	<table>
 		<thead>
 			<tr>
-				<td>ID</td><td>Akronym</td><td>Namn</td><td><i class="fa fa-pencil"></i></td><td style='text-align: center;'><i class="fa fa-trash-o"> / <i class="fa fa-times"> / <i class="fa fa-check"></i></td>
+				<td>ID</td><td>Akronym</td><td>Namn</td><td><i class="fa fa-pencil"></i></td><td style='text-align: center;'><i class="fa fa-trash-o"></i> / <i class="fa fa-times"></i> / <i class="fa fa-check"></i></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,7 +27,7 @@
 								<td>
 									<?=$user->getProperties()['name']?></td>
 									<td><a href="<?=$this->url->create('users/update').'/' . $user->getProperties()['id']?>"><i class="fa fa-pencil"></i></a></td>
-									<td style='text-align: center;'>
+									<td class="centered">
 									<?php if (!$user->getProperties()['deleted']) : ?>
 										<a href="<?=$this->url->create('users/softdelete').'/'.$user->getProperties()['id']?>"><i class="fa fa-trash-o"></i></a>
 									<?php else : ?>
