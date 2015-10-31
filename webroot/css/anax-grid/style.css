@@ -3043,8 +3043,9 @@ input[type='reset']:hover {
   background-color: #666;
 }
 input[type='text'],
-input[type="password"] {
-  width: 50%;
+input[type="password"],
+input[type='url'] {
+  width: 75%;
   border-style: none;
   box-shadow: 1px 1px 1px #999;
   outline: medium none;
@@ -3113,7 +3114,11 @@ fieldset {
 .italics {
   font-style: italic;
 }
-input.buttons {
+.comment-button-container {
+  line-height: 44px;
+}
+input.buttons,
+a.comment-button {
   color: #333;
   font: 80% 'Roboto', sans-serif;
   padding: 7px;
@@ -3125,12 +3130,19 @@ input.buttons {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-input.buttons:hover {
+input.buttons:hover,
+a.comment-button:hover {
   color: #fff;
   border-color: #666;
   background-color: #666;
 }
-input.edit-button,
+a.comment-button:hover {
+  text-decoration: none;
+}
+a.comment-button:active {
+  top: 0px;
+}
+.edit-button,
 input.sort-button {
   color: #999;
   font: 70% 'Roboto', sans-serif;
@@ -3143,8 +3155,9 @@ input.sort-button {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-input.edit-button:hover,
+.edit-button:hover,
 input.sort-button:hover {
+  text-decoration: none;
   color: #fff;
   border-color: #666;
   background-color: #666;

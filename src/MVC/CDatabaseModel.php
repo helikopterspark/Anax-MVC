@@ -213,5 +213,52 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware {
 	/**
 	 * Order-by
 	 *
+	 * @param string $condition for building the orderBy part of the query.
+ 	 *
+ 	 * @return $this
 	 */
+	public function orderBy($condition) {
+		$this->db->orderBy($condition);
+
+		return $this;
+	}
+
+	/**
+	 * Group-by
+	 *
+	 * @param string $condition for building the groupBy part of the query.
+ 	 *
+ 	 * @return $this
+	 */
+	public function groupBy($condition) {
+		$this->db->groupBy($condition);
+
+		return $this;
+	}
+
+	/**
+	 * Limit
+	 *
+	 * @param string $condition for building the limit part of the query.
+ 	 *
+ 	 * @return $this
+	 */
+	public function limit($condition) {
+		$this->db->limit($condition);
+
+		return $this;
+	}
+
+	/**
+	 * Offset
+	 *
+	 * @param string $condition for building the offset part of the query.
+ 	 *
+ 	 * @return $this
+	 */
+	public function offset($condition) {
+		$this->db->offset($condition);
+
+		return $this;
+	}
 }

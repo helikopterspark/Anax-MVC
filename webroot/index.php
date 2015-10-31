@@ -17,6 +17,13 @@ $di->set('CommentController', function() use ($di) {
 	return $controller;
 });
 
+// Comments
+$di->set('CommentsController', function() use ($di) {
+  $controller = new CR\Comment\CommentsController();
+  $controller->setDI($di);
+  return $controller;
+});
+
  /**
   * Start page
   *
@@ -36,9 +43,9 @@ $di->set('CommentController', function() use ($di) {
    $app->views->add('theme/index', ['content' => $aside], 'sidebar-reduced');
 
    $app->dispatcher->forward([
-     'controller' => 'comment',
+     'controller' => 'comments',
      'action'     => 'viewPageComments',
-     'params'	=> ['me-page', ''],
+     'params'	=> ['start', ''],
      ]);
  });
 
@@ -57,9 +64,9 @@ $di->set('CommentController', function() use ($di) {
   $app->views->add('theme/index', ['content' => $pagecontent], 'main-extended');
 
   $app->dispatcher->forward([
-   'controller' => 'comment',
+   'controller' => 'comments',
    'action'     => 'viewPageComments',
-   'params'	=> ['redovisning-page', 'redovisning'],
+   'params'	=> ['redovisning', 'redovisning'],
    ]);
 });
 
@@ -70,6 +77,17 @@ $di->set('CommentController', function() use ($di) {
 $app->router->add('users-', function() use ($app) {
   $app->dispatcher->forward([
     'controller' => 'users',
+    'action' => 'index'
+    ]);
+});
+
+/**
+ * Dispatch to UsersController and list all users in db
+ *
+ */
+$app->router->add('comments-', function() use ($app) {
+  $app->dispatcher->forward([
+    'controller' => 'comments',
     'action' => 'index'
     ]);
 });

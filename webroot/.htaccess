@@ -16,6 +16,9 @@ ErrorDocument 404 "This is a Anax 404. Document is not here."
   # ReWrite rule for user routes:
   RewriteRule ^(users-.*)$ users.php/$1 [NC,L]
 
+  # ReWrite rule for comments routes:
+  RewriteRule ^(comments-.*)$ comments.php/$1 [NC,L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 

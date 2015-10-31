@@ -1,5 +1,5 @@
-<h1>Page with comments</h1>
+<article class='article1'>
+	<h2>Kommentarer</h2>
 
-<p>This is a sample page displaying how comments can interact with a page- or froncontroller.</p>
-
-
+	<p><i class="fa fa-database"></i> <a href="<?=$this->url->create('comments/setup')?>">Återställ databasen</a></p>
+</article>
