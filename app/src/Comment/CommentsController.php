@@ -37,48 +37,19 @@ class CommentsController implements \Anax\DI\IInjectionAware {
      */
 	public function viewPageCommentsAction($page, $redirect) {
 
-		$noForm = false;
-
 		$all = $this->comments->query()
 			->where('page = ?')
 			->andWhere('deleted IS NULL')
 			->execute([$page]);
 
 		// Get form view if add/edit is clicked
-		if ($this->request->getGet('edit') == 'yes') {
-
-			$comment = $this->comments->find($this->request->getGet('id'));
-
-			$form = new \Anax\HTMLForm\CFormEditComment($comment, array('page' => $page, 'redirect' => $redirect ));
-            $form->setDI($this->di);
-            $form->check();
-
-            $noForm = true;
-
-			$this->views->add('comment/comment-form-container', [
-				'content'	=> $form->getHTML(),
-				'page'		=> $page,
-				'redirect'	=> $redirect,
-				'noForm'	=> $noForm,
-				], 'fullpage');
-
-		} elseif ($this->request->getGet('comment') == 'yes') {
-			
-			$form = new \Anax\HTMLForm\CFormAddComment(array('page' => $page, 'redirect' => $redirect ));
-            $form->setDI($this->di);
-            $form->check();
-
-            $noForm = true;
-
-			$this->views->add('comment/comment-form-container', [
-				'content'	=> $form->getHTML(),
-				'page'		=> $page,
-				'redirect'	=> $redirect,
-				'noForm'	=> $noForm,
-				], 'fullpage');
+		$noForm = false;
+		if ($this->request->getGet('edit')) {
+			$id = $this->request->getGet('id');
+			$this->edit($id, array('page' => $page, 'redirect' => $redirect ));
+		} elseif ($this->request->getGet('comment')) {	
+			$this->add(array('page' => $page, 'redirect' => $redirect ));
 		}
-
-		$this->session->set('doEditComment', null);
 		
 		// If $all array not empty, convert comment content from markdown to html, and get Gravatars
 		if (is_array($all)) {
@@ -93,6 +64,94 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			'comments' => $all,
 			'redirect' => $redirect
 			], 'fullpage');
+	}
+
+	/**
+	 * Edit comment
+	 *
+	 * @param array $param with page and redirect
+	 *
+	 * @return void
+	 */
+	private function add($params) {
+
+		$form = new \Anax\HTMLForm\CFormAddComment($params);
+		$form->setDI($this->di);
+		$form->check();
+
+		$noForm = true;
+
+		$this->views->add('comment/comment-form-container', [
+			'content'	=> $form->getHTML(),
+			'page'		=> $params['page'],
+			'redirect'	=> $params['redirect'],
+			'noForm'	=> $noForm,
+			], 'fullpage');
+	}
+
+	/**
+	 * Edit comment
+	 *
+	 * @param int $id of comment, array $param with page and redirect
+	 *
+	 * @return void
+	 */
+	private function edit($id, $params) {
+
+		$comment = $this->comments->find($id);
+		$form = new \Anax\HTMLForm\CFormEditComment($comment, $params);
+		$form->setDI($this->di);
+		$form->check();
+
+		$noForm = true;
+
+		$this->views->add('comment/comment-form-container', [
+			'content'	=> $form->getHTML(),
+			'page'		=> $params['page'],
+			'redirect'	=> $params['redirect'],
+			'noForm'	=> $noForm,
+			], 'fullpage');
+	}
+
+	/**
+	 * Delete all comments for a specified page
+	 *
+	 * @param string $page with name of page
+	 *
+	 * @return void
+	 */
+	public function deletePageCommentsAction($page = null) {
+
+		$condition = "page = '{$page}'";
+        
+        $this->db->delete(
+            $this->comments->getSource(),
+            $condition
+        );
+        $this->db->execute();
+
+        $this->indexAction();
+        $this->views->add('theme/index', [
+        	'content' => '<h2>Resultat</h2><p>Kommentarer för sidan \' ' . $page . '\' raderades.</p>'], 'sidebar');
+    }
+
+	/**
+	 * Delete all comments
+	 *
+	 * @param 
+	 *
+	 * @return void
+	 */
+	public function deleteAllAction() {
+        
+        $this->db->delete(
+            $this->comments->getSource()
+        );
+        $this->db->execute();
+
+		$this->indexAction();
+        $this->views->add('theme/index', [
+        	'content' => '<h2>Resultat</h2><p>Alla kommentarer raderades.</p>'], 'sidebar');
 	}
 
 	/**
@@ -123,19 +182,21 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			)->execute();
 
 		$now = date('Y-m-d H:i:s');
-		
+		$before = gmdate('Y-m-d H:i:s');
+		$lorem = $this->fileContent->get('lorem.md');
+
 		$this->db->insert(
 			'comment',
 			['content', 'name', 'email', 'url', 'ip', 'created', 'redirect', 'page']
 			);
 
 		$this->db->execute([
-			'Ett exempel på en kommentar.',
+			$lorem,
 			'Carl',
 			'esp_horizon@hotmail.com',
 			'http://dbwebb.se',
 			'111.0.0.1',
-			$now,
+			$before,
 			'',
 			'start'
 			]);
@@ -152,7 +213,7 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			]);
 
 		$this->db->execute([
-			'Ett exempel på en kommentar',
+			$lorem,
 			'Carl',
 			'esp_horizon@hotmail.com',
 			'http://dbwebb.se',
@@ -162,7 +223,8 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			'redovisning'
 			]);
 
-		$url = $this->url->create('comments-');
-		$this->response->redirect($url);
+		$this->indexAction();
+        $this->views->add('theme/index', [
+        	'content' => '<h2>Resultat</h2><p>Databasen återställdes.</p>'], 'sidebar');
 	}
 }

@@ -10,20 +10,6 @@ $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 
-// Comments
-$di->set('CommentController', function() use ($di) {
-	$controller = new CR\Comment\CommentControllerExtended();
-	$controller->setDI($di);
-	return $controller;
-});
-
-// Comments
-$di->set('CommentsController', function() use ($di) {
-  $controller = new CR\Comment\CommentsController();
-  $controller->setDI($di);
-  return $controller;
-});
-
  /**
   * Start page
   *

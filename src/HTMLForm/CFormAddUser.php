@@ -92,7 +92,7 @@ class CFormAddUser extends \Mos\HTMLForm\CForm
     public function callbackSubmit()
     {
 
-        $now = gmdate('Y-m-d H:i:s');
+        $now = date('Y-m-d H:i:s');
         $active = !empty($_POST['active']) ? $now : null;
 
         $this->user = new \Anax\Users\User();

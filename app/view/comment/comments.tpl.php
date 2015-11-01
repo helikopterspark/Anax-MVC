@@ -2,16 +2,8 @@
 	<hr class='comments-hr'>
 	<?php if (!$noForm) : ?>
 		<div class='comment-button-container'>
-			<p><a class='comment-button' href='<?=$this->url->create("{$this->request->getRoute()}?comment=yes#comment-form")?>' title='Ny kommentar'>Ny kommentar</a></p>
+			<p><a class='comment-button' href='<?=$this->url->create("{$this->request->getRoute()}?comment=yes#comment-form")?>' title='Ny kommentar'><i class="fa fa-comment-o"></i> Ny kommentar</a></p>
 		</div>
-		<!-- 
-		<form method="post" action="#comment-form">
-			<input type="hidden" name="redirect" value="<?=$this->url->create($redirect)?>">
-			<p>
-				<input class=buttons type="submit" name="doEnterComment" value="Ny kommentar">
-			</p>
-		</form>
-	-->
 <?php endif; ?>
 
 <?php if (is_array($comments) && count($comments) > 0) : ?>
@@ -85,16 +77,10 @@
 					</span>
 				</p>
 				<p><?=$comment->getProperties()['content']?></p>
-				<p><a class='edit-button' href='<?=$this->url->create("{$this->request->getRoute()}?edit=yes&amp;id=".$comment->getProperties()['id']."#comment-form")?>' title='Redigera'>Redigera</a></p>
-				<!--
-				<form method=post action="#comment-form">
-					<input type=hidden name="commentID" value="<?=$comment->getProperties()['id']?>">
-					<input type=hidden name="redirect" value="<?=$this->url->create($redirect)?>">
-					<input class=edit-button type='submit' name='doEditComment' value='Redigera'>
-				</form>
-				-->
+				<p><a class='edit-button' href='<?=$this->url->create("{$this->request->getRoute()}?edit=yes&amp;id=".$comment->getProperties()['id']."#comment-form")?>' title='Redigera'><i class="fa fa-pencil"></i> Redigera</a></p>
 			</div> <!-- comment-section -->
 		</div> <!-- comment-container -->
 	<?php endforeach; ?>
+	<p class='article1'><a href="#">Upp</a></p>
 <?php endif; ?>
 </div> <!-- comments -->

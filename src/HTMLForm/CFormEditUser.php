@@ -104,12 +104,16 @@ class CFormEditUser extends \Mos\HTMLForm\CForm
     public function callbackSubmit()
     {
 
-        $now = gmdate('Y-m-d H:i:s');
+        $now = date('Y-m-d H:i:s');
+        $deleted = $this->userUpd->getProperties()['deleted'];
 
         if ($this->userUpd->getProperties()['active'] && !empty($_POST['active'])) {
             $active = $this->userUpd->getProperties()['active'];
         } else {
             $active = !empty($_POST['active']) ? $now : null;
+            if ($active) {
+                $deleted = null;
+            }
         }
 
         $password = !empty($this->Value('password')) ? password_hash($this->Value('password'), PASSWORD_DEFAULT) : $this->userUpd->getProperties()['password'];
@@ -122,6 +126,7 @@ class CFormEditUser extends \Mos\HTMLForm\CForm
             'password' => $password,
             'updated' => $now,
             'active' => $active,
+            'deleted' => $deleted
             ]);
         
         //$this->saveInSession = true;

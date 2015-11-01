@@ -43,7 +43,6 @@ class CFormAddComment extends \Mos\HTMLForm\CForm
             'type'      => 'url',
             'label'     => 'Hemsida:',
             'required'  => false,
-            'validation'    => ['not_empty'],
             ],
             'submit' => [
             'type'      => 'submit',
@@ -78,7 +77,7 @@ class CFormAddComment extends \Mos\HTMLForm\CForm
     public function check($callIfSuccess = null, $callIfFail = null)
     {
         if (isset($_POST['submit-abort'])) {
-            $this->redirectTo($this->redirect);
+            $this->redirectTo($this->redirect.'#comments');
         } else {
             return parent::check([$this, 'callbackSuccess'], [$this, 'callbackFail']);
     }
@@ -135,7 +134,7 @@ class CFormAddComment extends \Mos\HTMLForm\CForm
     public function callbackSuccess()
     {
         //$this->AddOUtput("<p><i>Kommentaren registrerades</i></p>");
-        $this->redirectTo($this->redirect);
+        $this->redirectTo($this->redirect .'#comments');
     }
 
 

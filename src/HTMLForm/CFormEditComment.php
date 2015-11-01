@@ -46,7 +46,6 @@ class CFormEditComment extends \Mos\HTMLForm\CForm
             'type'      => 'url',
             'label'     => 'Hemsida:',
             'required'  => false,
-            'validation'    => ['not_empty'],
             'value'         => $comment->getProperties()['url'],
             ],
             'submit' => [
@@ -87,7 +86,7 @@ class CFormEditComment extends \Mos\HTMLForm\CForm
     public function check($callIfSuccess = null, $callIfFail = null)
     {
         if (isset($_POST['submit-abort'])) {
-            $this->redirectTo($this->redirect);
+            $this->redirectTo($this->redirect.'#comments');
         } else {
             return parent::check([$this, 'callbackSuccess'], [$this, 'callbackFail']);
     }
@@ -143,7 +142,7 @@ class CFormEditComment extends \Mos\HTMLForm\CForm
      */
     public function callbackSuccess()
     {
-        $this->redirectTo($this->redirect);
+        $this->redirectTo($this->redirect.'#comments');
     }
 
     /**

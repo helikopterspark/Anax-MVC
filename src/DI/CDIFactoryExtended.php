@@ -32,6 +32,13 @@ class CDIFactoryExtended extends CDIFactoryDefault
           return $db;
         });
 
+        // Comments
+        $this->set('CommentsController', function() {
+          $commentscontroller = new \CR\Comment\CommentsController();
+          $commentscontroller->setDI($this);
+          return $commentscontroller;
+        });
+
         // Users
         $this->set('UsersController', function() {
           $userscontroller = new \Anax\Users\UsersController();
