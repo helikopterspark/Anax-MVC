@@ -102,7 +102,6 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 	 */
 	public function setupAction() {
 		//$this->db->setVerbose();
-		$now = gmdate('Y-m-d H:i:s');
 
 		$this->db->dropTableIfExists('comment')->execute();
 
@@ -123,12 +122,12 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			]
 			)->execute();
 
+		$now = date('Y-m-d H:i:s');
+		
 		$this->db->insert(
 			'comment',
 			['content', 'name', 'email', 'url', 'ip', 'created', 'redirect', 'page']
 			);
-
-		$now = gmdate('Y-m-d H:i:s');
 
 		$this->db->execute([
 			'Ett exempel på en kommentar.',

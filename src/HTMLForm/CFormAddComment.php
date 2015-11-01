@@ -94,7 +94,7 @@ class CFormAddComment extends \Mos\HTMLForm\CForm
     public function callbackSubmit()
     {
 
-        $now = gmdate('Y-m-d H:i:s');
+        $now = date('Y-m-d H:i:s');
 
         $this->comment = new \CR\Comment\Comment();
         $this->comment->setDI($this->di);

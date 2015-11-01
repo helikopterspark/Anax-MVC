@@ -28,7 +28,7 @@
 
 	<?php foreach ($comments as $comment) : ?>
 		<div class='comment-container'>
-			<img src='<?=$comment->getProperties()['gravatar']?>'>
+			<img src='<?=$comment->getProperties()['gravatar']?>' alt='Gravatar'>
 			<div class="comment-section">
 				<p><span class='comments-name'><a href="mailto:<?=$comment->getProperties()['email']?>"><?=$comment->getProperties()['name']?></a></span> 
 					<span class='comments-id-time'>| 
@@ -85,7 +85,7 @@
 					</span>
 				</p>
 				<p><?=$comment->getProperties()['content']?></p>
-				<p><a class='edit-button' href='<?=$this->url->create("{$this->request->getRoute()}?edit=yes&id=".$comment->getProperties()['id']."#comment-form")?>' title='Redigera'>Redigera</a></p>
+				<p><a class='edit-button' href='<?=$this->url->create("{$this->request->getRoute()}?edit=yes&amp;id=".$comment->getProperties()['id']."#comment-form")?>' title='Redigera'>Redigera</a></p>
 				<!--
 				<form method=post action="#comment-form">
 					<input type=hidden name="commentID" value="<?=$comment->getProperties()['id']?>">
