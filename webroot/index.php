@@ -82,7 +82,7 @@ $app->router->add('users-', function() use ($app) {
 });
 
 /**
- * Dispatch to UsersController and list all users in db
+ * Dispatch to CommentsController and list all users in db
  *
  */
 $app->router->add('comments-', function() use ($app) {

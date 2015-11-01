@@ -34,6 +34,24 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			'title' => "Alla användare",
 			], 'main');
 		$this->views->add('users/users-sidebar', [], 'sidebar');
+		$this->addLegend();
+	}
+
+	/**
+	* Add legend as triptych
+	*
+	* @return
+	*/
+	private function addLegend() {
+		$legend1 = $this->fileContent->get('users/users-legend.html');
+		$legend2 = $this->fileContent->get('users/users-legend-2.html');
+		$legend3 = $this->fileContent->get('users/users-legend-3.html');
+
+		$this->theme->addClassAttributeFor('wrap-triptych', 'smaller-text');
+
+		$this->views->add('theme/index', ['content' => $legend1], 'triptych-1');
+		$this->views->add('theme/index', ['content' => $legend2], 'triptych-2');
+		$this->views->add('theme/index', ['content' => $legend3], 'triptych-3');
 	}
 
 	/**
@@ -134,7 +152,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			die("Missing id");
 		}
 
-		$now = gmdate('Y-m-d H:i:s');
+		$now = date('Y-m-d H:i:s');
 
 		$user = $this->users->find($id);
 
@@ -158,7 +176,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			die("Missing id");
 		}
 
-		$now = gmdate('Y-m-d H:i:s');
+		$now = date('Y-m-d H:i:s');
 
 		$user = $this->users->find($id);
 
@@ -187,6 +205,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			'title' => "Aktiva användare",
 			], 'main');
 		$this->views->add('users/users-sidebar', [], 'sidebar');
+		$this->addLegend();
 	}
 
 	/**
@@ -206,6 +225,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			'title' => "Inaktiva användare",
 			], 'main');
 		$this->views->add('users/users-sidebar', [], 'sidebar');
+		$this->addLegend();
 	}
 
 	/**
@@ -224,6 +244,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			'title' => "Aktiva och inaktiva användare",
 			], 'main');
 		$this->views->add('users/users-sidebar', [], 'sidebar');
+		$this->addLegend();
 	}
 
 	/**
@@ -242,6 +263,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			'title' => "Papperskorgen",
 			], 'main');
 		$this->views->add('users/users-sidebar', [], 'sidebar');
+		$this->addLegend();
 	}
 
 	/**
@@ -274,7 +296,7 @@ class UsersController implements \Anax\DI\IInjectionAware {
 			['acronym', 'email', 'name', 'password', 'created', 'active', 'deleted']
 			);
 
-		$now = gmdate('Y-m-d H:i:s');
+		$now = date('Y-m-d H:i:s');
 
 		$this->db->execute([
 			'admin',

@@ -2,7 +2,7 @@
 
 return [
     // Its best to add an absolute path to the dsn
-    'dsn'     => "sqlite:" . ANAX_APP_PATH . "/content/carb14.sqlite",
+    'dsn'     => "sqlite:" . ANAX_APP_PATH . "/content/kmom04.sqlite",
 
     // Display details on what happens
     'verbose' => false,
