@@ -298,40 +298,44 @@ class UsersController implements \Anax\DI\IInjectionAware {
 
 		$now = date('Y-m-d H:i:s');
 
+		$enc_password = $this->encryptPassword('admin');
 		$this->db->execute([
 			'admin',
 			'admin@dbwebb.se',
 			'Administrator',
-			password_hash('admin', PASSWORD_DEFAULT),
+			$enc_password,
 			$now,
 			$now
 			]);
 
+		$enc_password = $this->encryptPassword('johndoe');
 		$this->db->execute([
 			'johndoe',
 			'johndoe@dbwebb.se',
 			'John Doe',
-			password_hash('johndoe', PASSWORD_DEFAULT),
+			$enc_password,
 			$now,
 			$now,
 			null
 			]);
 
+		$enc_password = $this->encryptPassword('janedoe');
 		$this->db->execute([
 			'janedoe',
 			'janedoe@dbwebb.se',
 			'Jane Doe',
-			password_hash('janedoe', PASSWORD_DEFAULT),
+			$enc_password,
 			$now,
 			null,
 			null
 			]);
 
+		$enc_password = $this->encryptPassword('nisse');
 		$this->db->execute([
 			'nisse',
 			'nisse@dbwebb.se',
 			'Nisse Hulth',
-			password_hash('nisse', PASSWORD_DEFAULT),
+			$enc_password,
 			$now,
 			null,
 			$now
@@ -339,5 +343,22 @@ class UsersController implements \Anax\DI\IInjectionAware {
 
 		$url = $this->url->create('users-');
 		$this->response->redirect($url);
+	}
+
+	/**
+	 * Encrypt password depending on PHP version
+	 *
+	 * @param string $password, password as string
+	 *
+	 * @return string $enc_password, encrypted password
+	 */
+	private function encryptPassword($password) {
+		if (version_compare(phpversion(), '5.5.0', '<')) {
+            $enc_password = md5($password);
+        } else {
+            $enc_password = password_hash($password, PASSWORD_DEFAULT);
+        }
+
+		return $enc_password;
 	}
 }

@@ -116,14 +116,26 @@ class CFormEditUser extends \Mos\HTMLForm\CForm
             }
         }
 
-        $password = !empty($this->Value('password')) ? password_hash($this->Value('password'), PASSWORD_DEFAULT) : $this->userUpd->getProperties()['password'];
+        //$password = !empty($this->Value('password')) ? password_hash($this->Value('password'), PASSWORD_DEFAULT) : $this->userUpd->getProperties()['password'];
+
+        if (!empty($this->Value('password'))) {
+            if (version_compare(phpversion(), '5.5.0', '<')) {
+                $enc_password = md5($this->userUpd->getProperties()['password']);
+            } else {
+                $enc_password = password_hash($this->userUpd->getProperties()['password'], PASSWORD_DEFAULT);
+            }
+        } else {
+            $enc_password = $this->userUpd->getProperties()['password'];
+        }
+
+        
 
         $this->userUpd->save([
             'id' => $this->userUpd->getProperties()['id'],
             'acronym' => $this->Value('acronym'),
             'email' => $this->Value('email'),
             'name' => $this->Value('name'),
-            'password' => $password,
+            'password' => $enc_password,
             'updated' => $now,
             'active' => $active,
             'deleted' => $deleted

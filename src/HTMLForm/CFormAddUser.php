@@ -98,11 +98,17 @@ class CFormAddUser extends \Mos\HTMLForm\CForm
         $this->user = new \Anax\Users\User();
         $this->user->setDI($this->di);
 
+        if (version_compare(phpversion(), '5.5.0', '<')) {
+            $enc_password = md5($this->Value('password'));
+        } else {
+            $enc_password = password_hash($this->Value('password'), PASSWORD_DEFAULT);
+        }
+
         $this->user->save([
             'acronym' => $this->Value('acronym'),
             'email' => $this->Value('email'),
             'name' => $this->Value('name'),
-            'password' => password_hash($this->Value('password'), PASSWORD_DEFAULT),
+            'password' => $enc_password,
             'created' => $now,
             'active' => $active,
             ]);
