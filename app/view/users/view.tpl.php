@@ -3,6 +3,7 @@
 		<p>Namn: <?=$users[0]->getProperties()['name']?><br/>
 			ID: <?=$users[0]->getProperties()['id']?><br/>
 			Email: <?=$users[0]->getProperties()['email']?><br/>
+			Lösenord: <?=$users[0]->getProperties()['password']?><br/>
 			Skapad: <?=$users[0]->getProperties()['created']?><br/>
 			Aktiverad: <?=$users[0]->getProperties()['active']?><br/>
 			<?php if ($users[0]->getProperties()['updated']) : ?>
