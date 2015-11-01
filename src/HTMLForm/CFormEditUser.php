@@ -120,9 +120,9 @@ class CFormEditUser extends \Mos\HTMLForm\CForm
 
         if (!empty($this->Value('password'))) {
             if (version_compare(phpversion(), '5.5.0', '<')) {
-                $enc_password = md5($this->userUpd->getProperties()['password']);
+                $enc_password = md5($this->Value('password'));
             } else {
-                $enc_password = password_hash($this->userUpd->getProperties()['password'], PASSWORD_DEFAULT);
+                $enc_password = password_hash($this->Value('password'), PASSWORD_DEFAULT);
             }
         } else {
             $enc_password = $this->userUpd->getProperties()['password'];
