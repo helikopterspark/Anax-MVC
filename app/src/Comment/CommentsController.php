@@ -36,18 +36,42 @@ class CommentsController implements \Anax\DI\IInjectionAware {
      * @return void
      */
 	public function viewPageCommentsAction($page, $redirect) {
+		if (null == ($this->session->get('sorting'))) {
+			$this->session->set('sorting', 'ASC');
+			$change_sorting = 'DESC';
+		}
+
+		$set_sorting = $this->request->getGet('sorting');
+		switch ($set_sorting) {
+					case 'DESC':
+						$change_sorting = 'ASC';
+						$this->session->set('sorting', 'DESC');
+						break;
+					case 'ASC':
+						$change_sorting = 'DESC';
+						$this->session->set('sorting', 'ASC');
+						break;		
+					default:
+						$change_sorting = $this->session->get('sorting') === 'ASC' ? 'DESC' : 'ASC';
+						break;
+				}		
+
+		$sorting = 'created ' . $this->session->get('sorting');
 
 		$all = $this->comments->query()
 			->where('page = ?')
 			->andWhere('deleted IS NULL')
+			->orderBy($sorting)
 			->execute([$page]);
 
 		// Get form view if add/edit is clicked
 		$noForm = false;
 		if ($this->request->getGet('edit')) {
+			$noForm = true;
 			$id = $this->request->getGet('id');
 			$this->edit($id, array('page' => $page, 'redirect' => $redirect ));
 		} elseif ($this->request->getGet('comment')) {	
+			$noForm = true;
 			$this->add(array('page' => $page, 'redirect' => $redirect ));
 		}
 		
@@ -62,7 +86,8 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 		$this->views->add('comment/comments', [
 			'noForm' => $noForm,
 			'comments' => $all,
-			'redirect' => $redirect
+			'redirect' => $redirect,
+			'sorting' => $change_sorting
 			], 'fullpage');
 	}
 
@@ -132,7 +157,7 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 
         $this->indexAction();
         $this->views->add('theme/index', [
-        	'content' => '<h2>Resultat</h2><p>Kommentarer för sidan \' ' . $page . '\' raderades.</p>'], 'sidebar');
+        	'content' => '<h2>Resultat</h2><p>Kommentarer för sidan \'' . $page . '\' raderades.</p>'], 'sidebar');
     }
 
 	/**

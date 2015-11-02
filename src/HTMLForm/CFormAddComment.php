@@ -133,8 +133,10 @@ class CFormAddComment extends \Mos\HTMLForm\CForm
      */
     public function callbackSuccess()
     {
-        //$this->AddOUtput("<p><i>Kommentaren registrerades</i></p>");
-        $this->redirectTo($this->redirect .'#comments');
+        $this->comment = new \CR\Comment\Comment();
+        $this->comment->setDI($this->di);
+
+        $this->redirectTo($this->redirect .'#comment-' . $this->comment->db->lastInsertId());
     }
 
 

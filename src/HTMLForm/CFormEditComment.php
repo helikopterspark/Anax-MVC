@@ -142,7 +142,7 @@ class CFormEditComment extends \Mos\HTMLForm\CForm
      */
     public function callbackSuccess()
     {
-        $this->redirectTo($this->redirect.'#comments');
+        $this->redirectTo($this->redirect.'#comment-'.$this->commentUpd->getProperties()['id']);
     }
 
     /**

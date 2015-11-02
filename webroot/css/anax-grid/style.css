@@ -3135,19 +3135,32 @@ a.comment-button {
   transition: all 0.2s ease-in-out;
 }
 input.buttons:hover,
-a.comment-button:hover {
+a.comment-button:hover,
+a.sort-button:hover {
   color: #fff;
   border-color: #666;
   background-color: #666;
 }
-a.comment-button:hover {
+a.comment-button:hover,
+a.sort-button:hover {
   text-decoration: none;
 }
-a.comment-button:active {
+a.comment-button:active,
+a.sort-button:active {
   top: 0px;
 }
+.uplink {
+  margin-top: 22px;
+}
+.uplink a {
+  text-decoration: none;
+  color: #cb151c;
+}
+.uplink a:hover {
+  text-decoration: underline;
+}
 .edit-button,
-input.sort-button {
+.sort-button {
   color: #999;
   font: 70% 'Roboto', sans-serif;
   padding: 3px;
@@ -3160,14 +3173,14 @@ input.sort-button {
   transition: all 0.2s ease-in-out;
 }
 .edit-button:hover,
-input.sort-button:hover {
+.sort-button:hover {
   text-decoration: none;
   color: #fff;
   border-color: #666;
   background-color: #666;
 }
-input.sort-button {
-  float: right;
+.button-right {
+  text-align: right;
 }
 input.text {
   width: 75%;
