@@ -49,9 +49,9 @@ class UsersController implements \Anax\DI\IInjectionAware {
 
 		$this->theme->addClassAttributeFor('wrap-triptych', 'smaller-text');
 
-		$this->views->add('theme/index', ['content' => $legend1], 'triptych-1');
-		$this->views->add('theme/index', ['content' => $legend2], 'triptych-2');
-		$this->views->add('theme/index', ['content' => $legend3], 'triptych-3');
+		$this->views->add('theme/region-small', ['content' => $legend1], 'triptych-1');
+		$this->views->add('theme/region-small', ['content' => $legend2], 'triptych-2');
+		$this->views->add('theme/region-small', ['content' => $legend3], 'triptych-3');
 	}
 
 	/**
