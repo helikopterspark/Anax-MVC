@@ -25,7 +25,12 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 	 */
 	public function indexAction() {
 		$this->theme->setTitle("Kommentarer");
-		$this->views->add('comment/index', [], 'main');
+		$this->views->add('comment/index', [], 'main-extended');
+		$this->dispatcher->forward([
+     		'controller' => 'comments',
+     		'action'     => 'viewPageComments',
+     		'params'	=> ['comments-', 'comments-'],
+     	]);
 	}
 
 	/**
@@ -157,7 +162,7 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 
         $this->indexAction();
         $this->views->add('theme/index', [
-        	'content' => '<h2>Resultat</h2><p>Kommentarer för sidan \'' . $page . '\' raderades.</p>'], 'sidebar');
+        	'content' => '<h2>Resultat</h2><p>Kommentarer för sidan \'' . $page . '\' raderades.</p>'], 'sidebar-reduced');
     }
 
 	/**
@@ -176,7 +181,7 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 
 		$this->indexAction();
         $this->views->add('theme/index', [
-        	'content' => '<h2>Resultat</h2><p>Alla kommentarer raderades.</p>'], 'sidebar');
+        	'content' => '<h2>Resultat</h2><p>Alla kommentarer raderades.</p>'], 'sidebar-reduced');
 	}
 
 	/**
@@ -206,14 +211,20 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			]
 			)->execute();
 
-		$now = date('Y-m-d H:i:s');
-		$before = gmdate('Y-m-d H:i:s');
+
+		$minutes_to_add = 360;
+		$time = new \DateTime();
+
 		$lorem = $this->fileContent->get('lorem.md');
 
 		$this->db->insert(
 			'comment',
-			['content', 'name', 'email', 'url', 'ip', 'created', 'redirect', 'page']
+			['content', 'name', 'email', 'url', 'ip', 'created', 'updated', 'redirect', 'page']
 			);
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
 
 		$this->db->execute([
 			$lorem,
@@ -221,10 +232,50 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			'esp_horizon@hotmail.com',
 			'http://dbwebb.se',
 			'111.0.0.1',
-			$before,
+			$stamp,
+			null,
 			'',
 			'start'
 			]);
+
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
+
+		$this->db->execute([
+			$lorem . $lorem,
+			'Nisse Hulth',
+			'nisse.hulth@mail.com',
+			'http://dbwebb.se',
+			'111.0.0.1',
+			$stamp,
+			null,
+			'',
+			'redovisning'
+			]);
+
+		$interval = new \DateInterval('PT' . 2 . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
+
+		$this->db->execute([
+			$lorem,
+			'Carl',
+			'esp_horizon@hotmail.com',
+			'http://dbwebb.se',
+			'111.0.0.1',
+			$stamp,
+			null,
+			'',
+			'redovisning'
+			]);
+
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
 
 		$this->db->execute([
 			'Grym sida.',
@@ -232,24 +283,65 @@ class CommentsController implements \Anax\DI\IInjectionAware {
 			'mikael.roos@bth.se',
 			'http://dbwebb.se',
 			'111.0.0.1',
-			$now,
+			$stamp,
+			null,
 			'',
-			'start'
+			'comments-'
 			]);
 
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
+		
 		$this->db->execute([
 			$lorem,
 			'Carl',
 			'esp_horizon@hotmail.com',
 			'http://dbwebb.se',
 			'111.0.0.1',
-			$now,
+			$stamp,
+			null,
 			'',
-			'redovisning'
+			'comments-'
+			]);
+
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp2 = $time->format('Y-m-d H:i:s');
+
+		$this->db->execute([
+			$lorem . $lorem,
+			'Nisse Hulth',
+			'nisse.hulth@mail.com',
+			'http://dbwebb.se',
+			'111.0.0.1',
+			$stamp2,
+			null,
+			'',
+			'comments-'
+			]);
+
+		$interval = new \DateInterval('PT' . $minutes_to_add . 'M');
+		$interval->invert = 1;
+		$time->add($interval);
+		$stamp = $time->format('Y-m-d H:i:s');
+
+		$this->db->execute([
+			$lorem.$lorem.$lorem,
+			'Carl',
+			'esp_horizon@hotmail.com',
+			'http://dbwebb.se',
+			'111.0.0.1',
+			$stamp,
+			$stamp2,
+			'',
+			'comments-'
 			]);
 
 		$this->indexAction();
         $this->views->add('theme/index', [
-        	'content' => '<h2>Resultat</h2><p>Databasen återställdes.</p>'], 'sidebar');
+        	'content' => '<h2>Resultat</h2><p>Databasen återställdes.</p>'], 'sidebar-reduced');
 	}
 }
