@@ -9,6 +9,21 @@ $app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
+/*
+// Scaffolding demo
+$di->set('ScaffoldController', function() use ($di) {
+  $controller = new \CR\Scaffold\ScaffoldController();
+  $controller->setDI($di);
+  return $controller;
+});
+
+$app->router->add('scaffold', function() use ($app) {
+  $app->dispatcher->forward([
+   'controller' => 'scaffold',
+   'action'     => 'index',
+   ]);
+});
+*/
 
  /**
   * Start page
