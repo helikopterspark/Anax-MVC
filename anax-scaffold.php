@@ -1,14 +1,14 @@
 #!/usr/bin/php
 <?php
 if (count($_SERVER['argv']) < 2) {
-	echo "Error: A class name must be provided as argument\nExiting\n";
-	return false;
+	echo "Error: A class name must be provided as argument".PHP_EOL."Exiting".PHP_EOL;
+	exit(1);
 }
 echo PHP_EOL;
 
-$logfile = fopen("scaffolding-log.txt", 'a');
+$logfile = fopen("anax-scaffold.log", 'a');
 if (!is_resource($logfile)) {
-	return false;
+	exit(1);
 }
 fwrite($logfile, 'The following files were created ' . date('Y:m:d H:i:s') .':'.PHP_EOL.PHP_EOL);
 
@@ -23,23 +23,23 @@ for ($i=1; $i < $_SERVER['argc'] ; $i++) {
 	// Create controller file
 	$boilerplate = controllerFileBoilerplate($class_name);
 	createSourceFile($class_name, $boilerplate, 'Controller', $logfile);
-	echo "\n";
+	echo PHP_EOL;
 
 	// Create views
 	createViews(strtolower($class_name), 'index', $logfile);
 	createViews(strtolower($class_name), 'view', $logfile);
-	createViews(strtolower($class_name), 'add', $logfile);
-	
-	echo "\n";
+	createViews(strtolower($class_name), 'add', $logfile);	
+	echo PHP_EOL;
 }
 createCDatabaseModel($logfile);
 
 fwrite($logfile, PHP_EOL);
 fclose($logfile);
-echo PHP_EOL . "--> Log written to scaffolding-log.txt".PHP_EOL;
+echo PHP_EOL . "--> Log written to anax-scaffold.log".PHP_EOL;
 echo PHP_EOL;
 
-return 0;
+exit(0);
+
 /**
  * Create source files
  *
@@ -113,8 +113,41 @@ function createViews($class_name, $type, $logfile) {
 	// fwrite file here
 	fwrite($fp, "<article class='article1'>\n\t<h2><?=\$title?></h2>\n\t<?=\$content?>\n</article>");
 	fclose($fp);
-	echo "--> " . $type . ".tpl.php file created in directory /app/view/" . $class_name . PHP_EOL;
+	echo "--> " . $type . ".tpl.php created in directory /app/view/" . $class_name . PHP_EOL;
 	fwrite($logfile, '/app/view/' . $class_name .'/'.$type.".tpl.php".PHP_EOL);
+	chdir('../../../');
+}
+
+/**
+* Create CDatabaseModel.php file if not exists
+*
+* @param 
+*
+* @return void
+*/
+function createCDatabaseModel($logfile) {
+
+	if (!is_dir('src')) {
+		mkdir('src');
+	}
+	chdir('src');
+	if (!is_dir('MVC')) {
+		mkdir('MVC');
+	}
+	chdir('MVC');
+	if (file_exists('CDatabaseModel.php')) {
+		echo "--> CDatabaseModel.php already exists.".PHP_EOL;
+	} else {
+		$fp = fopen("CDatabaseModel.php", 'w');
+		if (!is_resource($fp)) {
+			return false;
+		}
+		$code = cdatabasemodelBoilerplate();
+		fwrite($fp, $code);
+		fclose($fp);
+		echo "--> CDatabaseModel.php created in directory /src/MVC".PHP_EOL;
+		fwrite($logfile, '/src/MVC/CDatabaseModel.php'.PHP_EOL);
+	}
 	chdir('../../../');
 }
 
@@ -265,26 +298,14 @@ class {$class_name}Controller implements \Anax\DI\IInjectionAware {
 }
 
 /**
-* Create CDatabaseModel.php file if not exists
+* Code for CDatabaseModel file
 *
 * @param 
 *
-* @return void
+* @return string with code
 */
-function createCDatabaseModel($logfile) {
-
-	if (!is_dir('src')) {
-		mkdir('src');
-	}
-	chdir('src');
-	if (!is_dir('MVC')) {
-		mkdir('MVC');
-	}
-	chdir('MVC');
-	if (file_exists('CDatabaseModel.php')) {
-		echo "--> CDatabaseModel.php already exists.".PHP_EOL;
-	} else {
-		$code = "<?php
+function cdatabasemodelBoilerplate() {
+		return "<?php
 
 namespace Anax\MVC;
 
@@ -548,15 +569,5 @@ class CDatabaseModel implements \Anax\DI\IInjectionAware {
 		return \$this;
 	}
 }";
-		$fp = fopen("CDatabaseModel.php", 'w');
-		if (!is_resource($fp)) {
-			return false;
-		}
-		fwrite($fp, $code);
-		fclose($fp);
-		echo "--> CDatabaseModel.php created in directory /src/MVC".PHP_EOL;
-		fwrite($logfile, '/src/MVC/CDatabaseModel.php'.PHP_EOL);
-	}
-	chdir('../../../');
 }
 ?>

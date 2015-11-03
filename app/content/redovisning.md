@@ -137,14 +137,38 @@ Om temat är till användning för någon är väl tveksamt. Det var dock en bra
 <a id="Kmom04"></a> Kmom04: Databasdrivna modeller
 -------------------------------
 
+Kursmoment 4 har varit arbetsamt men också roligt att genomföra. Det har inte inneburit några större svårigheter egentligen, mer än det vanliga strulet pga rena felskrivningar. Koncepten med formulärhantering, databashantering och modellklasser känns ganska naturliga. Förståelsen för hur ramverket fungerar har också ökat i och med detta kursmoment.
+
 ##### Vad tycker du om formulärhantering som visas i kursmomentet?
+
+Det är utmärkt att ha formulärskapandet separat i egna klasser. Alternativet är att bygga upp formulären med HTML direkt i vyerna och det är inte lika snyggt och lättjobbat. Här bygger man upp formuläret i konstruktorn och hanterar validering och sparande av inmatad data i samma klass. Det är lättare att hålla reda på vilka formulär man har på detta sätt än när de ligger utspridda i diverse HTML-filer.
+
+Jag saknade stöd för attributet `formnovalidate` för att kunna skapa en Avbryt-knapp. Valideringen hindrade knappens funktion. Efter att ha påpekat detta i chatten så fixade Mikael detta på stört. Så därför finns nu Avbryt-knappar som i `check()` bara gör redirect och därmed stänger formulären.
 
 ##### Vad tycker du om databashanteringen som visas, föredrar du kanske traditionell SQL?
 
+Rent logiskt måste man tänka på samma sätt när man bygger upp en fråga men det blir en betydligt mer renodlad PHP-kod med denna hantering. Jag tyckte det var lätt att greppa konceptet och koden blir mer lättläst utan SQL-satserna, plus att man inte behöver tänka på eventuella SQL-dialekter.
+
+Jag har valt SQLite som databas för kursmomentet då jag vill hålla ner antalet tabeller i databasen på studentservern.
+
 ##### Gjorde du några vägval, eller extra saker, när du utvecklade basklassen för modeller?
+
+Jag följde i princip exemplet i övningen och skapade en ”tom” modellklass för User. Metoderna hamnade i CDatabaseModel, där jag också lade till metoder för orderBy, groupBy, limit och offset. Det fick bli en specifik kontrollerklass, UsersController, jag skapade ingen basklass för kontroller. Vid eftertanke kanske detta hade varit en bra idé.
+
+Eftersom jag redan hade en utökad CDIFactoryExtended-klass så lade jag till databas-hantering som tjänst i ramverket. Jag gjorde samma sak med user och comments också, så att funktionaliteten blir lättåtkomlig.
 
 ##### Beskriv vilka vägval du gjorde och hur du valde att implementera kommentarer i databasen.
 
+Jag valde att skapa nya klasser enligt User-varianten, en tom modellklass som nyttjar metoderna i CDatabaseModel, och en kontrollerklass. Det brukar vara lättare att börja om från scratch än att modifiera befintlig kod. Det blev en del jobb med att modifiera vyerna dock men jag är nöjd med resultatet. Genom att lägga in ankare på väl valda ställen så hoppar sidan till rätt position vid omladdning. Dvs vid öppnande och stängande av formulär så hoppar sidan till toppen av kommentarerna eller till det inlägg man nyss sparat.
+
+En extra funktion som jag lagt till mha orderBy är att man kan ändra sortering på kommentarerna, fallande eller stigande tidslinje utifrån created-datumet.
+
 ##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
+
+Jag har gjort extrauppgiften. Ett litet enkelt skript, anax-scaffold.php, som tar klassnamn som argument från kommandoraden. Skriptet skapar ett antal filer utifrån boilerplate-kod: en ren modellfil, en kontrollerfil med metoder i /app/src/klassnamn och tre basala vy-filer i /app/view/klassnamn. Dessutom skapar det en CDatabaseModel.php-fil i /src/MVC, om filen inte redan existerar. Det skapas också en log-fil över vilka filer som skapats. Loggfilen fylls på varje gång man kör skriptet, dvs tidigare körningar skrivs inte över så att man har historik.
+
+Tanken är att man står i Anax-MVC-katalogen och kör skriptet med  `php anax-scaffold.php klassnamn klassnamn etc` för att få filerna direkt på rätt plats. Man kan såklart flytta skriptet och skapa filerna utanför katalogen om man hellre vill kopiera in dem manuellt i strukturen.
+
+Det blev väl lite av ett snabbt hack men skriptet fungerar för att snabbt generera klassfiler i mitt nuvarande Anax-MVC. Det har inte fått ett eget github-repo utan ligger i ramverket direkt under Anax-MVC-katalogen. Jag kanske vidareutvecklar applikationen och ger den ett eget repo i samband med nästa kursmoment.
 
 [Upp](#)
