@@ -1,7 +1,7 @@
 # Logs and databases 
 *.sqlite
 *.log
-scaffolding-log.txt
+anax-scaffold.log
 
 
 # OS generated files 
