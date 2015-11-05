@@ -167,7 +167,7 @@ En extra funktion som jag lagt till mha orderBy är att man kan ändra sortering
 
 Jag har gjort extrauppgiften. Ett litet enkelt skript, anax-scaffold.php, som tar klassnamn som argument från kommandoraden. Skriptet skapar ett antal filer utifrån boilerplate-kod: en ren modellfil, en kontrollerfil med metoder i /app/src/klassnamn och tre basala vy-filer i /app/view/klassnamn. Dessutom skapar det en CDatabaseModel.php-fil i /src/MVC, om filen inte redan existerar. Det skapas också en log-fil över vilka filer som skapats. Loggfilen fylls på varje gång man kör skriptet, dvs tidigare körningar skrivs inte över så att man har historik.
 
-Tanken är att man står i Anax-MVC-katalogen och kör skriptet med  `php anax-scaffold.php klassnamn klassnamn etc` för att få filerna direkt på rätt plats. Man kan såklart flytta skriptet och skapa filerna utanför katalogen om man hellre vill kopiera in dem manuellt i strukturen.
+Tanken är att man står i Anax-MVC-katalogen och kör skriptet med  `php anax-scaffold.php klassnamn1 klassnamn2 etc` för att få filerna direkt på rätt plats. Man kan såklart flytta skriptet och skapa filerna utanför katalogen om man hellre vill kopiera in dem manuellt i strukturen.
 
 Det blev väl lite av ett snabbt hack men skriptet fungerar för att snabbt generera klassfiler i mitt nuvarande Anax-MVC. Det har inte fått ett eget github-repo utan ligger i ramverket direkt under Anax-MVC-katalogen. Jag kanske vidareutvecklar applikationen och ger den ett eget repo i samband med nästa kursmoment.
 
