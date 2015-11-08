@@ -42,8 +42,12 @@
 							<?=round($timeinterval/(60*60))?> timmar sedan
 						<?php elseif (($timeinterval/(60*60*24)) < 7): ?>
 							<?=round($timeinterval/(60*60*24))?> dygn sedan
+						<?php elseif (($timeinterval/(60*60*24)) < 10.5) : ?>
+							<?=round($timeinterval/(60*60*24*7))?> vecka sedan
 						<?php elseif (($timeinterval/(60*60*24)) < 30) : ?>
 							<?=round($timeinterval/(60*60*24*7))?> veckor sedan
+						<?php elseif (($timeinterval/(60*60*24)) < 45) : ?>
+							<?=round($timeinterval/(60*60*24*7))?> månad sedan
 						<?php else : ?>
 							<?=round($timeinterval/(60*60*24*30))?> månader sedan
 						<?php endif; ?>
@@ -65,8 +69,12 @@
 								<?=round($timeinterval/(60*60))?> timmar sedan
 							<?php elseif (($timeinterval/(60*60*24)) < 7): ?>
 								<?=round($timeinterval/(60*60*24))?> dygn sedan
+							<?php elseif (($timeinterval/(60*60*24)) < 10.5) : ?>
+								<?=round($timeinterval/(60*60*24*7))?> vecka sedan
 							<?php elseif (($timeinterval/(60*60*24)) < 30) : ?>
 								<?=round($timeinterval/(60*60*24*7))?> veckor sedan
+							<?php elseif (($timeinterval/(60*60*24)) < 45) : ?>
+								<?=round($timeinterval/(60*60*24*7))?> månad sedan
 							<?php else : ?>
 								<?=round($timeinterval/(60*60*24*30))?> månader sedan
 							<?php endif; ?>
