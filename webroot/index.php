@@ -10,7 +10,7 @@ $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
 
 /*
-// Scaffolding demo
+// Scaffolding demo, use anax-scaffold.php to add demo class Scaffold to try it out
 $di->set('ScaffoldController', function() use ($di) {
   $controller = new \CR\Scaffold\ScaffoldController();
   $controller->setDI($di);
