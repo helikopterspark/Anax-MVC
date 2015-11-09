@@ -17,7 +17,7 @@
 		</div>
 		<div class='comments-heading-side'>
 			<?php if ($sorting == 'ASC') $button_text = "äldsta"; else $button_text = "senaste"; ?>
-			<p class='button-right'><a class='sort-button' href='<?=$this->url->create("{$this->request->getRoute()}?sorting=$sorting#comments")?>' title='Ändra sortering'><i class="fa fa-sort"></i> Ändra till <?=$button_text?> inlägg först</a></p>
+			<p class='button-right'><a class='sort-button' href='<?=$this->url->create("{$this->request->getRoute()}?sorting=$sorting#comments")?>' title='Ändra sortering'><i class="fa fa-sort"></i> Visa <?=$button_text?> inlägg först</a></p>
 		</div>
 	</div> <!-- comments-heading-container -->
 
