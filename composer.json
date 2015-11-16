@@ -18,7 +18,8 @@
         "phpmvc/comment": "dev-master",
         "vlucas/valitron": "dev-master",
         "mos/cform": "2.*@dev",
-        "mos/cdatabase": "dev-master"
+        "mos/cdatabase": "dev-master",
+        "helikopterspark/flashmsg": "dev-master"
     },
     "autoload": {
         "psr-4": { "Anax\\": "src/" }

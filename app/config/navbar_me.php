@@ -71,6 +71,14 @@ return [
         ],
 
         // This is a menu item
+        'flashmsg' => [
+            'text'  => 'Meddelanden',
+            'url'   => $this->di->get('url')->create('flash'),
+            'title' => 'Meddelanden',
+            'mark-if-parent-of' => 'flashmsg',
+        ],
+
+        // This is a menu item
         'dice' => [
             'text'  => 'Tärning &#9662;',
             'url'   => $this->di->get('url')->create('dice'),

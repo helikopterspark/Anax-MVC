@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kommentarer](#comments)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kommentarer](#comments)
  
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -170,5 +170,30 @@ Jag har gjort extrauppgiften. Ett litet enkelt skript, anax-scaffold.php, som ta
 Tanken är att man står i Anax-MVC-katalogen och kör skriptet med  `php anax-scaffold.php klassnamn1 klassnamn2 etc` för att få filerna direkt på rätt plats. Man kan såklart flytta skriptet och skapa filerna utanför katalogen om man hellre vill kopiera in dem manuellt i strukturen.
 
 Det blev väl lite av ett snabbt hack men skriptet fungerar för att snabbt generera klassfiler i mitt nuvarande Anax-MVC. Det har inte fått ett eget github-repo utan ligger i ramverket direkt under Anax-MVC-katalogen. Jag kanske vidareutvecklar applikationen och ger den ett eget repo i samband med nästa kursmoment.
+
+[Upp](#)
+
+<a id="Kmom05"></a> Kmom05: Bygg ut ramverket
+-------------------------------
+
+##### Var hittade du inspiration till ditt val av modul och var hittade du kodbasen som du använde?
+
+Enligt uppgiften.
+
+##### Hur gick det att utveckla modulen och integrera i ditt ramverk?
+
+Bra.
+
+##### Hur gick det att publicera paketet på Packagist?
+
+Ännu bättre.
+
+##### Hur gick det att skriva dokumentationen och testa att modulen fungerade tillsammans med Anax MVC?
+
+Lysande.
+
+##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
+
+Ska försöka. Hoppas det går bra.
 
 [Upp](#)

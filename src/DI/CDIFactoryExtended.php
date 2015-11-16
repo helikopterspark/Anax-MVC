@@ -32,6 +32,13 @@ class CDIFactoryExtended extends CDIFactoryDefault
           return $db;
         });
 
+        // Flash messages
+        $this->setShared('flashmessage', function() {
+          $flashmessages = new \helikopterspark\FlashMsg\FlashMsg();
+          $flashmessages->setDI($this);
+          return $flashmessages;
+        });
+
         // Comments
         $this->set('CommentsController', function() {
           $commentscontroller = new \CR\Comment\CommentsController();
@@ -45,6 +52,8 @@ class CDIFactoryExtended extends CDIFactoryDefault
           $userscontroller->setDI($this);
           return $userscontroller;
         });
+
+        //$this->setShared('flashmessage', '\helikopterspark\FlashMsg\FlashMsgController');
       }
 
     }

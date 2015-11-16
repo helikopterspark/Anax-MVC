@@ -94,6 +94,35 @@ $app->router->add('comments-', function() use ($app) {
 });
 
  /**
+  * Flash messages
+  *
+  */
+ $app->router->add('flash', function() use ($app) {
+    $app->theme->addStylesheet('css/flashmsg.css');
+    $app->theme->setTitle("Flash messages");
+
+    $text = 'Det här är ett exempel på ett flashmeddelande.';
+    $alert = '<div class="flashmsgicon"><i class="fa fa-exclamation-circle fa-2x"></i></div>Alert! ' . $text;
+    $error = '<div class="flashmsgicon"><i class="fa fa-times-circle fa-2x"></i></div>Error! ' . $text;
+    $success = '<div class="flashmsgicon"><i class="fa fa-check-circle fa-2x"></i></div>Success! ' . $text;
+    $info = '<div class="flashmsgicon"><i class="fa fa-info-circle fa-2x"></i></div>Info! ' . $text;
+    $notice = '<div class="flashmsgicon"><i class="fa fa-commenting fa-2x"></i></div>Notice! ' . $text;
+    $warning = '<div class="flashmsgicon"><i class="fa fa-exclamation-triangle fa-2x"></i></div>Warning! ' . $text;
+   
+    $app->flashmessage->alert($alert);
+    $app->flashmessage->error($error);
+    $app->flashmessage->info($info);
+    $app->flashmessage->notice($notice);
+    $app->flashmessage->success($success);
+    $app->flashmessage->warning($warning);
+
+    $app->views->add('theme/index', ['content' => $app->flashmessage->outputMsgs()], 'fullpage');
+
+    $app->flashmessage->clearMessages();
+
+});
+
+ /**
   * Dice
   *
   */
