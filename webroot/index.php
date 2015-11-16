@@ -116,7 +116,7 @@ $app->router->add('comments-', function() use ($app) {
     $app->flashmessage->success($success);
     $app->flashmessage->warning($warning);
 
-    $app->views->add('theme/index', ['content' => $app->flashmessage->outputMsgs()], 'fullpage');
+    $app->views->add('theme/index', ['content' => '<h2>Flash-meddelanden</h2>' . $app->flashmessage->outputMsgs()], 'main-extended');
 
     $app->flashmessage->clearMessages();
 
