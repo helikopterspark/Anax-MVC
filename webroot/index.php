@@ -94,7 +94,7 @@ $app->router->add('comments-', function() use ($app) {
 });
 
  /**
-  * Flash messages
+  * Flash messages demo
   *
   */
  $app->router->add('flash', function() use ($app) {
@@ -102,12 +102,12 @@ $app->router->add('comments-', function() use ($app) {
     $app->theme->setTitle("Flash messages");
 
     $text = 'Det här är ett exempel på ett flashmeddelande.';
-    $alert = '<div class="flashmsgicon"><i class="fa fa-exclamation-circle fa-2x"></i></div>Alert! ' . $text;
-    $error = '<div class="flashmsgicon"><i class="fa fa-times-circle fa-2x"></i></div>Error! ' . $text;
-    $success = '<div class="flashmsgicon"><i class="fa fa-check-circle fa-2x"></i></div>Success! ' . $text;
-    $info = '<div class="flashmsgicon"><i class="fa fa-info-circle fa-2x"></i></div>Info! ' . $text;
-    $notice = '<div class="flashmsgicon"><i class="fa fa-commenting fa-2x"></i></div>Notice! ' . $text;
-    $warning = '<div class="flashmsgicon"><i class="fa fa-exclamation-triangle fa-2x"></i></div>Warning! ' . $text;
+    $alert = '<span class="flashmsgicon"><i class="fa fa-exclamation-circle fa-2x"></i></span>Alert! ' . $text;
+    $error = '<span class="flashmsgicon"><i class="fa fa-times-circle fa-2x"></i></span>Error! ' . $text;
+    $success = '<span class="flashmsgicon"><i class="fa fa-check-circle fa-2x"></i></span>Success! ' . $text;
+    $info = '<span class="flashmsgicon"><i class="fa fa-info-circle fa-2x"></i></span>Info! ' . $text;
+    $notice = '<span class="flashmsgicon"><i class="fa fa-commenting fa-2x"></i></span>Notice! ' . $text;
+    $warning = '<span class="flashmsgicon"><i class="fa fa-exclamation-triangle fa-2x"></i></span>Warning! ' . $text;
    
     $app->flashmessage->alert($alert);
     $app->flashmessage->error($error);
