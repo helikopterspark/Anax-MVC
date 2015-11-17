@@ -181,7 +181,7 @@ Det blev ett lite mindre arbetssamt kursmoment denna gång, vilket nästan känd
 Jag har även testat Atom under detta kursmoment istället för Sublime Text 3 som jag har använt tidigare under kursen.
 
 ##### Var hittade du inspiration till ditt val av modul och var hittade du kodbasen som du använde?
-Jag valde, som flertalet andra gjort, ett av förslagen i uppgiften, flashmeddelanden. Modulen heter FlashMsg. Det är en relativt enkel modul och jag började med att titta lite på koden i Phalcon. Det blev dock en enklare lösning än Phalcons som ju har två varianter med direct och session. Min modul använder sig bara av sessionen och jag skapade kodbasen från scratch. Jag ville inte sväva ut alltför mycket för att undvika att utsätta mig för alltför stora svårigheter i nästa kursmoment.
+Jag valde, som flertalet andra gjort, ett av förslagen i uppgiften, flashmeddelanden. Modulen heter helikopterspark/FlashMsg. Det är en relativt enkel modul och jag började med att titta lite på koden i Phalcon. Det blev dock en enklare lösning än Phalcons som ju har två varianter med direct och session. Min modul använder sig bara av sessionen och jag skapade kodbasen från scratch. Jag ville inte sväva ut alltför mycket för att undvika att utsätta mig för alltför stora svårigheter i nästa kursmoment.
 
 ##### Hur gick det att utveckla modulen och integrera i ditt ramverk?
 
@@ -195,9 +195,9 @@ Det fungerade helt utan problem faktiskt. Jag registrerade mig och följde sedan
 
 Jag upplevde inte någon nämnbar fördröjning mellan Github och Packagist heller, högst någon minut efter push till mitt github-repo. Det beror kanske på att modulen är liten till omfattningen.
 
-Modulen på Packagist ligger [här](https://packagist.org/packages/helikopterspark/flashmsg).
+Modulen på Packagist ligger här: [helikopterspark/flashmsg](https://packagist.org/packages/helikopterspark/flashmsg).
 
-På Github ligger den [här](https://github.com/helikopterspark/FlashMsg) och är taggad med v1.0.
+På Github ligger den här: [helikopterspark/FlashMsg](https://github.com/helikopterspark/FlashMsg) och är taggad med v1.0.
 
 ##### Hur gick det att skriva dokumentationen och testa att modulen fungerade tillsammans med Anax MVC?
 
@@ -211,6 +211,6 @@ Jag har även gjort en exempelsida med flashmeddelanden i mitt eget Anax-MVC [h�
 
 Jag lade till loggningsmodulen toeswade/log för att kunna mäta lite prestanda. Jag brukar testa mitt ramverk på min Raspberry Pi vars prestanda är ganska begränsad. Efter kmom03 går ramverket ganska segt på Pi:n och därför blev jag nyfiken på att mäta lite och se var det går segt.
 
-Exempel på logg-funktionen finns på tema-sidan [här](http://www.student.bth.se/~carb14/phpmvc/kmom05/Anax-MVC/webroot/theme-).
+Det var inga problem att lägga in modulen och få den att funka. Exempel på logg-funktionen finns längst ned på tema-sidan [här](http://www.student.bth.se/~carb14/phpmvc/kmom05/Anax-MVC/webroot/theme-).
 
 [Upp](#)
