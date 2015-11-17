@@ -53,7 +53,10 @@ class CDIFactoryExtended extends CDIFactoryDefault
           return $userscontroller;
         });
 
-        //$this->setShared('flashmessage', '\helikopterspark\FlashMsg\FlashMsgController');
+        $this->setShared('logger', function () {
+        $logger = new \Toeswade\Log\Clog();
+        return $logger;
+        });
       }
 
     }

@@ -99,7 +99,7 @@ $app->router->add('comments-', function() use ($app) {
   */
  $app->router->add('flash', function() use ($app) {
     $app->theme->addStylesheet('css/flashmsg.css');
-    $app->theme->setTitle("Flash messages");
+    $app->theme->setTitle("Flashmeddelanden");
 
     $text = 'Det här är ett exempel på ett flashmeddelande.';
     $alert = '<span class="flashmsgicon"><i class="fa fa-exclamation-circle fa-2x"></i></span>Alert! ' . $text;
@@ -116,7 +116,7 @@ $app->router->add('comments-', function() use ($app) {
     $app->flashmessage->success($success);
     $app->flashmessage->warning($warning);
 
-    $app->views->add('theme/index', ['content' => '<h2>Flash-meddelanden</h2>' . $app->flashmessage->outputMsgs()], 'main-extended');
+    $app->views->add('theme/index', ['content' => '<h2>Flashmeddelanden</h2>' . $app->flashmessage->outputMsgs()], 'main-extended');
 
     $app->flashmessage->clearMessages();
 

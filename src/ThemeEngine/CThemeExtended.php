@@ -9,7 +9,7 @@ class CThemeExtended extends CThemeBasic
 	use \Anax\TConfigure;
 
 	public function getClassAttributeFor($element, $classes = "") {
-		if (isset($this->data[$element])) {	
+		if (isset($this->data[$element])) {
 			foreach ($this->data[$element] as $value) {
 				$classes .= " " . $value;
 			}
@@ -20,17 +20,18 @@ class CThemeExtended extends CThemeBasic
 	public function addClassAttributeFor($element, $classes) {
 		if (!isset($this->data[$element])) {
 			$this->data[] = $element;
-		} 
+		}
 		$this->data[$element][] = $classes;
 	}
 
     /**
      * Render the theme by applying the variables onto the template files.
-     * 
+     *
      * @return void
      */
     public function render()
     {
+		$this->di->logger->stamp(__CLASS__, __METHOD__, 'render starts');
         // Prepare details
     	$path       = $this->config['settings']['path'];
     	$name       = $this->config['settings']['name'] . '/';
@@ -67,5 +68,7 @@ class CThemeExtended extends CThemeBasic
     	$view->set($tpl, $data);
     	$view->setDI($this->di);
     	$view->render();
+
+		$this->di->logger->stamp(__CLASS__, __METHOD__, 'render ends');
     }
 }

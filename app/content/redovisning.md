@@ -1,10 +1,10 @@
 Redovisning
 ====================================
 [Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kommentarer](#comments)
- 
+
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
- 
+
 Kursmoment 1 påbörjades lite före den officiella terminsstarten genom att läsa litteraturen och informationen på webben. Det var en hel del att ta sig igenom och jag tror att jag får gå tillbaka och repetera en del under kursens gång.
 
 Därefter tog jag tag i det praktiska och det löpte ganska smärtfritt. Jag började med att forka Anax-MVC från github enligt instruktionen. Jag gick igenom övningen och gjorde sedan uppgiften och la även in tärningsspelet som följde med Anax-MVC. Jag stötte inte på några egentliga problem förrän jag gjorde extrauppgifterna med att lägga in mina gamla klasser från förra kursen.
@@ -46,7 +46,7 @@ Det tog lite tid att lära sig hitta rätt i Anax i förra kursen. Nu tyckte jag
 
 Kursmoment 2 var precis som i den föregående kursen ganska mastigt att ta in och genomföra. Övningarna gick visserligen enkelt att ta sig igenom men att lösa uppgiften var svårare. Det var kanske inte så mycket rent kodande totalt sett men det tog tid att förstå hur allt hänger ihop för att få till den koden. Det blev en hel del detektivarbete i ramverket, läsande i forumet och mycket trial and error i kodandet. Dessbättre har andra gjort misstag före mig så forumet gav svar när jag körde fast.
 
-Jag är någorlunda nöjd med resultatet i alla fall. Funktionaliteten har sina begränsningar utan databas men funkar utefter förutsättningarna. Jag försökte få till en Disqus-liknande design på kommentarerna. Jag har lagt till kommentarsfunktionen på startsidan och på redovisningssidan. Sidorna har separata kommentarsflöden och det skulle vara lätt att lägga till kommentarer på fler sidor. Inmatningen har felhantering och validering och själva kommentarstexten körs genom markdown-filter. Notera att knappen Radera alla tar bort kommentarerna för alla sidor (borde egentligen vara en ren admin-funktion). 
+Jag är någorlunda nöjd med resultatet i alla fall. Funktionaliteten har sina begränsningar utan databas men funkar utefter förutsättningarna. Jag försökte få till en Disqus-liknande design på kommentarerna. Jag har lagt till kommentarsfunktionen på startsidan och på redovisningssidan. Sidorna har separata kommentarsflöden och det skulle vara lätt att lägga till kommentarer på fler sidor. Inmatningen har felhantering och validering och själva kommentarstexten körs genom markdown-filter. Notera att knappen Radera alla tar bort kommentarerna för alla sidor (borde egentligen vara en ren admin-funktion).
 
 Jag lärde mig f ö att `foreach` jobbar med en kopia av arrayen, vilket kan ställa till en del huvudbry när man vill ändra värden. Jag såg inte ändringarna med `strip-tags` slå igenom först men jag misstänkte att det hade med kopia istället för referens att göra. Lite läsning i php-manualen och på stackoverflow bekräftade detta.
 
@@ -64,7 +64,7 @@ Det jag hade svårast att greppa var hur dispatchern fungerar i praktiken. Jag v
 
 ##### Hittade du svagheter i koden som följde med phpmvc/comment? Kunde du förbättra något?
 
-Koden var väldigt rudimentär och jag skrev utökade klasser som ersätter de flesta av metoderna i basklasserna. Basklasserna ligger dock kvar oförändrade i vendor-mappen och används. Jag lade till felhantering med hjälp av det externa paketet med valideringsfunktioner. Jag gjorde även extrauppgifterna med Gravatar-bild och dolt formulär. Jag fick inte Gravatar-bilderna att visas först men det visade sig bero på att jag vid något tidigare tillfälle blockerat dessa via Ghostery... 
+Koden var väldigt rudimentär och jag skrev utökade klasser som ersätter de flesta av metoderna i basklasserna. Basklasserna ligger dock kvar oförändrade i vendor-mappen och används. Jag lade till felhantering med hjälp av det externa paketet med valideringsfunktioner. Jag gjorde även extrauppgifterna med Gravatar-bild och dolt formulär. Jag fick inte Gravatar-bilderna att visas först men det visade sig bero på att jag vid något tidigare tillfälle blockerat dessa via Ghostery...
 
 En större svaghet är dock att kommentarerna sparas i en array i sessionen. Det blir ganska kortlivade kommentarer som dessutom bara syns för den som lagt in dem. Jag försökte lägga till en funktion för att ändra sortering men det faktum att sorteringen gjordes på array-index ställde till problem vid uppdatering av en befintlig kommentar efter att man vänt på ordningen mha `array_reverse()`. Eftersom det inte var något krav i uppgiften så bestämde jag mig för att spara den finessen till senare kursmoment där databasen finns till hands.
 
@@ -176,24 +176,39 @@ Det blev väl lite av ett snabbt hack men skriptet fungerar för att snabbt gene
 <a id="Kmom05"></a> Kmom05: Bygg ut ramverket
 -------------------------------
 
-##### Var hittade du inspiration till ditt val av modul och var hittade du kodbasen som du använde?
+Det blev ett lite mindre arbetssamt kursmoment denna gång, vilket nästan kändes lite snopet efter det förra som var så mastigt. Eftersom jag redan fått in vanan med Github så var det egentligen bara Packagist som var nytt för mig i det här momentet.
 
-Enligt uppgiften.
+Jag har även testat Atom under detta kursmoment istället för Sublime Text 3 som jag har använt tidigare under kursen.
+
+##### Var hittade du inspiration till ditt val av modul och var hittade du kodbasen som du använde?
+Jag valde ett av förslagen i uppgiften, flashmeddelanden. Modulen heter FlashMsg. Det är en relativt enkel modul och jag började med att titta lite på koden i Phalcon. Det blev dock en enklare lösning än Phalcons som ju har två varianter med direct och session. Min modul använder sig bara av sessionen. Jag ville inte sväva ut alltför mycket för att undvika att utsätta mig för alltför stora svårigheter i nästa kursmoment.
 
 ##### Hur gick det att utveckla modulen och integrera i ditt ramverk?
 
-Bra.
+Det blev inte så mycket kod i modulen så det gick ganska snabbt och enkelt att utveckla den. Jag hade lite problem med konstruktorn först vid kontroll av huruvida sessionsvariabeln är satt. Efter en frustrerande felsökning kom jag fram till att koden måste läggas i en `initialize()`-funktion istället för i en konstruktor.
+
+Modulen är byggd med fokus på att passa in i Anax-MVC och använder sig av ramverkets inbyggda sessionstjänst (CSession). Detta fungerar bra och ger lite snyggare kod än att anropa `$_SESSION` direkt.
 
 ##### Hur gick det att publicera paketet på Packagist?
 
-Ännu bättre.
+Det fungerade helt utan problem faktiskt. Jag registrerade mig och följde sedan bara instruktionerna och allt flöt på. Jag fick googla lite för att klura ut hur man kopplar ihop tjänsterna men det var ju också väldigt enkelt. Läser man bara instruktionerna så brukar det mesta gå att lösa.
+
+Jag upplevde inte någon nämnbar fördröjning mellan Github och Packagist heller, högst någon minut efter push till mitt github-repo. Det beror kanske på att modulen är liten till omfattningen.
+
+Modulen på Packagist ligger [här](https://packagist.org/packages/helikopterspark/flashmsg).
+
+På Github ligger den [här](https://github.com/helikopterspark/FlashMsg) och är taggad med v1.0.
 
 ##### Hur gick det att skriva dokumentationen och testa att modulen fungerade tillsammans med Anax MVC?
 
-Lysande.
+Det var inga problem att dokumentera. Jag fick kolla upp hur man skriver Githubs variant av markdown för att få kodexemplen att bli rätt formaterade.
+
+Jag testade att lägga in modulen i en standardinstallation av Anax MVC och det var inga problem. Jag har lagt upp ett exempel här: [Anax-MVC med FlashMsg-modul](http://www.student.bth.se/~carb14/phpmvc/kmom05/moduledemo/Anax-MVC/webroot/flashmessages.php).
+
+Jag har även gjort en exempelsida med flashmeddelanden i mitt eget Anax-MVC [här](http://www.student.bth.se/~carb14/phpmvc/kmom05/Anax-MVC/webroot/flash). I detta fall är modulen tillagd som tjänst i ramverket via CDIFactoryExtended-klassen.
 
 ##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 
-Ska försöka. Hoppas det går bra.
+Jag brukar testa mitt ramverk på min Raspberry Pi vars prestanda är ganska begränsad. Efter kmom03 går ramverket ganska segt på Pi:n och därför blev jag nyfiken på att mäta prestandan och se vad det är som gör den seg.
 
 [Upp](#)

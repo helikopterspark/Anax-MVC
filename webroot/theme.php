@@ -5,9 +5,9 @@
  */
 
 // Get environment & autoloader and the $app-object.
-require __DIR__.'/config_with_app_CR.php'; 
+require __DIR__.'/config_with_app_CR.php';
 
-$app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN); 
+$app->url->setUrlType(\Anax\Url\CUrl::URL_CLEAN);
 
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar_me.php');
 $app->theme->configure(ANAX_APP_PATH . 'config/theme-grid.php');
@@ -36,7 +36,7 @@ $app->router->add('theme-', function() use ($app) {
 	}
 
 	$app->theme->addClassAttributeFor('html', $theme);
-	
+
 	$app->theme->setTitle("Tema");
 
 	$flash = $app->fileContent->get('theme-flash.html');
@@ -118,3 +118,4 @@ $app->router->add('theme-font-awesome', function() use ($app) {
 
 $app->router->handle();
 $app->theme->render();
+echo $app->logger->renderLog();
