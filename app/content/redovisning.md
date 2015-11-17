@@ -181,7 +181,7 @@ Det blev ett lite mindre arbetssamt kursmoment denna gång, vilket nästan känd
 Jag har även testat Atom under detta kursmoment istället för Sublime Text 3 som jag har använt tidigare under kursen.
 
 ##### Var hittade du inspiration till ditt val av modul och var hittade du kodbasen som du använde?
-Jag valde ett av förslagen i uppgiften, flashmeddelanden. Modulen heter FlashMsg. Det är en relativt enkel modul och jag började med att titta lite på koden i Phalcon. Det blev dock en enklare lösning än Phalcons som ju har två varianter med direct och session. Min modul använder sig bara av sessionen. Jag ville inte sväva ut alltför mycket för att undvika att utsätta mig för alltför stora svårigheter i nästa kursmoment.
+Jag valde, som flertalet andra gjort, ett av förslagen i uppgiften, flashmeddelanden. Modulen heter FlashMsg. Det är en relativt enkel modul och jag började med att titta lite på koden i Phalcon. Det blev dock en enklare lösning än Phalcons som ju har två varianter med direct och session. Min modul använder sig bara av sessionen och jag skapade kodbasen från scratch. Jag ville inte sväva ut alltför mycket för att undvika att utsätta mig för alltför stora svårigheter i nästa kursmoment.
 
 ##### Hur gick det att utveckla modulen och integrera i ditt ramverk?
 
@@ -209,6 +209,8 @@ Jag har även gjort en exempelsida med flashmeddelanden i mitt eget Anax-MVC [h�
 
 ##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 
-Jag brukar testa mitt ramverk på min Raspberry Pi vars prestanda är ganska begränsad. Efter kmom03 går ramverket ganska segt på Pi:n och därför blev jag nyfiken på att mäta prestandan och se vad det är som gör den seg.
+Jag lade till loggningsmodulen toeswade/log för att kunna mäta lite prestanda. Jag brukar testa mitt ramverk på min Raspberry Pi vars prestanda är ganska begränsad. Efter kmom03 går ramverket ganska segt på Pi:n och därför blev jag nyfiken på att mäta lite och se var det går segt.
+
+Exempel på logg-funktionen finns på tema-sidan [här](http://www.student.bth.se/~carb14/phpmvc/kmom05/Anax-MVC/webroot/theme-).
 
 [Upp](#)

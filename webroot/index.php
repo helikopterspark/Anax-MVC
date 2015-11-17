@@ -108,7 +108,7 @@ $app->router->add('comments-', function() use ($app) {
     $info = '<span class="flashmsgicon"><i class="fa fa-info-circle fa-2x"></i></span>Info! ' . $text;
     $notice = '<span class="flashmsgicon"><i class="fa fa-commenting fa-2x"></i></span>Notice! ' . $text;
     $warning = '<span class="flashmsgicon"><i class="fa fa-exclamation-triangle fa-2x"></i></span>Warning! ' . $text;
-   
+
     $app->flashmessage->alert($alert);
     $app->flashmessage->error($error);
     $app->flashmessage->info($info);
@@ -127,7 +127,7 @@ $app->router->add('comments-', function() use ($app) {
   *
   */
  $app->router->add('dice', function() use ($app) {
- 	
+
  	$app->views->add('dice/index');
  	$app->theme->setTitle("Tärning");
  });
@@ -162,7 +162,7 @@ $app->router->add('comments-', function() use ($app) {
   *
   */
  $app->router->add('dice100', function() use ($app) {
- 	
+
  	$app->theme->setTitle("Tärning 100");
  	// Start session
  	$app->session();
