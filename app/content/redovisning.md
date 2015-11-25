@@ -218,28 +218,49 @@ Det var inga problem att lägga in modulen och få den att funka. Exempel på lo
 <a id="Kmom06"></a> Kmom06: Verktyg och CI
 -------------------------------
 
+Ämnet för detta kursmoment är mycket intressant tycker jag. Automatiserade byggen och tester är väl standardförfarande i de flesta verksamheter numera, så det är viktigt att kunna hantera sådana verktyg.
+
 ##### Var du bekant med några av dessa tekniker innan du började med kursmomentet?
 
-Nja.
+Jag har testat att skriva lite unittester i XCode för en iOS-app. Så jag hade en hum om vad unittester är. Jag är bekant med termerna unittest, funktionstest, regressionstest och acceptanstest sedan tidigare, men har inte direkt praktisk erfarenhet av dem.
 
 ##### Hur gick det att göra testfall med PHPUnit?
 
-Lysande.
+Det gick ganska lätt tycker jag, tack vare en enkel modul från förra kursmomentet. Modulen är beroende av CSession i Anax-MVC så jag fick gå efter guiden på kurswebben. Tack vare den var det inga nämnvärda problem med att inkludera ramverket och få testerna att fungera.
 
 ##### Hur gick det att integrera med Travis?
 
-Helt OK.
+Det gick bra att koppla ihop Travis med Github-repot men sedan började det krångla när Travis skulle bygga. Anax-MVC installerades inte av någon anledning och jag var till slut tvungen att ställa en fråga i forumet. Pga att jag lyckats checka in composer.lock och vendor-mappen så ignorerade Travis att installera Anax-MVC och testkörningen felade. Efter att ha uppdaterat .gitignore-filen så fungerade Travis-bygget utan problem.
 
 ##### Hur gick det att integrera med Scrutinizer?
 
-Någorlunda.
+Scrutinizer-integrationen med Github-repot fungerade bra på första försöket. Jag upplevde dock att tjänsten går segt ibland, speciellt på kvällstid, vilket kan få processen att tima ut emellanåt. Jag antar att det är många användare under vissa tider på dygnet.
+
+Jag körde ett antal byggen för att försöka förstå hur rapporterna fungerar och vad som påverkar statistiken.
 
 ##### Hur känns det att jobba med dessa verktyg, krångligt, bekvämt, tryggt? Kan du tänka dig att fortsätta använda dem?
 
-Jodå.
+Vid första försöken kan det kännas krångligt att få igång ett bygge och att få det att gå igenom. Jag tycker dock att det gick förhållandevis smärtfritt och när man väl lärt känna verktygen så känns de som en bra hjälp.
+
+Det är en trygghet att se att ett bygge går igenom och veta att testerna är körda. Alternativet att testa manuellt enligt någon checklista känns hemskt ineffektivt i jämförelse. Vid eventuella fel är det lätt att se exakt vilket test som gick fel och man kan påbörja felsökningen därifrån. Att kunna mäta code coverage är också en trygghet och en måttstock på huruvida man testat tillräckligt. Är man nöjd med sin testsvit så är det också en indikation på när man kan anse sig vara klar med utveckling och test, dvs när man uppnått "good enough".
+
+Etiketterna ger även en viss indikation på kodkvaliteten i ett repo, om man nu litar på Scrutinizers algoritmer för detta. Jag kan absolut tänka mig att fortsätta använda dessa verktyg i fortsättningen.
 
 ##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
 
-Ja det gjorde jag.
+Jag fick högt resultat på kodkvaliteten redan från början och ville också få testerna att täcka all kod. Jag lyckades få 100% coverage på min modul också. Den består bara av en enda klass så det var inga större problem att uppnå, men jag fick exkludera några av de övriga filerna i paketet (autoloadern för testerna och democontrollern i /webroot) för att dessa inte skulle räknas med av Scrutinizer.
+
+Jag har även integrerat hela min Anax-MVC-klon för kursen med Travis och Scrutinizer, mest för att få ett utlåtande om kodkvaliteten på de klasser jag lagt till. Jag kanske fortsätter att laborera med att skriva några unittester för mina klasser också, om jag vill återanvända någon klass i projektet sedan.
+
+Så här ser resultatet ut för mitt Anax-MVC:
+
+[![Build Status](https://travis-ci.org/helikopterspark/Anax-MVC.svg?branch=master)](https://travis-ci.org/helikopterspark/Anax-MVC)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/badges/build.png?b=master)](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/build-status/master)
+
+Länk till [Travis](https://travis-ci.org/helikopterspark/Anax-MVC)
+
+Länk till [Scrutinizer](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/)
 
 [Upp](#)
