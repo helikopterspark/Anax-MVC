@@ -9,7 +9,7 @@ before_script:
     #- wget http://getcomposer.org/composer.phar
     #- php composer.phar install --no-interaction
     - wget https://scrutinizer-ci.com/ocular.phar
-    - composer update --no-dev
+    - composer install
 
 script: 
     #- mkdir -p build/logs
