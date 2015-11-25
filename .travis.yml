@@ -9,16 +9,19 @@ before_script:
     #- wget http://getcomposer.org/composer.phar
     #- php composer.phar install --no-interaction
     - wget https://scrutinizer-ci.com/ocular.phar
+    - composer update --no-dev
 
 script: 
-    - mkdir -p build/logs
-    - phpunit --bootstrap test/config.php --coverage-clover build/logs/clover.xml test
+    #- mkdir -p build/logs
+    #- phpunit --bootstrap test/config.php --coverage-clover build/logs/clover.xml test
+    - phpunit --bootstrap test/config.php --coverage-clover coverage.clover test
 
 after_script:
-    - php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+    #- php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 notifications:
-    irc: "irc.freenode.org#dbwebb"
+    #irc: "irc.freenode.org#dbwebb"
 
 
 

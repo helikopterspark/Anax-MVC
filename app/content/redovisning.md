@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kommentarer](#comments)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06) | [Kommentarer](#comments)
 
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -212,5 +212,34 @@ Jag har även gjort en exempelsida med flashmeddelanden i mitt eget Anax-MVC [h�
 Jag lade till loggningsmodulen toeswade/log för att kunna mäta lite prestanda. Jag brukar testa mitt ramverk på min Raspberry Pi vars prestanda är ganska begränsad. Efter kmom03 går ramverket ganska segt på Pi:n och därför blev jag nyfiken på att mäta lite och se var det går segt.
 
 Det var inga problem att lägga in modulen och få den att funka. Exempel på logg-funktionen finns längst ned på tema-sidan [här](http://www.student.bth.se/~carb14/phpmvc/kmom05/Anax-MVC/webroot/theme-).
+
+[Upp](#)
+
+<a id="Kmom06"></a> Kmom06: Verktyg och CI
+-------------------------------
+
+##### Var du bekant med några av dessa tekniker innan du började med kursmomentet?
+
+Nja.
+
+##### Hur gick det att göra testfall med PHPUnit?
+
+Lysande.
+
+##### Hur gick det att integrera med Travis?
+
+Helt OK.
+
+##### Hur gick det att integrera med Scrutinizer?
+
+Någorlunda.
+
+##### Hur känns det att jobba med dessa verktyg, krångligt, bekvämt, tryggt? Kan du tänka dig att fortsätta använda dem?
+
+Jodå.
+
+##### Gjorde du extrauppgiften? Beskriv i så fall hur du tänkte och vilket resultat du fick.
+
+Ja det gjorde jag.
 
 [Upp](#)
