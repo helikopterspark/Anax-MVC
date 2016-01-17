@@ -1,6 +1,6 @@
 Redovisning
 ====================================
-[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06) | [Kommentarer](#comments)
+[Kmom01](#Kmom01) | [Kmom02](#Kmom02) | [Kmom03](#Kmom03) | [Kmom04](#Kmom04) | [Kmom05](#Kmom05) | [Kmom06](#Kmom06) | [Kmom07/10](#Kmom07) | [Kommentarer](#comments)
 
 <a id="Kmom01"></a>Kmom01: PHP-baserade och MVC-inspirerade ramverk
 ------------------------------------
@@ -264,3 +264,182 @@ Länk till [Travis](https://travis-ci.org/helikopterspark/Anax-MVC)
 Länk till [Scrutinizer](https://scrutinizer-ci.com/g/helikopterspark/Anax-MVC/)
 
 [Upp](#)
+
+<a id="Kmom07"></a> Kmom07/10: Projektet
+----------------------------------------
+
+### Webbplatsen
+
+Webbplatsen heter Red Planet och är ett forum avsett för folk med planeten Mars som specialintresse.
+
+Red Planet på bth-servern
+Webbplatsen finns i drift på BTH-servern med ett visst innehåll.
+Länk: [WGTOTW - Red Planet](http://www.student.bth.se/~carb14/phpmvc/WGTOTW/webroot/)
+
+Admin loggar in som admin/admin. Övriga användare kan logga in med sina akronymer som lösenord.
+
+ 
+### Krav 1, 2, 3: Grunden
+ 
+
+##### Användare
+
+Webbsidan är skyddad av inloggning. Innehållet går att läsa för utomstående men vill man skriva något krävs registrering och inloggning. Det går att skapa nya användare och profilen kan redigeras. Användarnamn, namn, email, hemsida (URL) och lösenord kan uppdateras. Det går även att välja färgschema (mer om detta under optionella krav).
+
+Man kan inte välja ett redan upptaget användarnamn och det går inte att registrera flera användare på samma email-adress.
+
+En inloggad användare kan skapa nya frågor, svara på frågor och skriva kommentarer. Användaren kan även redigera sina egna inlägg. Kommentarer kan raderas men frågor och svar kan endast redigeras.
+
+Användaren kan också avsluta sitt konto. Detta sker genom soft delete. Ett avslutat konto kan återaktiveras av admin. En admin kan skapa nya admin-användare.
+
+En vanlig användare kan redigera sina egna inlägg. Admin kan redigera alla inlägg och även skapa nya ämnestaggar och redigera dessa.
+
+Klasserna User och UserController hanterar användare. Klassen UserloginController hanterar in och utloggning. Dessutom finns CForm-klasserna CFormAddUser, CFormEditUser, CFormLogin, CFormConfirmLogout och CFormConfirmDeleteUser för hantering av användarrelaterad inmatning.
+
+##### Förstasidan
+Första sidan ger en översikt över de åtta senaste frågorna, de tre användarna med högst rank och de populäraste ämnestaggarna.
+
+Förstasidan skapas av index.php som anropar respektive kontrollerklass för informationen, dvs QuestionController, UserController och TagController, där metoder finns för att hämta en variabel delmängd ur databasen.
+
+##### Frågesidan
+Översiktsidan över frågor listar alla frågor i datumordning. Man kan välja antal frågor att visa per sida och vilken sida som ska visas. Pagineringen beskrivs under optionella krav.
+
+Klickar man på en frågerubrik så visas frågan med alla dess svar och kommentarer. Ämnena som frågan är kopplad till visas också. En inloggad användare kan klicka på Svara och ett formulär öppnas i flödet på sidan där svaret kan skrivas in.
+
+Kommentarer fungerar på samma sätt, klicka på Ny kommentar och ett formulär öppnas på den plats i flödet där kommentaren kommer att ligga. Det går att kommentera både frågor och svar.
+
+Redigering av svar och kommentarer sker också i formulär i flödet.
+
+Alla frågor, svar och kommentarer kan (bör) skrivas i Markdown och filtreras innan presentation. Det går att lägga in bilder och storleken på dessa begränsas för att inte bryta layouten.
+
+Frågor hanteras av klasserna Question, QuestionController, CFormAddQuestion och CFormEditQuestion.
+
+Svar hanteras av klasserna Answer, AnswerController, CFormAddAnswer och CFormEditAnswer.
+
+Kommentarer hanteras av klasserna Comment, CommentController, CFormAddComment och CFormEditComment. Två hjälptabeller används för att koppla en kommentar till en fråga eller ett svar, där kommentar-ID och fråge-ID eller svars-ID används som sammansatt nyckel.
+
+Användar-ID sparas som främmande nyckel i tabellen för respektive inlägg som en användare gör för att koppla inlägget till denna.
+
+##### Ämnen
+Ämnestaggar listas i bokstavsordning på en översiktssida där antalet frågor kopplade till respektive ämne också visas. Man kan välja antal ämnestaggar att visa per sida och vilken sida som ska visas.
+
+Klickar man på en ämnestagg så listas alla frågor kopplade till ämnet. Kopplingen mellan ämne och fråga sparas i en hjälptabell med fråge-ID och ämnes-ID som sammansatt nyckel.
+
+Ämnen hanteras av klasserna Tag och TagController. En admin kan lägga in nya frågor och redigera dessa via klasserna CFormAddTag och CFormEditTag.
+
+##### Användare
+Det finns en alfabetiskt sorterad översikt över användare där man kan välja antal per sida och vilken sida som ska visas.
+
+Klackar man på en användare så visas en detaljvy för användaren. Tre flikar ger en översikt över vilka frågor, svar och kommentarer användaren har gjort, sorterade på rank. Användarbilden hämtas från Gravatar.
+
+##### Om-sidan
+Det finns en Om-sida med information om webbplatsen och mig själv via en länk sidfoten.
+
+##### Github
+Webbplatsen finns på Github med en installationsinstruktion i README-filen.
+Github-länk: [Projektet på Github](https://github.com/helikopterspark/WGTOTW)
+
+Kan även nås från en länk i sidfoten på webbplatsen.
+
+### Krav 4: Frågor (optionell)
+
+##### Acceptera svar
+En användare som fått sin fråga besvarad kan markera något av svaren som accepterat genom att klicka på bocken. Accepterat svar sparas för svaret i answer-tabellen och får en grön bock. Användaren kan ändra sig och antingen ta bort markeringen genom att klicka på den gröna bocken eller genom att acceptera ett annat svar.
+
+##### Rösta på inlägg
+En inloggad användare kan rösta på fråga, svar eller kommentar, genom att klicka på upp eller nedpilen. För att förhindra missbruk och fusk så går det endast att rösta en gång per inlägga och lagd röst ligger, dvs kan inte ångras eller ändras. Gröna eller röda pilar visar att det går att rösta, annars är de gråa.
+
+Rösterna summeras sedan för att ranka inlägget. Rösterna räknas även in i användarens totala rykte/karma. Det ges dock inte något poäng för att rösta, bara de röster användarens inlägg får räknas.
+
+Rösterna sparas i tre hjälptabeller där användar-ID och ID för fråga, svar eller kommentar sparas i respektive tabell. Klassen Vote innehåller metoder för röstningsfunktionen och de är allmänt skrivna så de kan användas oavsett inläggstyp.
+
+##### Sortera svar
+Svaren under en fråga kan sorteras på datum eller rank genom att klicka på flikarna ovanför svaren. Kommentarer kan f ö sorteras på stigande eller fallande datum.
+
+##### Rank och antal frågor i översikt
+Antal svar och rank på respektive fråga visas i frågeöversikten på frågesidan och även på förstasidan, och på frågefliken i användarens detaljvy.
+
+### Krav 5: Användare (optionell)
+
+##### Poängsystem
+En användares rykte eller karma beräknas för varje sidladdning för att alltid vara aktuellt, så någon totalsumma sparas alltså inte.
+
+Antalet frågor, svar och kommentarer summeras. Accepterade svar ger ytterligare en poäng per svar. Slutligen summeras rank på alla inlägg, vilket alltså kan höja eller sänka totalt karma för en användare. Många skräpinlägg kan alltså straffa sig i form av dåligt karma.
+
+UserController har en metod för uträkning av användarens totala aktivitet och dess kvalitet, dvs karma.
+
+##### Användarens aktivitet
+I detaljvyn för en användare summeras all aktivitet. Under användarens Gravatar visas dennas karma och antal röstningar. Tre flikar visar alla svar, frågor och kommentarer.
+
+### Krav 6: Valfritt (optionell)
+
+##### Sökfunktion
+I översta menyraden finns ett sökformulär i form av en ruta till höger. Denna söker efter frågor som matchar söksträngen. Sökningen görs på frågetitel och innehåll.
+
+Jag hade lite problem med detta först då CForm inte kunde hantera två olika formulär på samma sida. Jag löste det genom att göra ett vanligt HTML-formulär av sökrutan. Sedan kom dock en uppdatering av CForm för ett par dagar sedan där problemet var löst. Jag återgick då till första lösningen och sökformuläret skapas nu med klassen CFormSearch.
+
+##### Paginering
+Med klassen CPaginator skapas paginering på översiktssidorna för frågor, svar och användare.
+
+Jag lade en hel jobb på detta (mer än 8h) för att kunna använda samma klass till olika typer av sidor. Den fungerar även för sökresultat och filtrering på ämnestaggar. Klassen måste därför också hantera $\_GET-variabler och olika sidantal beroende på om det ska vara 5, 10, 15 eller 4, 8, 12 etc. Mottagna variabler skickas sedan tillbaka till kontrollerklasserna för att styra limit och offset i SQL-frågorna.
+
+Valet för respektive sida sparas i sessionen. Väljer man 5 poster per sida för frågor så kvarstår det valet för frågesidan och man kan välja ett annat antal för t ex ämnestaggar.
+
+##### Toppmeny
+För att skapa toppmenyn har jag gjort en klass CTopbar och lagt till den som en tjänst i DI. Filen theme-grid.php anropar metoden create som bygger upp menyn m h a CFormSearch och sedan returnerar den som HTML. Jag utgick från hur navbar skapas och gjorde en liknande lösning.
+
+Man kan registrera sig eller logga in via länkarna i menyn. Är man inloggad har man en genväg till sin användarprofil och till utloggning.
+
+Jag fick dessutom forska lite i hur man gör för att få menyn att alltid ligga kvar överst vid scrollning.
+
+##### Byta färgtema
+En användare kan välja vilket färgtema denna föredrar. Det finns ett ljust och ett mörkt tema som man väljer i redigeringsformuläret. Detta sparas i databasen för användaren och väljs automatisk vid inloggning.
+
+Funktionen är implementerad genom att utöka klassen CThemeBasic med klassen CThemeExtended. Den har två nya metoder för att hämta och sätta klassattribut.
+
+Metoden render() från basklassen har utökats och lägger till klassattributet för taggen `html` m h a add-metoden. Vyn hämtar valt tema med get-metoden. Vilket tema som valts anges i theme-grip.php som kollar om det finns i sessionen, annars väljs det ljus temat som förval.
+
+Det mörka temat blev kanske inte alltför snyggt (tidsbrist igen) men det demonstrerar i alla fall att funktionen med att byta tema fungerar väl.
+
+##### LESS
+Jag har använt LESS och Semantic.gs för att skapa layouten. Webbplatsen är i viss mån responsiv också men är kanske inte helt perfekt på den punkten p g a tidsbrist på slutet.
+
+Font Awesome används för att lägga till ikoner.
+
+Det blir en hel del issues när man validerar via Unicorn men de verkar vara relaterade till det som genereras av LESS-filerna och Font Awesome.
+
+##### Travis och Scrutinizer
+Projektet är ihopkopplat med både Travis och Scrutinizer. P g a begränsad tid så är det ganska blygsamt med unit-tester. Jag har mest koncentrerat mig på kodkvaliteten. Den är runt 9 så det får anses vara bra med så mycket kod. Jag har begränsat inspektionen till min egen kod, dvs filtrerat bort de klasser som ingår i Anax MVC.
+
+Länk till Travis: [WGTOTW på Travis](https://travis-ci.org/helikopterspark/WGTOTW)
+
+Länk till Scrutinizer: [WGTOTW på Scrutinizer](https://scrutinizer-ci.com/g/helikopterspark/WGTOTW/)
+
+##### Admin-meny
+En inloggad admin får även ett extra val i menyraden med några extra val. Visa källkod, skapa ny ämnestagg och skapa ny användare. Genom att klicka i admin-boxen så skapas en ny admin-användare.
+
+##### Lägga till ämnestaggar
+Lägga till nya ämnestaggar finns inte med i kravspecifikationen men jag valde att lägga till funktionen för admin, som kan skapa nya ämnestaggar, redigera och ta bort (soft delete).
+
+##### Övrigt
+Alla klasser skapade för projektet är placerade i mappen app och har sina egna namespaces, för att enklare hålla isär dem från standardklasserna i Anax MVC.
+
+Modellklasserna Answer, Comment, Question, Tag och User är i princip tomma och är utökningar av klassen CDatabaseModel som innehåller metoder för databashantering.
+
+Via composer har paketen cdatabase, cform och mitt egna paket flashmsg installerats och de anropas från vendor-mappen.
+
+Jag har gjort en utökning av CDIFactoryDefault-klassen i form av CDIFactoryExtended för att kunna lägga till mina egna tjänster i DI.
+
+Webbplatsen stöder "fina länkar".
+
+### Projektet
+För att uppnå grundkraven så känns projektet som en lagom stor uppgift och inte alls oöverkomlig om man tillgodogjort sig innehållet i kursmomenten. De optionella kraven är inte heller oöverstigliga men innebär lite mer jobb. Sedan på de valfria kraven kan man egentligen jobba hur mycket som helst och aldrig bli klar. Att hinna med att t ex skriva unit-tester för all kod känns inte riktigt görbart på den tid man har, om man ska försöka få själva webbplatsen klar. En positiv sak är att man lätt kommer på nya funktioner som man kan lägga in och det känns fullt görbart med ramverket.
+
+Det känns som att jag levt med det här projektet länge och mycket av den tiden har gått åt till tankearbete.
+
+För mig går väldigt mycket tid åt till att få layouten att bli någorlunda jämn och symmetrisk. Trots grid-systemet med Semantic.gs så tycker jag att det är krångligt. LESS etc. ger kanske lite mer möjligheter men känns inte som någon tidsbesparande teknik för mig.
+
+### Kursen
+
+På det hela taget en bra och mycket lärorik kurs. Den är mastig till sitt innehåll och inte helt triviala koncept. Det känns dock som att den innehåller väldigt relevanta saker som man bör kunna ute i verkligheten. Några av de saker som behandlas skulle nästan behöva sina egna kurser, såsom LESS, responsiv design och unit-tester. Det hade varit värt att kunna gå lite mer på djupet med dessa ämnen. Allt sammantaget känns det mastigt och som ganska dyrköpta 7,5 poäng. Å andra sidan känns det som verkligt värdefulla kunskaper jag tar med mig från kursen. MVC-konceptet är nu någorlunda klart för mig och jag kan tänka mig att ta mig an ett annat ramverk efter detta. Kursen får nog en 9:a av mig i betyg.
+
