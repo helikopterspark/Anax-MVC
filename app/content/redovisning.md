@@ -378,6 +378,8 @@ I översta menyraden finns ett sökformulär i form av en ruta till höger. Denn
 
 Jag hade lite problem med detta först då CForm inte kunde hantera två olika formulär på samma sida. Jag löste det genom att göra ett vanligt HTML-formulär av sökrutan. Sedan kom dock en uppdatering av CForm för ett par dagar sedan där problemet var löst. Jag återgick då till första lösningen och sökformuläret skapas nu med klassen CFormSearch.
 
+Det fungerar lokalt på min dator och på en Raspberry Pi som jag testar på. På student-servern får jag dock felet Headers already sent. Detta fick mig att gå tillbaka till den gamla lösningen då den fungerar på studentservern.
+
 ##### Paginering
 Med klassen CPaginator skapas paginering på översiktssidorna för frågor, svar och användare.
 
